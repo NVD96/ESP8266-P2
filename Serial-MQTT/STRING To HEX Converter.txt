@@ -1,0 +1,131 @@
+#include <Arduino.h>
+
+
+void stringToHex(){
+
+  String s1 = "TP-Link_DB0";
+  int hex_dec;
+  String output;
+
+  Serial.println();
+  Serial.print("string: ");
+  Serial.println(s1);
+  Serial.println("hexval: ");
+
+  for (const auto &item : s1) {
+
+    hex_dec = int(item);
+    char hexaDeciNum[100];
+    int i = 0;
+
+    while (hex_dec != 0) {
+      int temp = 0;
+      temp = hex_dec % 16;
+      if (temp < 10) {
+        hexaDeciNum[i] = temp + 48;
+        i++;
+      }
+      else {
+        hexaDeciNum[i] = temp + 55;
+        i++;
+      }
+      hex_dec = hex_dec / 16;
+    }//54 50 2D 4C 69 6E 6B 5F 44 42 30
+    for (int j = i - 1; j >= 0; j--){
+      // hexaDeciNum[j] = "0x" + hexaDeciNum[j];
+      output += hexaDeciNum[j];
+    }
+  }
+  Serial.print(output);
+
+}
+
+
+void setup(void)
+{
+  Serial.begin(9600);
+  stringToHex();
+}
+
+void loop(void){
+
+}
+///////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+char inArray[] = "Hello World";
+//char outArray[] = {0x48, 0x65, 0x6C, 0x6C, 0x6F, 0x20, 0x57, 0x6F, 0x72, 0x6C, 0x64}.
+char outArray[80] = {0};
+int x = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+  for (int j = 0; j < sizeof inArray - 1; j++)
+  {
+    store(inArray[j], x);  // 0x48,
+    x = x + 6;
+  }
+  outArray[x-1] = ' ';
+  Serial.println(outArray);
+}
+
+void loop()
+{
+
+}
+
+void store(char y, int x)
+{
+  outArray[x] = ' ';
+  outArray[x + 1] = '0';
+  outArray[x + 2] = 'x';
+  if ((y >> 4) <= 9)
+  {
+    outArray[x + 3] = (y >> 4) + '0';
+  }
+  else
+  {
+    outArray[x + 3] = (y >> 4) + '7';
+  }
+  if ((y & 0x0F) <= 9)
+  {
+    outArray[x + 4] = (y & 0x0F) + '0';
+  }
+  else
+  {
+    outArray[x + 4] = (y & 0x0F) + '7';
+  }
+  outArray[x + 5] = ',';
+}
+///////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+ 68 65 6C 6C 6F 20 77 6F 72 6C 64 0
+ 0 64 6C 72 6F 77 20 6F 6C 6C 65 68
+const char s [] = "hello world";
+
+void setup ()
+{
+    Serial.begin (9600);
+
+    for (unsigned i = 0; i < sizeof(s); i++)  {
+        Serial.print (" ");
+        Serial.print (s[i], HEX);
+    }
+    Serial.println ();
+
+    for (int i = (int)sizeof(s)-1; i >= 0; i--)  {
+        Serial.print (" ");
+        Serial.print (s[i], HEX);
+    }
+    Serial.println ();
+
+}
+
+void loop ()
+{
+}
+///////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
