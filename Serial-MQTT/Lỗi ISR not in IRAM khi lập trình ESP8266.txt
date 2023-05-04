@@ -1,0 +1,24 @@
+Lỗi ISR not in IRAM khi lập trình ESP8266
+
+Xuất hiện dòng “ISR not in IRAM!” khi bạn theo dõi qua cửa sổ UART.
+
+Cách khắc phục
++ Phải khai báo nguyên mẫu hàm cho hàm ngắt (hoặc định nghĩa hàm ngắt trước setup)
++ Hàm ngắt phải có từ khóa ICACHE_RAM_ATTR trước tên hàm
+Ví dụ:
+
+ void ICACHE_RAM_ATTR MyInterruptHandler();
+...
+attachInterrupt(digitalPinToInterrupt(5),MyInterruptHandler,FALLING)
+...
+ void ICACHE_RAM_ATTR MyInterruptHandler() { // do your interrupt handling stuff in here.... }
+Chi tiết theo link Github:
+https://github.com/esp8266/Arduino/blob/master/doc/reference.rst?fbclid=IwAR1Zjb0K110uzkO6VLD5Qh_zLD_ZRom4QSbpWyATu2JxtXCDz2I2UYGNASk
+
+Pin Functions
+
+Digital pins 6—11 are not shown on this diagram because they are used to connect flash memory chip on most modules. Trying to use these pins as IOs will likely cause the program to crash.
+
+Note that some boards and modules (ESP-12ED, NodeMCU 1.0) also break out pins 9 and 11. These may be used as IO if flash chip works in DIO mode (as opposed to QIO, which is the default one).
+
+Pin interrupts are supported through attachInterrupt, detachInterrupt functions. Interrupts may be attached to any GPIO pin, except GPIO16. Standard Arduino interrupt types are supported: CHANGE, RISING, FALLING. ISRs need to have ICACHE_RAM_ATTR before the function definition.
