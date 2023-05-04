@@ -1,0 +1,38 @@
+Xin chào, tôi muốn sử dụng tín hiệu RTS làm "kích hoạt TX" cho giao tiếp bán song công rs485.
+Tôi đã bật RTS trong đặc biệt với chức năng sau:
+PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTDO_U, FUNC_U0RTS);
+và tôi dự đoán rằng chân RTS (GPIO15) sẽ ở mức cao khi Phần cứng nối tiếp đang truyền.
+
+Tuy nhiên, những gì tôi quan sát được là chân RTS luôn ở mức cao. Bất kể tôi làm gì với serial.
+
+Vì vậy, những gì tôi phải làm là làm việc thủ công với GPIO15. làm cho nó cao trước khi truyền và làm cho nó thấp ngay sau khi truyền. điều đó có phần ổn, nhưng sai.
+
+phác thảo
+ #define TXE 15 // TX ENABLE PIN for rs485 transceiver
+void startTx() {digitalWrite(TXE, 1);}
+void stopTx()  {digitalWrite(TXE, 0);}
+
+void setup() {
+    Serial.begin(9600);
+    // option 1. not working. tried to do it before Serial.begin as well.
+    //PIN_FUNC_SELECT(PERIPHS_IO_MUX_MTDO_U, FUNC_U0RTS);
+    // option 2. manual workaround
+    pinMode(TXE, OUTPUT);
+    stopTx();
+}
+
+void loop() {
+    static int i = 0;
+    Serial.print('.');
+    Serial.print(i++ % 10);
+
+    startTx();
+    for (char c = 32; c < 127; c++) {
+        Serial.write(c);
+    }
+    Serial.println();
+    Serial.flush();
+    stopTx();
+
+    delay(1000);
+}
