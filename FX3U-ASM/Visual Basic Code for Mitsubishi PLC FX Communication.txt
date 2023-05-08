@@ -1,0 +1,334 @@
+'Please visit my blog: program-plc.blogspot.com
+
+Public Class Form1
+    Private Declare Function GetTickCount Lib "kernel32" () As Long
+    Private CommandOK As Boolean
+
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        SerialPortFX1S.PortName = "COM1"  'serial port number = 1
+        SerialPortFX1S.BaudRate = 19200
+        SerialPortFX1S.DataBits = 8
+        SerialPortFX1S.Parity = IO.Ports.Parity.None
+        SerialPortFX1S.StopBits = IO.Ports.StopBits.One
+        SerialPortFX1S.ReadTimeout = 1000
+        CommandOK = False
+
+        Try
+            SerialPortFX1S.Open()
+            Me.Text = "FX1S Write/Read D by program-plc.blogspot.com"
+        Catch ex As Exception
+            Me.Text = ex.Message
+        End Try
+    End Sub
+
+
+    Private Sub Form1_FormClosed(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles MyBase.FormClosed
+        If (SerialPortFX1S.IsOpen = True) Then
+            SerialPortFX1S.Dispose()
+        End If
+    End Sub
+
+    Private Sub Write_D(ByVal D_Start As Integer, ByVal D_Value_Array() As Integer)
+        If CommandOK = False Then Exit Sub
+
+        'D start
+        Dim DStart As String = "000" & CStr(Hex(2 * D_Start))
+        Dim DStartStr As String = DStart.Substring(DStart.Length - 3)
+
+
+        'number of data
+        Dim Num_data_buff As String = "00" & CStr(Hex(D_Value_Array.Length * 2))
+        Dim Num_data_str As String = Num_data_buff.Substring(Num_data_buff.Length - 2)
+
+
+        'Value string
+        Dim i As Integer
+        Dim value_buf0, value_buf1, value_buf2, value_buf3 As String
+        Dim D_Value_Str As String
+
+        D_Value_Str = ""
+        For i = 0 To (D_Value_Array.Length - 1) Step 1
+            value_buf0 = "0000" & CStr(Hex(D_Value_Array(i)))
+            value_buf1 = value_buf0.Substring(value_buf0.Length - 4)
+            value_buf2 = value_buf1.Substring(0, 2)
+            value_buf3 = value_buf1.Substring(2, 2)
+            D_Value_Str = D_Value_Str & value_buf3 & value_buf2
+        Next
+
+
+        Dim CommandBuf As String
+        Dim Command As String
+
+        CommandBuf = "11" & DStartStr & Num_data_str & D_Value_Str & CStr(Chr(&H3))
+        Dim SumCheckData As String = SumCheck(CommandBuf)
+        Command = CStr(Chr(&H2)) & CommandBuf & SumCheckData
+
+        If (SerialPortFX1S.IsOpen = True) Then
+            SerialPortFX1S.Write(Command)
+
+            Dim ReadTimeout As Long
+            ReadTimeout = GetTickCount + 100
+            Do While GetTickCount < ReadTimeout
+                Application.DoEvents()
+                Try
+                    If SerialPortFX1S.BytesToRead = 1 Then
+                        If SerialPortFX1S.ReadByte = &H6 Then
+                            CommandOK = True
+                            Exit Sub
+                        End If
+                    End If
+                Catch ex As Exception
+                    CommandOK = False
+                    Me.Text = ex.Message
+                    Exit Sub
+                End Try
+            Loop
+
+            CommandOK = False
+        End If
+    End Sub
+
+
+    Private Function Read_D(ByVal D_Start As Integer, ByVal Num_of_D As Byte) As Integer()
+        Dim D_Values(Num_of_D - 1) As Integer
+        If CommandOK = False Then Return New Integer() {}
+
+
+        'D start
+        Dim DStart As String = "000" & CStr(Hex(2 * D_Start))
+        Dim DStartStr As String = DStart.Substring(DStart.Length - 3)
+
+
+        'number of data
+        Dim Num_data_buff As String = "00" & CStr(Hex(Num_of_D * 2))
+        Dim Num_data_str As String = Num_data_buff.Substring(Num_data_buff.Length - 2)
+
+        '.01-000-10.55
+
+        Dim CommandBuf As String
+        Dim Command As String
+
+        CommandBuf = "01" & DStartStr & Num_data_str & CStr(Chr(&H3))
+        Dim SumCheckData As String = SumCheck(CommandBuf)
+        Command = CStr(Chr(&H2)) & CommandBuf & SumCheckData
+
+        If (SerialPortFX1S.IsOpen = True) Then
+            SerialPortFX1S.Write(Command)
+
+            Dim TotalDataRead As Long = (Num_of_D * 4) + 4
+            Dim ReadTimeout As Long
+            Dim ReceivedStr As String
+            Dim i As Integer
+            ReceivedStr = ""
+            ReadTimeout = GetTickCount + 100
+            Dim Buffer(0 To TotalDataRead - 1) As Byte
+            Do While GetTickCount < ReadTimeout
+                Application.DoEvents()
+                Try
+                    If SerialPortFX1S.BytesToRead = TotalDataRead Then
+                        SerialPortFX1S.Read(Buffer, 0, TotalDataRead)
+                        If ASCII_Normalize(Buffer(0)) = &H2 Then
+                            For i = 1 To (TotalDataRead - 3) Step 1
+                                ReceivedStr = ReceivedStr & Convert.ToChar(ASCII_Normalize(Buffer(i)))
+                            Next
+
+                            Dim SumCheckStr1 As String = SumCheck(ReceivedStr)
+
+                            For i = (TotalDataRead - 2) To (TotalDataRead - 1) Step 1
+                                ReceivedStr = ReceivedStr & Convert.ToChar(ASCII_Normalize(Buffer(i)))
+                            Next
+
+                            Dim SumCheckStr2 As String = ReceivedStr.Substring(ReceivedStr.Length - 2)
+                            If SumCheckStr1 = SumCheckStr2 Then
+                                Dim Value_Str As String = ReceivedStr.Substring(0, (Num_of_D * 4))
+                                Dim x As Integer = 0
+                                Dim DValues_Str(Num_of_D - 1) As String
+                                For i = 0 To (Value_Str.Length - 1) Step 4
+                                    DValues_Str(x) = Value_Str.Substring(i + 2, 2) & Value_Str.Substring(i, 2)
+                                    D_Values(x) = Convert.ToInt16(DValues_Str(x), 16)
+                                    x = x + 1
+                                Next
+
+                                Return D_Values
+                            End If
+
+                        End If
+
+                        Exit Do
+                    End If
+
+                Catch ex As Exception
+                    CommandOK = False
+                    Me.Text = ex.Message
+                    Return New Integer() {}
+                End Try
+            Loop
+
+        End If
+
+
+        Return New Integer() {}
+    End Function
+
+
+    Private Function ASCII_Normalize(ByVal ASCII_Val As Byte) As Byte
+        'CODE 02 HEX 82 - 02
+        'CODE 03 HEX 03 - 03
+        'CHAR '0' HEX 30 - 30
+        'CHAR '1' HEX B1 - 31
+        'CHAR '2' HEX B2 - 32
+        'CHAR '3' HEX 33 - 33
+        'CHAR '4' HEX B4 - 34
+        'CHAR '5' HEX 35 - 35
+        'CHAR '6' HEX 36 - 36
+        'CHAR '7' HEX B7 - 37
+        'CHAR '8' HEX B8 - 38
+        'CHAR '9' HEX 39 - 39
+        'CHAR 'A' HEX 41 - 41
+        'CHAR 'B' HEX 42 - 42
+        'CHAR 'C' HEX C3 - 43
+        'CHAR 'D' HEX 44 - 44
+        'CHAR 'E' HEX C5 - 45
+        'CHAR 'F' HEX C6 - 46
+        Dim ASCII_Normal As Byte
+        ASCII_Normal = 0
+        Select Case ASCII_Val
+            Case &H82
+                ASCII_Normal = &H2
+
+            Case &HB1
+                ASCII_Normal = &H31
+
+            Case &HB2
+                ASCII_Normal = &H32
+
+            Case &HB4
+                ASCII_Normal = &H34
+
+            Case &HB7
+                ASCII_Normal = &H37
+
+            Case &HB8
+                ASCII_Normal = &H38
+
+            Case &HC3
+                ASCII_Normal = &H43
+
+            Case &HC5
+                ASCII_Normal = &H45
+
+            Case &HC6
+                ASCII_Normal = &H46
+
+            Case Else
+                ASCII_Normal = ASCII_Val
+        End Select
+
+
+        Return ASCII_Normal
+    End Function
+
+    Private Function SumCheck(ByVal Command As String) As String
+        Dim i As Integer
+        Dim Sum As Long
+        Sum = 0
+        For i = 1 To Command.Length Step 1
+            Sum = Sum + Asc(Mid(Command, i, 1))
+        Next
+
+        Dim SumCheck_buff As String = "00" & CStr(Hex(Sum))
+        SumCheck = SumCheck_buff.Substring(SumCheck_buff.Length - 2)
+    End Function
+
+
+    Private Sub LoopingTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LoopingTimer.Tick
+        LoopingTimer.Enabled = False
+        If (SerialPortFX1S.IsOpen = True) Then
+            CommandOK = True
+            MENU_IO.Visible = True
+
+            'WRITE FROM D0 T0 D3
+            Dim Write_Value(3) As Integer
+            If Y000.Checked Then Write_Value(0) = 1 Else Write_Value(0) = 0
+            If Y001.Checked Then Write_Value(1) = 1 Else Write_Value(1) = 0
+            If Y002.Checked Then Write_Value(2) = 1 Else Write_Value(2) = 0
+            If Y003.Checked Then Write_Value(3) = 1 Else Write_Value(3) = 0
+
+            Write_D(0, Write_Value)
+            If CommandOK = False Then
+                LoopingTimer.Enabled = False
+                PortOpenCheckTimer.Enabled = True
+                Exit Sub
+            End If
+
+            'READ FROM D5 TO D8
+            Dim D_Values() As Integer = Read_D(5, 4)
+            If D_Values.Length = 4 Then
+                If D_Values(0) = 1 Then X000.BackColor = Color.Red Else X000.BackColor = Color.White
+                If D_Values(1) = 1 Then X001.BackColor = Color.Gold Else X001.BackColor = Color.White
+                If D_Values(2) = 1 Then X002.BackColor = Color.Purple Else X002.BackColor = Color.White
+                If D_Values(3) = 1 Then X003.BackColor = Color.Blue Else X003.BackColor = Color.White
+            Else
+                LoopingTimer.Enabled = False
+                PortOpenCheckTimer.Enabled = True
+                Exit Sub
+            End If
+
+            LoopingTimer.Enabled = True
+        Else
+            LoopingTimer.Enabled = False
+            PortOpenCheckTimer.Enabled = True
+            CommandOK = False
+        End If
+
+
+    End Sub
+
+    Private Sub PortOpenCheckTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PortOpenCheckTimer.Tick
+        CommandOK = False
+        If (SerialPortFX1S.IsOpen = True) Then
+            PortOpenCheckTimer.Enabled = False
+            Send05Timer.Enabled = True
+        Else
+            Try
+                SerialPortFX1S.Open()
+                Me.Text = "FX1S Write/Read D by program-plc.blogspot.com"
+            Catch ex As Exception
+                Me.Text = ex.Message
+            End Try
+        End If
+    End Sub
+
+    Private Sub Send05Timer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Send05Timer.Tick
+        CommandOK = False
+        If (SerialPortFX1S.IsOpen = True) Then
+            SerialPortFX1S.Write(CStr(Chr(&H5)))
+            Dim ReadTimeout As Long
+            ReadTimeout = GetTickCount + 50
+            Do While GetTickCount < ReadTimeout
+                Application.DoEvents()
+                Try
+                    If SerialPortFX1S.BytesToRead = 1 Then
+                        If SerialPortFX1S.ReadByte = &H6 Then
+                            Send05Timer.Enabled = False
+                            LoopingTimer.Enabled = True
+                            Exit Sub
+                        End If
+                    End If
+                Catch ex As Exception
+                    CommandOK = False
+                    Me.Text = ex.Message
+                    Send05Timer.Enabled = False
+                    PortOpenCheckTimer.Enabled = True
+                    Exit Sub
+                End Try
+            Loop
+        Else
+            Send05Timer.Enabled = False
+            PortOpenCheckTimer.Enabled = True
+        End If
+
+    End Sub
+
+
+End Class
