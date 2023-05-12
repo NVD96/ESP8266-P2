@@ -1,0 +1,4 @@
+VERSION:3 SOURCE_TIMESTAMP:54AD3D06
+NODE:I LEVEL:0 LINE:24 "c:\cvavr2\inc\mega328p.h"
+NODE:I LEVEL:0 LINE:27 "c:\cvavr2\inc\spi.h"
+NODE:F LEVEL:0 LINE:31 "main(void)"

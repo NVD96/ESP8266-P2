@@ -1,0 +1,680 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/15/2022  00:17:17  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE  ethenet.obj TO ETHENET RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  ethenet.obj (ETHENET)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (PRINTF)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  ETHENET (ETHENET)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0003H     UNIT         ?DT?_WRITE_BUFF?ETHENET
+            DATA    000BH     0003H     UNIT         ?DT?_SEND_PACKET?ETHENET
+            DATA    000EH     0001H     UNIT         ?DT?_TACHINT?ETHENET
+                    000FH     0011H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            DATA    0022H     003CH     UNIT         ?DT?ETHENET
+            DATA    005EH     001FH     UNIT         _DATA_GROUP_
+            IDATA   007DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    035FH     00D7H     UNIT         ?PR?_READ_PACKET?ETHENET
+            CODE    0436H     0097H     UNIT         ?CO?ETHENET
+            CODE    04CDH     008EH     UNIT         ?C?LIB_CODE
+            CODE    055BH     006EH     UNIT         ?PR?CONFIGMAC?ETHENET
+            CODE    05C9H     0056H     UNIT         ?PR?BUFF_TX_RX?ETHENET
+            CODE    061FH     0046H     UNIT         ?PR?_SEND_PACKET?ETHENET
+            CODE    0665H     0045H     UNIT         ?PR?ENCINIT?ETHENET
+            CODE    06AAH     0045H     UNIT         ?PR?CONFIGPHY?ETHENET
+            CODE    06EFH     0039H     UNIT         ?PR?READMAC?ETHENET
+            CODE    0728H     0034H     UNIT         ?PR?_WRITE_BUFF?ETHENET
+            CODE    075CH     0032H     UNIT         ?PR?_ARPREQUEST?ETHENET
+            CODE    078EH     0027H     UNIT         ?PR?_READ_BUFF?ETHENET
+            CODE    07B5H     0027H     UNIT         ?PR?CHECKARP?ETHENET
+            CODE    07DCH     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    0803H     0026H     UNIT         ?PR?_DELAY_MS?ETHENET
+            CODE    0829H     0026H     UNIT         ?PR?_SETBANK?ETHENET
+            CODE    084FH     0023H     UNIT         ?PR?_WRITEPHY?ETHENET
+            CODE    0872H     0022H     UNIT         ?PR?_WRITEBYTE?ETHENET
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 2
+
+
+            CODE    0894H     001FH     UNIT         ?PR?SPIREAD?ETHENET
+            CODE    08B3H     0019H     UNIT         ?PR?_SPIWRITE?ETHENET
+            CODE    08CCH     0017H     UNIT         ?PR?MAIN?ETHENET
+            CODE    08E3H     0015H     UNIT         ?PR?ENC_MISTAT?ETHENET
+            CODE    08F8H     0012H     UNIT         ?PR?_TACHINT?ETHENET
+            CODE    090AH     000FH     UNIT         ?PR?UARTINIT?ETHENET
+            CODE    0919H     000FH     UNIT         ?PR?SYSRESET?ETHENET
+            CODE    0928H     000DH     UNIT         ?PR?READ_BUFFBYTE?ETHENET
+            CODE    0935H     000DH     UNIT         ?PR?_GHEPINT?ETHENET
+            CODE    0942H     000CH     UNIT         ?C_C51STARTUP
+            CODE    094EH     0009H     UNIT         ?PR?_READBYTEMII?ETHENET
+            CODE    0957H     0007H     UNIT         ?PR?SPIINIT?ETHENET
+            CODE    095EH     0006H     UNIT         ?PR?_READBYTE?ETHENET
+
+
+
+OVERLAY MAP OF MODULE:   ETHENET (ETHENET)
+
+
+SEGMENT                              BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH     START    LENGTH
+---------------------------------------------------------------------
+?C_C51STARTUP                     -----    -----      -----    -----
+  +--> ?PR?MAIN?ETHENET
+
+?PR?MAIN?ETHENET                  -----    -----      -----    -----
+  +--> ?PR?SPIINIT?ETHENET
+  +--> ?PR?UARTINIT?ETHENET
+  +--> ?PR?ENCINIT?ETHENET
+  +--> ?PR?BUFF_TX_RX?ETHENET
+  +--> ?PR?CONFIGMAC?ETHENET
+  +--> ?PR?CONFIGPHY?ETHENET
+  +--> ?PR?CHECKARP?ETHENET
+
+?PR?ENCINIT?ETHENET               -----    -----      -----    -----
+  +--> ?CO?ETHENET
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?SYSRESET?ETHENET
+  +--> ?PR?_DELAY_MS?ETHENET
+  +--> ?PR?_SETBANK?ETHENET
+  +--> ?PR?_READBYTE?ETHENET
+
+?PR?PRINTF?PRINTF                 0020H.0  0001H.1    0069H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?SYSRESET?ETHENET              -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?ETHENET
+
+?PR?_SETBANK?ETHENET              -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?ETHENET
+  +--> ?PR?_DELAY_MS?ETHENET
+
+?PR?_READBYTE?ETHENET             -----    -----      -----    -----
+  +--> ?PR?SPIREAD?ETHENET
+
+?PR?SPIREAD?ETHENET               -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?ETHENET
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 3
+
+
+
+?PR?BUFF_TX_RX?ETHENET            -----    -----      -----    -----
+  +--> ?PR?_SETBANK?ETHENET
+  +--> ?PR?_WRITEBYTE?ETHENET
+
+?PR?_WRITEBYTE?ETHENET            -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?ETHENET
+
+?PR?CONFIGMAC?ETHENET             -----    -----      -----    -----
+  +--> ?PR?_SETBANK?ETHENET
+  +--> ?PR?_WRITEBYTE?ETHENET
+
+?PR?CONFIGPHY?ETHENET             -----    -----      -----    -----
+  +--> ?PR?_SETBANK?ETHENET
+  +--> ?PR?_WRITEPHY?ETHENET
+  +--> ?PR?_WRITEBYTE?ETHENET
+  +--> ?PR?_DELAY_MS?ETHENET
+
+?PR?_WRITEPHY?ETHENET             -----    -----      -----    -----
+  +--> ?PR?_WRITEBYTE?ETHENET
+  +--> ?PR?ENC_MISTAT?ETHENET
+
+?PR?ENC_MISTAT?ETHENET            -----    -----      -----    -----
+  +--> ?PR?_SETBANK?ETHENET
+  +--> ?PR?_READBYTEMII?ETHENET
+
+?PR?_READBYTEMII?ETHENET          -----    -----      -----    -----
+  +--> ?PR?SPIREAD?ETHENET
+
+?PR?CHECKARP?ETHENET              -----    -----      005EH    0002H
+  +--> ?PR?_READ_PACKET?ETHENET
+  +--> ?PR?_ARPREQUEST?ETHENET
+
+?PR?_READ_PACKET?ETHENET          -----    -----      0060H    0009H
+  +--> ?PR?_SETBANK?ETHENET
+  +--> ?PR?_READBYTE?ETHENET
+  +--> ?CO?ETHENET
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_WRITEBYTE?ETHENET
+  +--> ?PR?READ_BUFFBYTE?ETHENET
+  +--> ?PR?_GHEPINT?ETHENET
+  +--> ?PR?_READ_BUFF?ETHENET
+
+?PR?READ_BUFFBYTE?ETHENET         -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?ETHENET
+  +--> ?PR?SPIREAD?ETHENET
+
+?PR?_GHEPINT?ETHENET              -----    -----      -----    -----
+  +--> ?PR?READ_BUFFBYTE?ETHENET
+
+?PR?_READ_BUFF?ETHENET            -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?ETHENET
+  +--> ?PR?SPIREAD?ETHENET
+
+?PR?_ARPREQUEST?ETHENET           -----    -----      -----    -----
+  +--> ?CO?ETHENET
+  +--> ?PR?PRINTF?PRINTF
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 4
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  ETHENET (ETHENET)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ETHENET
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:084FH         PUBLIC        _WritePHY
+  D:00A0H         PUBLIC        P2
+  C:0957H         PUBLIC        SPIInit
+  D:0022H         PUBLIC        myaddr
+  C:08E3H         PUBLIC        ENC_MISTAT
+  B:00A0H.0       PUBLIC        spi_SCK
+  C:095EH         PUBLIC        _ReadByte
+  C:05C9H         PUBLIC        Buff_TX_RX
+  C:087EH         PUBLIC        _WriteByte
+  C:08CCH         PUBLIC        main
+  C:055BH         PUBLIC        ConfigMAC
+  C:0829H         PUBLIC        _SetBank
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  C:035FH         PUBLIC        _Read_Packet
+  D:0028H         PUBLIC        arp
+  B:00A0H.3       PUBLIC        spi_CS
+  C:07B5H         PUBLIC        CheckARP
+  D:005AH         PUBLIC        NextPacketH
+  C:0919H         PUBLIC        SysReset
+  C:061FH         PUBLIC        _Send_Packet
+  D:005BH         PUBLIC        NextPacketL
+  C:06AAH         PUBLIC        ConfigPHY
+  D:008DH         PUBLIC        TH1
+  C:06EFH         PUBLIC        ReadMAC
+  D:008BH         PUBLIC        TL1
+  C:0803H         PUBLIC        _delay_ms
+  C:090AH         PUBLIC        UARTInit
+  B:0088H.6       PUBLIC        TR1
+  C:078EH         PUBLIC        _Read_Buff
+  B:00A0H.2       PUBLIC        spi_MISO
+  B:00A0H.1       PUBLIC        spi_MOSI
+  C:089EH         PUBLIC        SPIRead
+  C:0665H         PUBLIC        ENCInit
+  C:08F8H         PUBLIC        _tachint
+  C:075CH         PUBLIC        _ARPrequest
+  C:093DH         PUBLIC        _ghepint
+  C:0728H         PUBLIC        _Write_Buff
+  C:094EH         PUBLIC        _ReadByteMII
+  C:0928H         PUBLIC        Read_BuffByte
+  C:08B3H         PUBLIC        _SPIWrite
+  D:005CH         PUBLIC        NextPacket
+  -------         PROC          MAIN
+  C:08CCH         LINE#         96
+  C:08CCH         LINE#         98
+  C:08CFH         LINE#         99
+  C:08D2H         LINE#         100
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 5
+
+
+  C:08D5H         LINE#         101
+  C:08D8H         LINE#         102
+  C:08DBH         LINE#         103
+  C:08DEH         LINE#         107
+  C:08DEH         LINE#         109
+  C:08E1H         LINE#         115
+  -------         ENDPROC       MAIN
+  -------         PROC          UARTINIT
+  C:090AH         LINE#         121
+  C:090AH         LINE#         123
+  C:090DH         LINE#         124
+  C:0910H         LINE#         125
+  C:0916H         LINE#         126
+  C:0918H         LINE#         128
+  -------         ENDPROC       UARTINIT
+  -------         PROC          SPIINIT
+  C:0957H         LINE#         132
+  C:0957H         LINE#         134
+  C:0959H         LINE#         135
+  C:095BH         LINE#         136
+  C:095DH         LINE#         138
+  -------         ENDPROC       SPIINIT
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        tg
+  -------         DO            
+  D:0002H         SYMBOL        x
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0803H         LINE#         142
+  C:0803H         LINE#         145
+  C:0813H         LINE#         146
+  C:0821H         LINE#         147
+  C:0828H         LINE#         148
+  -------         ENDPROC       _DELAY_MS
+  -------         PROC          L?0081
+  -------         ENDPROC       L?0081
+  -------         PROC          SPIREAD
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:089EH         LINE#         152
+  C:089EH         LINE#         155
+  C:08A0H         LINE#         156
+  C:08A4H         LINE#         157
+  C:08A6H         LINE#         158
+  C:08A9H         LINE#         159
+  C:08ACH         LINE#         160
+  C:08AEH         LINE#         161
+  C:08B2H         LINE#         162
+  C:08B2H         LINE#         164
+  -------         ENDPROC       SPIREAD
+  -------         PROC          _SPIWRITE
+  D:0007H         SYMBOL        b
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 6
+
+
+  C:08B3H         LINE#         168
+  C:08B3H         LINE#         171
+  C:08B5H         LINE#         172
+  C:08B9H         LINE#         173
+  C:08BDH         LINE#         175
+  C:08BFH         LINE#         176
+  C:08C1H         LINE#         177
+  C:08C3H         LINE#         178
+  C:08C7H         LINE#         179
+  C:08CBH         LINE#         180
+  -------         ENDPROC       _SPIWRITE
+  C:0874H         SYMBOL        L?0080
+  -------         PROC          L?0079
+  -------         ENDPROC       L?0079
+  C:0874H         SYMBOL        L?0080
+  -------         PROC          _WRITEBYTE
+  D:0006H         SYMBOL        op
+  D:0005H         SYMBOL        add
+  D:0004H         SYMBOL        dl
+  C:087EH         LINE#         184
+  C:0882H         LINE#         186
+  C:0884H         LINE#         187
+  C:088CH         LINE#         188
+  C:0891H         LINE#         189
+  C:0893H         LINE#         191
+  -------         ENDPROC       _WRITEBYTE
+  -------         PROC          _READBYTE
+  D:0007H         SYMBOL        op
+  D:0005H         SYMBOL        add
+  -------         DO            
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:095EH         LINE#         195
+  C:095EH         LINE#         198
+  C:095EH         LINE#         199
+  C:095EH         LINE#         200
+  C:0961H         LINE#         201
+  C:0963H         LINE#         202
+  C:0963H         LINE#         204
+  -------         ENDPROC       _READBYTE
+  -------         PROC          _READBYTEMII
+  D:0007H         SYMBOL        op
+  D:0005H         SYMBOL        add
+  -------         DO            
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:094EH         LINE#         206
+  C:094EH         LINE#         209
+  C:094EH         LINE#         210
+  C:094EH         LINE#         211
+  C:0951H         LINE#         212
+  C:0954H         LINE#         213
+  C:0956H         LINE#         214
+  C:0956H         LINE#         216
+  -------         ENDPROC       _READBYTEMII
+  -------         PROC          SYSRESET
+  C:0919H         LINE#         221
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 7
+
+
+  C:0919H         LINE#         223
+  C:091BH         LINE#         224
+  C:0920H         LINE#         225
+  C:0925H         LINE#         226
+  C:0927H         LINE#         227
+  -------         ENDPROC       SYSRESET
+  -------         PROC          _SETBANK
+  D:0001H         SYMBOL        bank
+  C:0829H         LINE#         231
+  C:082BH         LINE#         233
+  C:082DH         LINE#         234
+  C:0832H         LINE#         235
+  C:0837H         LINE#         236
+  C:0839H         LINE#         238
+  C:0840H         LINE#         240
+  C:0842H         LINE#         241
+  C:0847H         LINE#         242
+  C:084CH         LINE#         243
+  C:084EH         LINE#         245
+  -------         ENDPROC       _SETBANK
+  -------         PROC          ENCINIT
+  C:0665H         LINE#         249
+  C:0665H         LINE#         251
+  C:066EH         LINE#         252
+  C:0671H         LINE#         253
+  C:0678H         LINE#         255
+  C:067DH         LINE#         256
+  C:0691H         LINE#         257
+  C:06A2H         LINE#         258
+  C:06A9H         LINE#         260
+  -------         ENDPROC       ENCINIT
+  -------         PROC          BUFF_TX_RX
+  C:05C9H         LINE#         264
+  C:05C9H         LINE#         266
+  C:05CCH         LINE#         267
+  C:05CEH         LINE#         269
+  C:05D2H         LINE#         271
+  C:05D4H         LINE#         272
+  C:05D7H         LINE#         274
+  C:05DFH         LINE#         275
+  C:05E7H         LINE#         277
+  C:05EFH         LINE#         278
+  C:05F5H         LINE#         280
+  C:05FDH         LINE#         281
+  C:0605H         LINE#         283
+  C:060DH         LINE#         284
+  C:0613H         LINE#         286
+  C:0619H         LINE#         287
+  -------         ENDPROC       BUFF_TX_RX
+  -------         PROC          CONFIGMAC
+  C:055BH         LINE#         294
+  C:055BH         LINE#         296
+  C:0560H         LINE#         297
+  C:0569H         LINE#         298
+  C:0572H         LINE#         299
+  C:057BH         LINE#         300
+  C:057DH         LINE#         301
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 8
+
+
+  C:0580H         LINE#         302
+  C:0589H         LINE#         303
+  C:0591H         LINE#         306
+  C:0596H         LINE#         307
+  C:059FH         LINE#         308
+  C:05A7H         LINE#         309
+  C:05B0H         LINE#         310
+  C:05B8H         LINE#         311
+  C:05C1H         LINE#         312
+  -------         ENDPROC       CONFIGMAC
+  -------         PROC          READMAC
+  C:06EFH         LINE#         318
+  C:06EFH         LINE#         320
+  C:06F4H         LINE#         321
+  C:06FDH         LINE#         322
+  C:0705H         LINE#         323
+  C:070EH         LINE#         324
+  C:0716H         LINE#         325
+  C:071FH         LINE#         326
+  C:0727H         LINE#         328
+  -------         ENDPROC       READMAC
+  -------         PROC          _WRITEPHY
+  D:0006H         SYMBOL        add
+  D:0001H         SYMBOL        dlL
+  D:0002H         SYMBOL        dlH
+  C:084FH         LINE#         332
+  C:0855H         LINE#         334
+  C:085EH         LINE#         335
+  C:0867H         LINE#         336
+  C:086FH         LINE#         337
+  -------         ENDPROC       _WRITEPHY
+  -------         PROC          CONFIGPHY
+  C:06AAH         LINE#         342
+  C:06AAH         LINE#         344
+  C:06AFH         LINE#         345
+  C:06B6H         LINE#         346
+  C:06BFH         LINE#         347
+  C:06C8H         LINE#         348
+  C:06CDH         LINE#         349
+  C:06D6H         LINE#         350
+  C:06DDH         LINE#         351
+  C:06E6H         LINE#         352
+  -------         ENDPROC       CONFIGPHY
+  -------         PROC          ENC_MISTAT
+  C:08E3H         LINE#         357
+  C:08E3H         LINE#         358
+  C:08E8H         LINE#         359
+  C:08F3H         LINE#         360
+  -------         ENDPROC       ENC_MISTAT
+  -------         PROC          _WRITE_BUFF
+  D:0004H         SYMBOL        len
+  D:0008H         SYMBOL        dl
+  C:0728H         LINE#         364
+  C:0732H         LINE#         366
+  C:0734H         LINE#         367
+  C:0738H         LINE#         368
+  C:0742H         LINE#         369
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 9
+
+
+  C:0759H         LINE#         370
+  C:075BH         LINE#         371
+  -------         ENDPROC       _WRITE_BUFF
+  -------         PROC          _SEND_PACKET
+  D:0082H         SYMBOL        len
+  D:000BH         SYMBOL        dl
+  C:061FH         LINE#         373
+  C:0629H         LINE#         375
+  C:062EH         LINE#         376
+  C:0639H         LINE#         378
+  C:063BH         LINE#         379
+  C:063EH         LINE#         381
+  C:0642H         LINE#         382
+  C:0645H         LINE#         384
+  C:064AH         LINE#         385
+  C:064FH         LINE#         387
+  C:065CH         LINE#         389
+  -------         ENDPROC       _SEND_PACKET
+  -------         PROC          READ_BUFFBYTE
+  -------         DO            
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:0928H         LINE#         392
+  C:0928H         LINE#         395
+  C:092AH         LINE#         396
+  C:092FH         LINE#         397
+  C:0932H         LINE#         398
+  C:0934H         LINE#         399
+  C:0934H         LINE#         401
+  -------         ENDPROC       READ_BUFFBYTE
+  -------         PROC          _READ_BUFF
+  D:0004H         SYMBOL        len
+  D:0001H         SYMBOL        dl
+  C:078EH         LINE#         403
+  C:0792H         LINE#         405
+  C:0794H         LINE#         406
+  C:0799H         LINE#         407
+  C:079DH         LINE#         408
+  C:07A2H         LINE#         409
+  C:07A9H         LINE#         410
+  C:07B0H         LINE#         411
+  C:07B2H         LINE#         413
+  C:07B4H         LINE#         414
+  -------         ENDPROC       _READ_BUFF
+  -------         PROC          _READ_PACKET
+  D:0060H         SYMBOL        bufflen
+  D:0062H         SYMBOL        dl
+  -------         DO            
+  D:0065H         SYMBOL        len
+  D:0067H         SYMBOL        status
+  D:0005H         SYMBOL        lenL
+  D:0007H         SYMBOL        lenH
+  D:0005H         SYMBOL        statusL
+  D:0007H         SYMBOL        statusH
+  -------         ENDDO         
+  C:035FH         LINE#         416
+  C:0369H         LINE#         418
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 10
+
+
+  C:036EH         LINE#         419
+  C:0372H         LINE#         421
+  C:0377H         LINE#         422
+  C:0387H         LINE#         423
+  C:0390H         LINE#         425
+  C:0395H         LINE#         426
+  C:039EH         LINE#         427
+  C:03A6H         LINE#         429
+  C:03ABH         LINE#         430
+  C:03B0H         LINE#         431
+  C:03B9H         LINE#         433
+  C:03B9H         LINE#         434
+  C:03B9H         LINE#         436
+  C:03C6H         LINE#         437
+  C:03D7H         LINE#         440
+  C:03D7H         LINE#         441
+  C:03D7H         LINE#         442
+  C:03DEH         LINE#         444
+  C:03EAH         LINE#         445
+  C:03EAH         LINE#         446
+  C:03F7H         LINE#         447
+  C:03F7H         LINE#         449
+  C:040AH         LINE#         451
+  C:0413H         LINE#         452
+  C:0415H         LINE#         454
+  C:0417H         LINE#         455
+  C:0417H         LINE#         457
+  C:0420H         LINE#         458
+  C:0428H         LINE#         460
+  C:0428H         LINE#         463
+  C:0431H         LINE#         465
+  C:0431H         LINE#         466
+  C:0435H         LINE#         467
+  -------         ENDPROC       _READ_PACKET
+  -------         PROC          CHECKARP
+  -------         DO            
+  D:005EH         SYMBOL        len
+  -------         ENDDO         
+  C:07B5H         LINE#         470
+  C:07B5H         LINE#         473
+  C:07B5H         LINE#         475
+  C:07C6H         LINE#         476
+  C:07CDH         LINE#         477
+  C:07DAH         LINE#         479
+  -------         ENDPROC       CHECKARP
+  -------         PROC          _ARPREQUEST
+  D:0006H         SYMBOL        bufflen
+  D:0001H         SYMBOL        dl
+  C:075CH         LINE#         482
+  C:075CH         LINE#         486
+  C:0765H         LINE#         488
+  C:0777H         LINE#         489
+  C:0784H         LINE#         490
+  C:078DH         LINE#         491
+  C:078DH         LINE#         493
+  C:078DH         LINE#         496
+  -------         ENDPROC       _ARPREQUEST
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 11
+
+
+  -------         PROC          L?0082
+  -------         ENDPROC       L?0082
+  -------         PROC          _GHEPINT
+  D:0007H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  -------         DO            
+  D:0006H         SYMBOL        c
+  -------         ENDDO         
+  C:093DH         LINE#         499
+  C:093DH         LINE#         501
+  C:093EH         LINE#         502
+  C:0941H         LINE#         503
+  C:0941H         LINE#         504
+  -------         ENDPROC       _GHEPINT
+  -------         PROC          _TACHINT
+  D:0006H         SYMBOL        c
+  -------         DO            
+  D:0007H         SYMBOL        aH
+  D:000EH         SYMBOL        aL
+  -------         ENDDO         
+  C:08F8H         LINE#         506
+  C:08F8H         LINE#         508
+  C:08FBH         LINE#         509
+  C:08FCH         LINE#         510
+  -------         ENDPROC       _TACHINT
+  -------         ENDMOD        ETHENET
+
+  -------         MODULE        ?C?CLDPTR
+  C:04CDH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+
+  -------         MODULE        ?C?CLDOPTR
+  C:04E6H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:0513H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        PRINTF
+  D:0069H         PUBLIC        ?_PRINTF517?BYTE
+  D:0069H         PUBLIC        ?_PRINTF?BYTE
+  D:0069H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0069H         PUBLIC        ?_SPRINTF?BYTE
+  C:0065H         PUBLIC        _PRINTF
+  C:0065H         PUBLIC        _PRINTF517
+  C:005FH         PUBLIC        _SPRINTF
+  C:005FH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:0525H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:0535H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/15/2022  00:17:17  PAGE 12
+
+
+
+  -------         MODULE        PUTCHAR
+  C:07DCH         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?READMAC?ETHENET
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_SEND_PACKET?ETHENET
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_TACHINT?ETHENET
+
+Program Size: data=108.1 xdata=0 code=2404
+LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

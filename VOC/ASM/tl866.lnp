@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"tl866.obj" 
+TO "tl866" 
+RAMSIZE(256) 

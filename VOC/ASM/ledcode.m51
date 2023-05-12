@@ -1,0 +1,11 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/23/2021  21:06:12  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE  ..\..\New folder\STARTUP.obj, ..\..\New folder\main.obj TO ..\..\New folder\ledcode PRINT (.\l
+>> edcode.m51)
+
+
+*** FATAL ERROR L210: I/O ERROR ON INPUT FILE:
+    EXCEPTION 0021H: PATH OR FILE NOT FOUND
+    FILE: ..\..\New folder\main.obj

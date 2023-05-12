@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"uart.obj" 
+TO "choptat" 
+RAMSIZE(256) 

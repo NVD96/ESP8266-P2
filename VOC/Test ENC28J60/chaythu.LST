@@ -1,0 +1,20 @@
+C51 COMPILER V9.01   CHAYTHU                                                               04/17/2022 00:26:01 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE CHAYTHU
+OBJECT MODULE PLACED IN chaythu.OBJ
+COMPILER INVOKED BY: c:\keil\c51\bin\c51.exe  chaythu.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          
+   4          void main(){
+   5   1       
+   6   1       P1^0 = 1;
+*** ERROR C141 IN LINE 6 OF CHAYTHU.C: syntax error near '='
+   7   1       
+   8   1       }
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

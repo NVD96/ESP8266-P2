@@ -1,0 +1,335 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/18/2022  11:02:30  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE  hienthi.obj TO Quangcao RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  hienthi.obj (HIENTHI)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  Quangcao (HIENTHI)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0041H     UNIT         ?DT?HIENTHI
+            IDATA   0049H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     008CH     UNIT         ?C_C51STARTUP
+            CODE    008FH     0044H     UNIT         ?C_INITSEG
+            CODE    00D3H     003CH     UNIT         ?PR?_QUET1LEDMAX?HIENTHI
+            CODE    010FH     0025H     UNIT         ?PR?MAX_INT?HIENTHI
+            CODE    0134H     0020H     UNIT         ?PR?_DELAY_MS?HIENTHI
+            CODE    0154H     001EH     UNIT         ?PR?_SPI_WRITE?HIENTHI
+            CODE    0172H     0018H     UNIT         ?PR?LEDMAX?HIENTHI
+            CODE    018AH     0015H     UNIT         ?PR?MAIN?HIENTHI
+            CODE    019FH     0012H     UNIT         ?PR?_SHUTDOWN_MAX?HIENTHI
+            CODE    01B1H     0012H     UNIT         ?PR?_SCAN_MAX?HIENTHI
+            CODE    01C3H     0012H     UNIT         ?PR?_INTENSITY_MAX?HIENTHI
+            CODE    01D5H     0012H     UNIT         ?PR?_DECODE_MAX?HIENTHI
+            CODE    01E7H     0012H     UNIT         ?PR?_DISLAYTEST_MAX?HIENTHI
+            CODE    01F9H     0011H     UNIT         ?PR?DEL_LEDMAX?HIENTHI
+            CODE    020AH     0010H     UNIT         ?PR?DEL_REG?HIENTHI
+            CODE    021AH     0008H     UNIT         ?PR?_WRITEBYTE?HIENTHI
+            CODE    0222H     0005H     UNIT         ?PR?SPI_INT?HIENTHI
+
+
+
+OVERLAY MAP OF MODULE:   Quangcao (HIENTHI)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?HIENTHI
+  +--> ?C_INITSEG
+
+?PR?MAIN?HIENTHI
+  +--> ?PR?SPI_INT?HIENTHI
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  11:02:30  PAGE 2
+
+
+  +--> ?PR?MAX_INT?HIENTHI
+  +--> ?PR?DEL_LEDMAX?HIENTHI
+  +--> ?PR?LEDMAX?HIENTHI
+  +--> ?PR?_DELAY_MS?HIENTHI
+
+?PR?MAX_INT?HIENTHI
+  +--> ?PR?_SHUTDOWN_MAX?HIENTHI
+  +--> ?PR?_DELAY_MS?HIENTHI
+  +--> ?PR?_DISLAYTEST_MAX?HIENTHI
+  +--> ?PR?_DECODE_MAX?HIENTHI
+  +--> ?PR?_INTENSITY_MAX?HIENTHI
+  +--> ?PR?_SCAN_MAX?HIENTHI
+
+?PR?_SHUTDOWN_MAX?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+?PR?_DISLAYTEST_MAX?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+?PR?_DECODE_MAX?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+?PR?_INTENSITY_MAX?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+?PR?_SCAN_MAX?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+?PR?DEL_LEDMAX?HIENTHI
+  +--> ?PR?_WRITEBYTE?HIENTHI
+
+?PR?_WRITEBYTE?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+?PR?LEDMAX?HIENTHI
+  +--> ?PR?_QUET1LEDMAX?HIENTHI
+
+?PR?_QUET1LEDMAX?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+  +--> ?PR?DEL_REG?HIENTHI
+
+?PR?DEL_REG?HIENTHI
+  +--> ?PR?_SPI_WRITE?HIENTHI
+
+
+
+SYMBOL TABLE OF MODULE:  Quangcao (HIENTHI)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        HIENTHI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:01B1H         PUBLIC        _Scan_Max
+  B:00A0H.0       PUBLIC        spi_SCK
+  C:00D3H         PUBLIC        _Quet1LedMax
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  11:02:30  PAGE 3
+
+
+  C:01E7H         PUBLIC        _DislayTest_Max
+  C:020AH         PUBLIC        Del_Reg
+  C:021AH         PUBLIC        _WriteByte
+  C:018AH         PUBLIC        main
+  D:0008H         PUBLIC        chay
+  C:010FH         PUBLIC        Max_Int
+  C:01F9H         PUBLIC        Del_LedMax
+  B:00A0H.1       PUBLIC        spi_DI
+  C:0172H         PUBLIC        LedMax
+  B:00A0H.2       PUBLIC        spi_CS
+  C:01D5H         PUBLIC        _Decode_Max
+  C:0134H         PUBLIC        _delay_ms
+  C:01C3H         PUBLIC        _Intensity_Max
+  D:0009H         PUBLIC        LED
+  C:0159H         PUBLIC        _SPI_Write
+  C:019FH         PUBLIC        _Shutdown_Max
+  C:0222H         PUBLIC        SPI_Int
+  -------         PROC          MAIN
+  C:018AH         LINE#         35
+  C:018AH         LINE#         37
+  C:018DH         LINE#         38
+  C:0190H         LINE#         39
+  C:0193H         LINE#         42
+  C:0193H         LINE#         44
+  C:0196H         LINE#         45
+  C:019DH         LINE#         46
+  -------         ENDPROC       MAIN
+  -------         PROC          SPI_INT
+  C:0222H         LINE#         49
+  C:0222H         LINE#         51
+  C:0224H         LINE#         52
+  C:0226H         LINE#         53
+  -------         ENDPROC       SPI_INT
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        tg
+  -------         DO            
+  D:0004H         SYMBOL        i
+  D:0002H         SYMBOL        j
+  -------         ENDDO         
+  C:0134H         LINE#         54
+  C:0134H         LINE#         56
+  C:013EH         LINE#         57
+  C:014CH         LINE#         58
+  C:0153H         LINE#         59
+  -------         ENDPROC       _DELAY_MS
+  C:0154H         SYMBOL        L?0059
+  -------         PROC          L?0058
+  -------         ENDPROC       L?0058
+  C:0154H         SYMBOL        L?0059
+  -------         PROC          _SPI_WRITE
+  D:0007H         SYMBOL        b
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0159H         LINE#         61
+  C:0159H         LINE#         63
+  C:015BH         LINE#         64
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  11:02:30  PAGE 4
+
+
+  C:015DH         LINE#         65
+  C:0165H         LINE#         66
+  C:0167H         LINE#         67
+  C:0169H         LINE#         68
+  C:016DH         LINE#         69
+  C:0171H         LINE#         70
+  -------         ENDPROC       _SPI_WRITE
+  -------         PROC          _WRITEBYTE
+  D:0007H         SYMBOL        op
+  D:0005H         SYMBOL        dl
+  C:021AH         LINE#         73
+  C:021AH         LINE#         75
+  C:021CH         LINE#         76
+  C:021CH         LINE#         77
+  C:021FH         LINE#         78
+  C:0221H         LINE#         79
+  -------         ENDPROC       _WRITEBYTE
+  -------         PROC          _SHUTDOWN_MAX
+  D:0005H         SYMBOL        status
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:019FH         LINE#         83
+  C:01A1H         LINE#         86
+  C:01A3H         LINE#         87
+  C:01A5H         LINE#         88
+  C:01A7H         LINE#         89
+  C:01AAH         LINE#         90
+  C:01AEH         LINE#         91
+  C:01B0H         LINE#         93
+  -------         ENDPROC       _SHUTDOWN_MAX
+  -------         PROC          _SCAN_MAX
+  D:0005H         SYMBOL        status
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01B1H         LINE#         95
+  C:01B3H         LINE#         98
+  C:01B5H         LINE#         99
+  C:01B7H         LINE#         100
+  C:01B9H         LINE#         101
+  C:01BCH         LINE#         102
+  C:01C0H         LINE#         103
+  C:01C2H         LINE#         104
+  -------         ENDPROC       _SCAN_MAX
+  -------         PROC          _INTENSITY_MAX
+  D:0005H         SYMBOL        status
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01C3H         LINE#         107
+  C:01C5H         LINE#         110
+  C:01C7H         LINE#         111
+  C:01C9H         LINE#         112
+  C:01CBH         LINE#         113
+  C:01CEH         LINE#         114
+  C:01D2H         LINE#         115
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  11:02:30  PAGE 5
+
+
+  C:01D4H         LINE#         116
+  -------         ENDPROC       _INTENSITY_MAX
+  -------         PROC          _DECODE_MAX
+  D:0005H         SYMBOL        status
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01D5H         LINE#         119
+  C:01D7H         LINE#         122
+  C:01D9H         LINE#         123
+  C:01DBH         LINE#         124
+  C:01DDH         LINE#         125
+  C:01E0H         LINE#         126
+  C:01E4H         LINE#         127
+  C:01E6H         LINE#         128
+  -------         ENDPROC       _DECODE_MAX
+  -------         PROC          _DISLAYTEST_MAX
+  D:0005H         SYMBOL        status
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01E7H         LINE#         130
+  C:01E9H         LINE#         133
+  C:01EBH         LINE#         134
+  C:01EDH         LINE#         135
+  C:01EFH         LINE#         136
+  C:01F2H         LINE#         137
+  C:01F6H         LINE#         138
+  C:01F8H         LINE#         139
+  -------         ENDPROC       _DISLAYTEST_MAX
+  -------         PROC          MAX_INT
+  C:010FH         LINE#         141
+  C:010FH         LINE#         143
+  C:0114H         LINE#         144
+  C:011BH         LINE#         145
+  C:0120H         LINE#         146
+  C:0125H         LINE#         147
+  C:012AH         LINE#         148
+  C:012FH         LINE#         149
+  -------         ENDPROC       MAX_INT
+  -------         PROC          DEL_LEDMAX
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01F9H         LINE#         153
+  C:01F9H         LINE#         155
+  C:01FBH         LINE#         156
+  C:0205H         LINE#         157
+  C:0209H         LINE#         158
+  -------         ENDPROC       DEL_LEDMAX
+  -------         PROC          _QUET1LEDMAX
+  D:0005H         SYMBOL        n
+  -------         DO            
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:00D3H         LINE#         160
+  C:00D5H         LINE#         163
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2022  11:02:30  PAGE 6
+
+
+  C:00D7H         LINE#         164
+  C:00E0H         LINE#         165
+  C:00EDH         LINE#         166
+  C:0102H         LINE#         167
+  C:0107H         LINE#         168
+  C:010AH         LINE#         169
+  C:010CH         LINE#         170
+  -------         ENDPROC       _QUET1LEDMAX
+  -------         PROC          DEL_REG
+  -------         DO            
+  D:0005H         SYMBOL        i
+  -------         ENDDO         
+  C:020AH         LINE#         173
+  C:020AH         LINE#         176
+  C:020CH         LINE#         177
+  C:020EH         LINE#         178
+  C:0213H         LINE#         179
+  C:0217H         LINE#         180
+  C:0219H         LINE#         181
+  -------         ENDPROC       DEL_REG
+  -------         PROC          LEDMAX
+  C:0172H         LINE#         183
+  C:0172H         LINE#         185
+  C:0175H         LINE#         186
+  C:0180H         LINE#         187
+  C:0189H         LINE#         188
+  -------         ENDPROC       LEDMAX
+  -------         ENDMOD        HIENTHI
+
+Program Size: data=74.0 xdata=0 code=551
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"termi.obj" 
+TO "tre" 
+RAMSIZE(256) 

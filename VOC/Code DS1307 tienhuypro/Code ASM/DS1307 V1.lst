@@ -1,0 +1,611 @@
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 1
+
+
+
+
+
+       MCS-51 Family Macro Assembler   A S E M - 5 1   V 1.3
+       =====================================================
+
+
+
+	Source File:	D:\05 DIEN TU VI DIEU KHIEN\Document AVR-PIC-8051\8051 full\Ly thuyet I2C-DS1307\Code DS1307 tienhuypro\Code ASM\DS1307 V1.asm
+	Object File:	D:\05 DIEN TU VI DIEU KHIEN\Document AVR-PIC-8051\8051 full\Ly thuyet I2C-DS1307\Code DS1307 tienhuypro\Code ASM\DS1307 V1.hex
+	List File:	D:\05 DIEN TU VI DIEU KHIEN\Document AVR-PIC-8051\8051 full\Ly thuyet I2C-DS1307\Code DS1307 tienhuypro\Code ASM\DS1307 V1.lst
+
+
+
+ Line  I  Addr  Code            Source
+
+    1:		B	 90	SDA	BIT	P1.0
+    2:		B	 91	SCL	BIT	P1.1
+    3:		N	 00	F_SEND_TIME	BIT	00H
+    4:		N	 01	F_SEND_DATE	BIT	01H
+    5:		N	 02	F_SEND		BIT	02H
+    6:		N	 30	SECONDS		DATA	30H
+    7:		N	 31	MINUTES		DATA	31H
+    8:		N	 32	HOUR		DATA	32H
+    9:		N	 33	DAY		DATA	33H
+   10:		N	 34	DATE		DATA	34H
+   11:		N	 35	MONTH		DATA	35H
+   12:		N	 36	YEAR		DATA	36H
+   13:		N      0000	org	0000h
+   14:	  0000	02 00 30	ljmp	main
+   15:		N      0003	org	0003h		;NGAT NGOAI0
+   16:	  0003	D2 00			SETB	F_SEND_TIME
+   17:	  0005	D2 01			SETB	F_SEND_DATE
+   18:	  0007	D2 02			SETB	F_SEND
+   19:	  0009	32			RETI
+   20:		N      0030	ORG 0030H
+   21:	  0030			MAIN:
+   22:	  0030	75 98 42		mov	scon,#42h
+   23:	  0033	75 89 20		mov	tmod,#20h
+   24:	  0036	E5 87			mov	a,pcon			;nhan doi toc do baud
+   25:	  0038	D2 E7			setb	acc.7
+   26:	  003A	F5 87			mov	pcon,a
+   27:	  003C	75 8D FF		mov	th1,#0fFh		;57600  11.0592Mhz
+   28:	  003F	D2 8E			setb	tr1
+   29:	  0041	D2 88			setb	it0		;ngat ngoai 0 kich canh xuong
+   30:	  0043	75 A8 81		mov	ie,#81h		;cho phep ngat ngoai0
+   31:
+   32:	  0046	12 02 90		CALL	I2C_INIT
+   33:	  0049	12 01 61		CALL	DS1307_INIT
+   34:	  004C	12 01 77		CALL	DS1307_OUTPUT
+   35:	  004F	75 30 31		MOV	SECONDS,#31H
+   36:	  0052	75 31 31		MOV	MINUTES,#31H
+   37:	  0055	75 32 10		MOV	HOUR,#10H
+   38:					;CALL	DS1307_WRITE_TIME
+   39:	  0058			   ___WHILE1:
+   40:	  0058	30 02 FD		JNB	F_SEND,$
+   41:	  005B	C2 02			CLR	F_SEND
+   42:	  005D	12 00 65		CALL	SEND_UART_TIME
+   43:	  0060	12 00 D7		CALL	SEND_UART_DATE
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 2
+
+
+
+ Line  I  Addr  Code            Source
+
+   44:	  0063	80 F3			SJMP	___WHILE1
+   45:
+   46:	  0065			SEND_UART_TIME:
+   47:	  0065	20 00 03		JB	F_SEND_TIME,___SEND_TIME
+   48:	  0068	02 00 D6		JMP	___EXIT_SEND_TIME
+   49:	  006B			   ___SEND_TIME:
+   50:	  006B	C2 00			CLR	F_SEND_TIME
+   51:	  006D	74 54			MOV	A,#'T'
+   52:	  006F	12 02 D6		CALL	OUTCHAR
+   53:	  0072	74 49			MOV	A,#'I'
+   54:	  0074	12 02 D6		CALL	OUTCHAR
+   55:	  0077	74 4D			MOV	A,#'M'
+   56:	  0079	12 02 D6		CALL	OUTCHAR
+   57:	  007C	74 45			MOV	A,#'E'
+   58:	  007E	12 02 D6		CALL	OUTCHAR
+   59:	  0081	74 20			MOV	A,#' '
+   60:	  0083	12 02 D6		CALL	OUTCHAR
+   61:	  0086	12 01 D2		CALL	DS1307_READ_TIME
+   62:	  0089	E5 32			MOV	A,HOUR
+   63:	  008B	C4			swap	a
+   64:	  008C	54 0F			anl	a,#0fh
+   65:	  008E	24 30			add	a,#48
+   66:	  0090	12 02 D6		call	outchar
+   67:	  0093	E5 32			MOV	A,HOUR
+   68:	  0095	54 0F			anl	a,#0fh
+   69:	  0097	24 30			add	a,#48
+   70:	  0099	12 02 D6		call	outchar
+   71:	  009C	74 3A			MOV	A,#':'
+   72:	  009E	12 02 D6		call	outchar
+   73:	  00A1	E5 31			MOV	A,MINUTES
+   74:	  00A3	C4			swap	a
+   75:	  00A4	54 0F			anl	a,#0fh
+   76:	  00A6	24 30			add	a,#48
+   77:	  00A8	12 02 D6		call	outchar
+   78:	  00AB	E5 31			MOV	A,MINUTES
+   79:	  00AD	54 0F			anl	a,#0fh
+   80:	  00AF	24 30			add	a,#48
+   81:	  00B1	12 02 D6		call	outchar
+   82:	  00B4	74 3A			MOV	A,#':'
+   83:	  00B6	12 02 D6		call	outchar
+   84:	  00B9	E5 30			MOV	A,SECONDS
+   85:	  00BB	C4			swap	a
+   86:	  00BC	54 0F			anl	a,#0fh
+   87:	  00BE	24 30			add	a,#48
+   88:	  00C0	12 02 D6		call	outchar
+   89:	  00C3	E5 30			MOV	A,SECONDS
+   90:	  00C5	54 0F			anl	a,#0fh
+   91:	  00C7	24 30			add	a,#48
+   92:	  00C9	12 02 D6		call	outchar
+   93:	  00CC	74 0D			MOV	A,#0DH
+   94:	  00CE	12 02 D6		call	outchar
+   95:	  00D1	74 0A			MOV	A,#0AH
+   96:	  00D3	12 02 D6		call	outchar
+   97:	  00D6			   ___EXIT_SEND_TIME:
+   98:	  00D6	22			RET
+   99:
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 3
+
+
+
+ Line  I  Addr  Code            Source
+
+  100:	  00D7			SEND_UART_DATE:
+  101:	  00D7	20 01 03		JB	F_SEND_DATE,___SEND_DATE
+  102:	  00DA	02 01 60		JMP	___EXIT_SEND_DATE
+  103:	  00DD			   ___SEND_DATE:
+  104:	  00DD	C2 01			CLR	F_SEND_DATE
+  105:	  00DF	74 44			MOV	A,#'D'
+  106:	  00E1	12 02 D6		CALL	OUTCHAR
+  107:	  00E4	74 41			MOV	A,#'A'
+  108:	  00E6	12 02 D6		CALL	OUTCHAR
+  109:	  00E9	74 54			MOV	A,#'T'
+  110:	  00EB	12 02 D6		CALL	OUTCHAR
+  111:	  00EE	74 45			MOV	A,#'E'
+  112:	  00F0	12 02 D6		CALL	OUTCHAR
+  113:	  00F3	74 20			MOV	A,#' '
+  114:	  00F5	12 02 D6		CALL	OUTCHAR
+  115:	  00F8	12 01 FA		CALL	DS1307_READ_DATE
+  116:	  00FB	E5 33			MOV	A,DAY
+  117:	  00FD	C4			swap	a
+  118:	  00FE	54 0F			anl	a,#0fh
+  119:	  0100	24 30			add	a,#48
+  120:	  0102	12 02 D6		call	outchar
+  121:	  0105	E5 33			MOV	A,DAY
+  122:	  0107	54 0F			anl	a,#0fh
+  123:	  0109	24 30			add	a,#48
+  124:	  010B	12 02 D6		call	outchar
+  125:	  010E	74 3A			MOV	A,#':'
+  126:	  0110	12 02 D6		call	outchar
+  127:	  0113	E5 34			MOV	A,DATE
+  128:	  0115	C4			swap	a
+  129:	  0116	54 0F			anl	a,#0fh
+  130:	  0118	24 30			add	a,#48
+  131:	  011A	12 02 D6		call	outchar
+  132:	  011D	E5 34			MOV	A,DATE
+  133:	  011F	54 0F			anl	a,#0fh
+  134:	  0121	24 30			add	a,#48
+  135:	  0123	12 02 D6		call	outchar
+  136:	  0126	74 3A			MOV	A,#':'
+  137:	  0128	12 02 D6		call	outchar
+  138:	  012B	E5 35			MOV	A,MONTH
+  139:	  012D	C4			swap	a
+  140:	  012E	54 0F			anl	a,#0fh
+  141:	  0130	24 30			add	a,#48
+  142:	  0132	12 02 D6		call	outchar
+  143:	  0135	E5 35			MOV	A,MONTH
+  144:	  0137	54 0F			anl	a,#0fh
+  145:	  0139	24 30			add	a,#48
+  146:	  013B	12 02 D6		call	outchar
+  147:	  013E	74 3A			MOV	A,#':'
+  148:	  0140	12 02 D6		call	outchar
+  149:	  0143	E5 36			MOV	A,YEAR
+  150:	  0145	C4			swap	a
+  151:	  0146	54 0F			anl	a,#0fh
+  152:	  0148	24 30			add	a,#48
+  153:	  014A	12 02 D6		call	outchar
+  154:	  014D	E5 36			MOV	A,YEAR
+  155:	  014F	54 0F			anl	a,#0fh
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 4
+
+
+
+ Line  I  Addr  Code            Source
+
+  156:	  0151	24 30			add	a,#48
+  157:	  0153	12 02 D6		call	outchar
+  158:	  0156	74 0D			MOV	A,#0DH
+  159:	  0158	12 02 D6		call	outchar
+  160:	  015B	74 0A			MOV	A,#0AH
+  161:	  015D	12 02 D6		call	outchar
+  162:	  0160			   ___EXIT_SEND_DATE:
+  163:	  0160	22			RET
+  164:	  0161			DS1307_INIT:
+  165:	  0161	12 02 95		CALL	I2C_START
+  166:	  0164	74 D0			MOV	A,#0D0H		;DIA CHI DS1307
+  167:	  0166	12 02 27		LCALL	I2C_WRITE	;
+  168:					;JC	$-5
+  169:	  0169	74 00			MOV	A,#00H		;DIA CHI THANH GHI 0
+  170:	  016B	12 02 27		LCALL	I2C_WRITE
+  171:	  016E	74 00			MOV	A,#00H		;ENABLE	THE oscillator (CH bit = 0)
+  172:	  0170	12 02 27		LCALL	I2C_WRITE
+  173:	  0173	12 02 A7		CALL	I2C_STOP
+  174:	  0176	22			RET
+  175:	  0177			DS1307_OUTPUT:
+  176:	  0177	12 02 95		CALL	I2C_START
+  177:	  017A	74 D0			MOV	A,#0D0H		;DIA CHI DS1307
+  178:	  017C	12 02 27		CALL	I2C_WRITE	;
+  179:	  017F	74 07			MOV	A,#07H		;DIA CHI THANH GHI 0
+  180:	  0181	12 02 27		CALL	I2C_WRITE
+  181:	  0184	74 10			MOV	A,#10H		;ENABLE	THE OUTPUT oscillator F=1HZ
+  182:	  0186	12 02 27		CALL	I2C_WRITE
+  183:	  0189	12 02 A7		CALL	I2C_STOP
+  184:	  018C	22			RET
+  185:	  018D			DS1307_WRITE_TIME:
+  186:	  018D	12 02 95		CALL	I2C_START
+  187:	  0190	74 D0			MOV	A,#0D0H		;DIA CHI DS1307
+  188:	  0192	12 02 27		CALL	I2C_WRITE	;
+  189:	  0195	74 00			MOV	A,#00H		;DIA CHI THANH GHI 0
+  190:	  0197	12 02 27		CALL	I2C_WRITE
+  191:	  019A	E5 30			MOV	A,SECONDS	;
+  192:	  019C	12 02 27		CALL	I2C_WRITE
+  193:	  019F	E5 31			MOV	A,MINUTES	;
+  194:	  01A1	12 02 27		CALL	I2C_WRITE
+  195:	  01A4	E5 32			MOV	A,HOUR		;
+  196:	  01A6	12 02 27		CALL	I2C_WRITE
+  197:	  01A9	12 02 A7		CALL	I2C_STOP
+  198:	  01AC	22			RET
+  199:	  01AD			DS1307_WRITE_DATE:
+  200:	  01AD	12 02 95		CALL	I2C_START
+  201:	  01B0	74 D0			MOV	A,#0D0H		;DIA CHI DS1307
+  202:	  01B2	12 02 27		CALL	I2C_WRITE	;
+  203:	  01B5	74 03			MOV	A,#03H		;DIA CHI THANH GHI 3
+  204:	  01B7	12 02 27		CALL	I2C_WRITE
+  205:	  01BA	E5 33			MOV	A,DAY		;THU
+  206:	  01BC	12 02 27		CALL	I2C_WRITE
+  207:	  01BF	E5 34			MOV	A,DATE		;NGAY
+  208:	  01C1	12 02 27		CALL	I2C_WRITE
+  209:	  01C4	E5 35			MOV	A,MONTH		;THANG
+  210:	  01C6	12 02 27		CALL	I2C_WRITE
+  211:	  01C9	E5 36			MOV	A,YEAR		;NAM
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 5
+
+
+
+ Line  I  Addr  Code            Source
+
+  212:	  01CB	12 02 27		CALL	I2C_WRITE
+  213:	  01CE	12 02 A7		CALL	I2C_STOP
+  214:	  01D1	22			RET
+  215:	  01D2			DS1307_READ_TIME:
+  216:	  01D2	12 02 95		CALL	I2C_START
+  217:	  01D5	74 D0			MOV	A,#0D0H		;DIA CHI DS1307 VA WRITE
+  218:	  01D7	12 02 27		CALL	I2C_WRITE	;
+  219:	  01DA	74 00			MOV	A,#00H		;DIA CHI THANH GHI 0
+  220:	  01DC	12 02 27		CALL	I2C_WRITE
+  221:	  01DF	12 02 B3		CALL	I2C_RESTART
+  222:	  01E2	74 D1			MOV	A,#0D1H		;DIA CHI DS1307 VA READ
+  223:	  01E4	12 02 27		CALL	I2C_WRITE
+  224:	  01E7	12 02 4C		CALL	I2C_READ_ACK
+  225:	  01EA	F5 30			MOV	SECONDS,A
+  226:	  01EC	12 02 4C		CALL	I2C_READ_ACK
+  227:	  01EF	F5 31			MOV	MINUTES,A
+  228:	  01F1	12 02 6E		CALL	I2C_READ_NACK
+  229:	  01F4	F5 32			MOV	HOUR,A
+  230:	  01F6	12 02 A7		CALL	I2C_STOP
+  231:	  01F9	22			RET
+  232:	  01FA			DS1307_READ_DATE:
+  233:	  01FA	12 02 95		CALL	I2C_START
+  234:	  01FD	74 D0			MOV	A,#0D0H		;DIA CHI DS1307 VA WRITE
+  235:	  01FF	12 02 27		CALL	I2C_WRITE	;
+  236:	  0202	74 03			MOV	A,#03H		;DIA CHI THANH GHI 3
+  237:	  0204	12 02 27		CALL	I2C_WRITE
+  238:	  0207	12 02 B3		CALL	I2C_RESTART
+  239:	  020A	74 D1			MOV	A,#0D1H		;DIA CHI DS1307 VA READ
+  240:	  020C	12 02 27		CALL	I2C_WRITE
+  241:	  020F	12 02 4C		CALL	I2C_READ_ACK
+  242:	  0212	F5 33			MOV	DAY,A
+  243:	  0214	12 02 4C		CALL	I2C_READ_ACK
+  244:	  0217	F5 34			MOV	DATE,A
+  245:	  0219	12 02 4C		CALL	I2C_READ_ACK
+  246:	  021C	F5 35			MOV	MONTH,A
+  247:	  021E	12 02 6E		CALL	I2C_READ_NACK
+  248:	  0221	F5 36			MOV	YEAR,A
+  249:	  0223	12 02 A7		CALL	I2C_STOP
+  250:	  0226	22			RET
+  251:	  0227			I2C_WRITE:
+  252:	  0227	C0 07			PUSH	07H
+  253:	  0229	7F 08			MOV	R7,#8
+  254:	  022B			   ___LOOP_I2C_WRITE:
+  255:	  022B	C2 91			CLR	SCL
+  256:	  022D	33			RLC	A
+  257:	  022E	92 90			MOV	SDA,C
+  258:	  0230	00			NOP
+  259:	  0231	00			NOP
+  260:	  0232	D2 91			SETB	SCL
+  261:	  0234	00			NOP
+  262:	  0235	00			NOP
+  263:	  0236	DF F3			DJNZ	R7,___LOOP_I2C_WRITE
+  264:	  0238	C2 91			CLR	SCL
+  265:	  023A	00			NOP
+  266:	  023B	00			NOP
+  267:	  023C	00			NOP
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 6
+
+
+
+ Line  I  Addr  Code            Source
+
+  268:	  023D	00			NOP
+  269:	  023E	D2 90			SETB	SDA		;CAU HINH NGO VAO SDA DOC ACK
+  270:	  0240	D2 91			SETB	SCL
+  271:	  0242	00			NOP
+  272:	  0243	A2 90			MOV	C,SDA		;KIEM TRA CO "C" DE XAC DINH LOI
+  273:	  0245	00			NOP
+  274:	  0246	00			NOP
+  275:	  0247	C2 91			CLR	SCL
+  276:	  0249	D0 07			POP	07H
+  277:	  024B	22			RET
+  278:	  024C			I2C_READ_ACK:
+  279:	  024C	C0 07			PUSH	07H
+  280:	  024E	7F 08			MOV	R7,#8
+  281:	  0250	D2 90			SETB	SDA		;CAU HINH NGO VAO SDA
+  282:	  0252			   ___LOOP_I2C_READ_ACK:
+  283:	  0252	D2 91			SETB	SCL
+  284:	  0254	00			NOP
+  285:	  0255	A2 90			MOV	C,SDA
+  286:	  0257	33			RLC	A		;BYTE DOC VE LUU TRONG THANH GHI "A"
+  287:	  0258	00			NOP
+  288:	  0259	C2 91			CLR	SCL
+  289:	  025B	00			NOP
+  290:	  025C	00			NOP
+  291:	  025D	00			NOP
+  292:	  025E	DF F2			DJNZ	R7,___LOOP_I2C_READ_ACK
+  293:	  0260	C2 90			CLR	SDA
+  294:	  0262	00			NOP
+  295:	  0263	D2 91			SETB	SCL
+  296:	  0265	00			NOP
+  297:	  0266	00			NOP
+  298:	  0267	00			NOP
+  299:	  0268	00			NOP
+  300:	  0269	C2 91			CLR	SCL
+  301:	  026B	D0 07			POP	07H
+  302:	  026D	22			RET
+  303:	  026E			I2C_READ_NACK:
+  304:	  026E	C0 07			PUSH	07H
+  305:	  0270	7F 08			MOV	R7,#8
+  306:	  0272	D2 90			SETB	SDA		;CAU HINH NGO VAO SDA
+  307:	  0274			   ___LOOP_I2C_READ_NACK:
+  308:	  0274	D2 91			SETB	SCL
+  309:	  0276	00			NOP
+  310:	  0277	A2 90			MOV	C,SDA
+  311:	  0279	33			RLC	A		;BYTE DOC VE LUU TRONG THANH GHI "A"
+  312:	  027A	00			NOP
+  313:	  027B	C2 91			CLR	SCL
+  314:	  027D	00			NOP
+  315:	  027E	00			NOP
+  316:	  027F	00			NOP
+  317:	  0280	DF F2			DJNZ	R7,___LOOP_I2C_READ_NACK
+  318:	  0282	D2 90			SETB	SDA
+  319:	  0284	00			NOP
+  320:	  0285	D2 91			SETB	SCL
+  321:	  0287	00			NOP
+  322:	  0288	00			NOP
+  323:	  0289	00			NOP
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 7
+
+
+
+ Line  I  Addr  Code            Source
+
+  324:	  028A	00			NOP
+  325:	  028B	C2 91			CLR	SCL
+  326:	  028D	D0 07			POP	07H
+  327:	  028F	22			RET
+  328:	  0290			I2C_INIT:
+  329:	  0290	D2 91			SETB	SCL
+  330:	  0292	D2 90			SETB	SDA
+  331:	  0294	22			RET
+  332:	  0295			I2C_START:
+  333:	  0295	D2 90			SETB	SDA
+  334:	  0297	D2 91			SETB	SCL
+  335:	  0299	00			NOP		;DELAY 4.7US
+  336:	  029A	00			NOP		;Bus Free Time Between a STOP and START Condition
+  337:	  029B	00			NOP
+  338:	  029C	00			NOP
+  339:	  029D	00			NOP
+  340:	  029E	C2 90			CLR	SDA
+  341:	  02A0	00			NOP		;DELAY 4US
+  342:	  02A1	00			NOP		;Hold Time (Repeated) START Condition
+  343:	  02A2	00			NOP
+  344:	  02A3	00			NOP
+  345:	  02A4	C2 91			CLR	SCL
+  346:	  02A6	22			RET
+  347:	  02A7			I2C_STOP:
+  348:	  02A7	C2 90			CLR	SDA
+  349:	  02A9	D2 91			SETB	SCL
+  350:	  02AB	00			NOP		;DELAY	4.7US
+  351:	  02AC	00			NOP		;Setup Time for STOP Condition
+  352:	  02AD	00			NOP
+  353:	  02AE	00			NOP
+  354:	  02AF	00			NOP
+  355:	  02B0	D2 90			SETB	SDA
+  356:	  02B2	22			RET
+  357:	  02B3			I2C_RESTART:
+  358:	  02B3	D2 90			SETB	SDA
+  359:	  02B5	D2 91			SETB	SCL
+  360:	  02B7	00			NOP		;DELAY 4.7US
+  361:	  02B8	00			NOP		;Setup Time for a Repeated START Condition
+  362:	  02B9	00			NOP
+  363:	  02BA	00			NOP
+  364:	  02BB	00			NOP
+  365:	  02BC	C2 90			CLR	SDA
+  366:	  02BE	00			NOP		;DELAY 4US
+  367:	  02BF	00			NOP		;Hold Time (Repeated) START Condition
+  368:	  02C0	00			NOP
+  369:	  02C1	00			NOP
+  370:	  02C2	C2 91			CLR	SCL
+  371:	  02C4	00			NOP
+  372:	  02C5	00			NOP
+  373:	  02C6	22			RET
+  374:	  02C7			SCL_HIGH:
+  375:	  02C7	00			NOP		;DELAY 4US
+  376:	  02C8	00			NOP		;HIGH Period of SCL Clock
+  377:	  02C9	D2 91			SETB	SCL
+  378:	  02CB	00			NOP
+  379:	  02CC	00			NOP
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 8
+
+
+
+ Line  I  Addr  Code            Source
+
+  380:	  02CD	22			RET
+  381:	  02CE			SCL_LOW:
+  382:	  02CE	00			NOP		;DELAY 4.7US
+  383:	  02CF	00			NOP		;LOW Period of SCL Clock
+  384:	  02D0	C2 91			CLR	SCL
+  385:	  02D2	00			NOP
+  386:	  02D3	00			NOP
+  387:	  02D4	00			NOP
+  388:	  02D5	22			RET
+  389:	  02D6			outchar:
+  390:	  02D6	30 99 FD		jnb	ti,$
+  391:	  02D9	C2 99			clr 	ti
+  392:	  02DB	F5 99			mov	sbuf,a
+  393:	  02DD	22			ret
+  394:				END
+
+
+
+
+
+                     register banks used:  ---
+
+                     no errors
+
+
+
+
+ASEM-51 V1.3                                         Copyright (c) 2002 by W.W. Heinz                                         PAGE 9
+
+
+
+
+
+	       L I S T   O F   S Y M B O L S
+	       =============================
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+??ASEM_51			  NUMBER    8051
+??VERSION			  NUMBER    0130
+AC				  BIT	      D6
+ACC				  DATA	      E0
+B				  DATA	      F0
+CY				  BIT	      D7
+DATE				  DATA	      34	  10
+DAY				  DATA	      33	   9
+DPH				  DATA	      83
+DPL				  DATA	      82
+DS1307_INIT			  CODE	    0161	 164
+DS1307_OUTPUT			  CODE	    0177	 175
+DS1307_READ_DATE		  CODE	    01FA	 232
+DS1307_READ_TIME		  CODE	    01D2	 215
+DS1307_WRITE_DATE		  CODE	    01AD	 199
+DS1307_WRITE_TIME		  CODE	    018D	 185
+EA				  BIT	      AF
+ES				  BIT	      AC
+ET0				  BIT	      A9
+ET1				  BIT	      AB
+EX0				  BIT	      A8
+EX1				  BIT	      AA
+EXTI0				  CODE	    0003
+EXTI1				  CODE	    0013
+F0				  BIT	      D5
+F_SEND				  BIT	      02	   5
+F_SEND_DATE			  BIT	      01	   4
+F_SEND_TIME			  BIT	      00	   3
+HOUR				  DATA	      32	   8
+I2C_INIT			  CODE	    0290	 328
+I2C_READ_ACK			  CODE	    024C	 278
+I2C_READ_NACK			  CODE	    026E	 303
+I2C_RESTART			  CODE	    02B3	 357
+I2C_START			  CODE	    0295	 332
+I2C_STOP			  CODE	    02A7	 347
+I2C_WRITE			  CODE	    0227	 251
+IE				  DATA	      A8
+IE0				  BIT	      89
+IE1				  BIT	      8B
+INT0				  BIT	      B2
+INT1				  BIT	      B3
+IP				  DATA	      B8
+IT0				  BIT	      88
+IT1				  BIT	      8A
+MAIN				  CODE	    0030	  21
+MINUTES				  DATA	      31	   7
+MONTH				  DATA	      35	  11
+OUTCHAR				  CODE	    02D6	 389
+OV				  BIT	      D2
+P				  BIT	      D0
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 10
+
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+P0				  DATA	      80
+P1				  DATA	      90
+P2				  DATA	      A0
+P3				  DATA	      B0
+PCON				  DATA	      87
+PS				  BIT	      BC
+PSW				  DATA	      D0
+PT0				  BIT	      B9
+PT1				  BIT	      BB
+PX0				  BIT	      B8
+PX1				  BIT	      BA
+RB8				  BIT	      9A
+RD				  BIT	      B7
+REN				  BIT	      9C
+RESET				  CODE	    0000
+RI				  BIT	      98
+RS0				  BIT	      D3
+RS1				  BIT	      D4
+RXD				  BIT	      B0
+SBUF				  DATA	      99
+SCL				  BIT	      91	   2
+SCL_HIGH			  CODE	    02C7	 374
+SCL_LOW				  CODE	    02CE	 381
+SCON				  DATA	      98
+SDA				  BIT	      90	   1
+SECONDS				  DATA	      30	   6
+SEND_UART_DATE			  CODE	    00D7	 100
+SEND_UART_TIME			  CODE	    0065	  46
+SINT				  CODE	    0023
+SM0				  BIT	      9F
+SM1				  BIT	      9E
+SM2				  BIT	      9D
+SP				  DATA	      81
+T0				  BIT	      B4
+T1				  BIT	      B5
+TB8				  BIT	      9B
+TCON				  DATA	      88
+TF0				  BIT	      8D
+TF1				  BIT	      8F
+TH0				  DATA	      8C
+TH1				  DATA	      8D
+TI				  BIT	      99
+TIMER0				  CODE	    000B
+TIMER1				  CODE	    001B
+TL0				  DATA	      8A
+TL1				  DATA	      8B
+TMOD				  DATA	      89
+TR0				  BIT	      8C
+TR1				  BIT	      8E
+TXD				  BIT	      B1
+WR				  BIT	      B6
+YEAR				  DATA	      36	  12
+___EXIT_SEND_DATE		  CODE	    0160	 162
+___EXIT_SEND_TIME		  CODE	    00D6	  97
+___LOOP_I2C_READ_ACK		  CODE	    0252	 282
+___LOOP_I2C_READ_NACK		  CODE	    0274	 307
+
+ASEM-51 V1.3                                        Copyright (c) 2002 by W.W. Heinz                                         PAGE 11
+
+
+
+SYMBOL				  TYPE     VALUE	LINE
+------------------------------------------------------------
+___LOOP_I2C_WRITE		  CODE	    022B	 254
+___SEND_DATE			  CODE	    00DD	 103
+___SEND_TIME			  CODE	    006B	  49
+___WHILE1			  CODE	    0058	  39

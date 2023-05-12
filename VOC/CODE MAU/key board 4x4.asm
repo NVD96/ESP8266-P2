@@ -1,0 +1,410 @@
+ORG 00H
+MOV TMOD,#11H
+MAIN:
+CALL HIENTHI
+CALL TESTPHIM
+CALL DKHIEN
+LJMP MAIN
+;***************************
+HIENTHI:
+MOV DPTR,#BANGMALED
+MOV A,50H
+MOVC A,@A+DPTR
+MOV P2,A
+MOV P3,#11111110B 
+RET
+;***************************
+TESTPHIM:
+KT_4PHIM_COT1:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.4
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+;-------VAN CHUA CO PHIM NHAN ----------
+KT_4PHIM_COT2:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.5
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+;-------VAN CHUA CO PHIM NHAN ----------
+KT_4PHIM_COT3:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.6
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+;-------VAN CHUA CO PHIM NHAN ----------
+KT_4PHIM_COT4:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.7
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+LJMP KET_THUC
+
+
+;-------CO PHIM NHAN ----------
+CO_PHIM_NHAN:
+MOV A,P1
+;**************************
+;* KIEM TRA 4 PHIM COT 1 *
+;**************************
+
+P0_C1:
+CJNE A,#11101110B,P1_C1
+MOV A,#0
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C1:
+CJNE A,#11101101B,P2_C1
+MOV A,#1
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C1:
+CJNE A,#11101011B,P3_C1
+MOV A,#2
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C1:
+CJNE A,#11100111B,P0_C2
+MOV A,#3
+MOV 50H,A
+LJMP KET_THUC
+;**************************
+;* KIEM TRA 4 PHIM COT 2 *
+;**************************
+
+P0_C2:
+CJNE A,#11011110B,P1_C2
+MOV A,#4
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C2:
+CJNE A,#11011101B,P2_C2
+MOV A,#5
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C2:
+CJNE A,#11011011B,P3_C2
+MOV A,#6
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C2:
+CJNE A,#11010111B,P0_C3
+MOV A,#7
+MOV 50H,A
+LJMP KET_THUC
+;**************************
+;* KIEM TRA 4 PHIM COT 3 *
+;**************************
+P0_C3:
+CJNE A,#10111110B,P1_C3
+MOV A,#8
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C3:
+CJNE A,#10111101B,P2_C3
+MOV A,#9
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C3:
+CJNE A,#10111011B,P3_C3
+MOV A,#10
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C3:
+CJNE A,#10110111B,P0_C4
+MOV A,#11
+MOV 50H,A
+LJMP KET_THUC
+
+;**************************
+;* KIEM TRA 4 PHIM COT 1 *
+;**************************
+P0_C4:
+CJNE A,#01111110B,P1_C4
+MOV A,#12
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C4:
+CJNE A,#01111101B,P2_C4
+MOV A,#13
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C4:
+CJNE A,#01111011B,P3_C4
+MOV A,#14
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C4:
+CJNE A,#01110111B,KET_THUC
+MOV A,#15
+MOV 50H,A
+LJMP KET_THUC
+
+KET_THUC:
+RET
+;*************************** 
+DKHIEN:
+MOV A,50H
+CJNE A,#0,THOAT
+ACALL XUAT1
+CJNE A,#1,THOAT
+ACALL XUAT2
+THOAT:RET
+
+XUAT1:
+MOV A,#11111110B 
+MOV P1,A
+RL A
+RET
+XUAT2:ORG 00H
+MOV TMOD,#11H
+MAIN:
+CALL HIENTHI
+CALL TESTPHIM
+CALL DKHIEN
+LJMP MAIN
+;***************************
+HIENTHI:
+MOV DPTR,#BANGMALED
+MOV A,50H
+MOVC A,@A+DPTR
+MOV P2,A
+MOV P3,#11111110B
+
+RET
+;***************************
+TESTPHIM:
+KT_4PHIM_COT1:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.4
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+;-------VAN CHUA CO PHIM NHAN ----------
+KT_4PHIM_COT2:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.5
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+;-------VAN CHUA CO PHIM NHAN ----------
+KT_4PHIM_COT3:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.6
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+;-------VAN CHUA CO PHIM NHAN ----------
+KT_4PHIM_COT4:
+MOV A,#0FFH
+MOV P1,A
+CLR P1.7
+MOV A,P1
+ANL A,#0FH
+CJNE A,#0FH,CO_PHIM_NHAN
+LJMP KET_THUC
+
+
+;-------CO PHIM NHAN ----------
+CO_PHIM_NHAN:
+MOV A,P1
+;**************************
+;* KIEM TRA 4 PHIM COT 1 *
+;**************************
+
+P0_C1:
+CJNE A,#11101110B,P1_C1
+MOV A,#0
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C1:
+CJNE A,#11101101B,P2_C1
+MOV A,#1
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C1:
+CJNE A,#11101011B,P3_C1
+MOV A,#2
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C1:
+CJNE A,#11100111B,P0_C2
+MOV A,#3
+MOV 50H,A
+LJMP KET_THUC
+;**************************
+;* KIEM TRA 4 PHIM COT 2 *
+;**************************
+
+P0_C2:
+CJNE A,#11011110B,P1_C2
+MOV A,#4
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C2:
+CJNE A,#11011101B,P2_C2
+MOV A,#5
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C2:
+CJNE A,#11011011B,P3_C2
+MOV A,#6
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C2:
+CJNE A,#11010111B,P0_C3
+MOV A,#7
+MOV 50H,A
+LJMP KET_THUC
+;**************************
+;* KIEM TRA 4 PHIM COT 3 *
+;**************************
+
+P0_C3:
+CJNE A,#10111110B,P1_C3
+MOV A,#8
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C3:
+CJNE A,#10111101B,P2_C3
+MOV A,#9
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C3:
+CJNE A,#10111011B,P3_C3
+MOV A,#10
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C3:
+CJNE A,#10110111B,P0_C4
+MOV A,#11
+MOV 50H,A
+LJMP KET_THUC
+
+;**************************
+;* KIEM TRA 4 PHIM COT 1 *
+;**************************
+
+P0_C4:
+CJNE A,#01111110B,P1_C4
+MOV A,#12
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P1_C4:
+CJNE A,#01111101B,P2_C4
+MOV A,#13
+MOV 50H,A
+LJMP KET_THUC
+;--------------------------
+P2_C4:
+CJNE A,#01111011B,P3_C4
+MOV A,#14
+MOV 50H,A
+LJMP KET_THUC
+;-------------------------- 
+P3_C4:
+CJNE A,#01110111B,KET_THUC
+MOV A,#15
+MOV 50H,A
+LJMP KET_THUC
+
+
+
+
+KET_THUC:
+RET
+;*************************** 
+DKHIEN:
+MOV A,50H
+CJNE A,#0,THOAT
+ACALL XUAT1
+CJNE A,#1,THOAT
+ACALL XUAT2
+THOAT:RET
+
+XUAT1:
+MOV A,#11111110B 
+MOV P1,A
+RL A
+RET
+XUAT2:
+MOV A,#01111111B
+MOV P1,A
+RR A
+RET
+
+DELAY: 
+MOV TH0,#HIGH(-50000)
+MOV TL0,#LOW(-50000)
+SETB TR0
+JNB TF0,$
+CLR TR0
+CLR TF0
+RET
+BANGMALED:
+DB 11000000B ;SO 0
+DB 11001111B ;SO 1
+DB 01100100B ;SO 2
+DB 01000110B ;SO 3
+DB 01001011B ;SO 4
+DB 01010010B ;SO 5
+DB 01010000B ;SO 6
+DB 11000111B ;SO 7
+DB 01000000B ;SO 8
+DB 01000010B ;SO 9
+DB 01000001B ;CHU A
+DB 01011000B ;CHU B
+DB 11110000B ;CHU C
+DB 01001100B ;CHU D
+DB 00110000B ;CHU E
+DB 00110001B ;CHU F
+END
+
+MOV A,#01111111B
+MOV P1,A
+RR A
+RET
+
+DELAY: 
+MOV TH0,#HIGH(-50000)
+MOV TL0,#LOW(-50000)
+SETB TR0
+JNB TF0,$
+CLR TR0
+CLR TF0
+RET
+#include "BANGMALED"
+END

@@ -1,0 +1,1 @@
+"..\Code DS1307 tienhuypro\Code ASM\DS1307 V1.asm" SET (SMALL) DEBUG PRINT(.\DS1307 V1.lst) OBJECT(.\DS1307 V1.obj) EP

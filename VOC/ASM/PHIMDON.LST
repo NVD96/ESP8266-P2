@@ -1,0 +1,76 @@
+A51 MACRO ASSEMBLER  PHIMDON                                                              05/12/2021 13:12:11 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN PHIMDON.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  PHIMDON.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     org 0
+0000 758901            2                     MOV TMOD, #01
+0003 7800              3                     MOV R0, #0
+0005                   4     MAIN:
+0005 C2A0              5                     CLR P2.0
+0007 30A102            6                     JNB P2.1, SOSANH
+000A                   7     SO1:
+000A 80F9              8                     SJMP MAIN
+000C                   9     SOSANH:
+000C 111D             10                     CALL DELAY
+000E 30A102           11                     JNB P2.1, NHAN
+0011                  12     SO2:
+0011 80F7             13                     JMP SO1
+0013                  14     NHAN:
+0013 E8               15                     MOV A, R0
+                      16     ;               CALL HIENTHI
+                      17     ;               RET
+                      18     ;HIENTHI:
+0014 900300           19                     MOV DPTR, #MALED
+0017 93               20                     MOVC A, @A+DPTR
+0018 F5B0             21                     MOV P3, A
+001A 08               22                     INC R0
+001B 80F4             23                     JMP SO2
+001D                  24     DELAY:
+001D 758CFF           25                     MOV TH0, #HIGH(-200)
+0020 758A38           26                     MOV TL0, #LOW(-200)
+0023 D28C             27                     SETB TR0
+0025 308DFD           28                     JNB TF0, $
+0028 C28C             29                     CLR TR0
+002A C28D             30                     CLR TF0
+002C 22               31                     RET
+0300                  32                     ORG 300H
+0300                  33     MALED:
+0300 C0F9A4B0         34                     DB 0C0H, 0F9H, 0A4H, 0B0H, 99H, 92H, 82H, 0F8H, 80H, 90H, 88H, 83H, 0C6H, 0
+                             A1H, 86H, 8EH
+0304 999282F8                
+0308 80908883                
+030C C6A1868E                
+                      35                     END
+A51 MACRO ASSEMBLER  PHIMDON                                                              05/12/2021 13:12:11 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   001DH   A   
+MAIN . . . . . . .  C ADDR   0005H   A   
+MALED. . . . . . .  C ADDR   0300H   A   
+NHAN . . . . . . .  C ADDR   0013H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SO1. . . . . . . .  C ADDR   000AH   A   
+SO2. . . . . . . .  C ADDR   0011H   A   
+SOSANH . . . . . .  C ADDR   000CH   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

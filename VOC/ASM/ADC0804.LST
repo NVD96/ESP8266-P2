@@ -1,0 +1,140 @@
+A51 MACRO ASSEMBLER  ADC0804                                                              05/10/2021 21:11:08 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN ADC0804.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  ADC0804.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                      ORG 00H
+0000 020033            2                      LJMP NGAT
+001B                   3                      ORG 1BH                 ; CHU Y DIA CHI VECTOR NGAT CUA TIMER 1
+001B 120073            4                      LCALL HIENTHI
+0030                   5                      ORG 30H
+0030 758911            6                      MOV TMOD, #11H                 ; TIMER 0 MODE 16BIT//////TIMER 1 MODE 8 BI
+                             T TU NAP LAI
+0033                   7     NGAT:
+0033 D2AF              8                      SETB IE.7                      ; CHO PHEP SU DUNG NGAT
+0035 D2AB              9                      SETB IE.3                              ; DUNG NGAT TIMER 1
+0037 758DFF           10                      MOV TH1, #HIGH(-100)                           
+003A 758B9C           11                      MOV TL1, #LOW(-100)    ; NAP 100 MICROSECOND 
+003D D28E             12                      SETB TR1                               ; BAT DAU DEM
+                      13     ;                MOV R7, #255
+003F 7E0A             14                      MOV R6, #10    
+0041                  15     MAIN:
+0041 1149             16                     CALL DOC                                ; QUA TRINH DOC TU CAM BIEN 
+0043 115D             17                     CALL CONVER                             ; QUA TRINH XUAT RA P2
+0045 119D             18                     CALL DELAY
+0047 80F8             19                     SJMP MAIN
+0049                  20     DOC:
+0049 C290             21                     CLR P1.0
+004B D291             22                     SETB P1.1
+004D C292             23                     CLR P1.2
+004F 00               24                     NOP
+0050 D292             25                     SETB P1.2
+0052                  26     DOI:
+0052 3093FD           27                     JNB P1.3, DOI
+0055                  28     VIET:
+0055 C290             29                     CLR P1.0
+0057 C291             30                     CLR P1.1
+0059 85A020           31                     MOV 20H, P2
+005C 22               32                     RET 
+005D                  33     CONVER:
+005D 75F002           34                     MOV B, #2                 ; TINH TOAN CHUYEN DOI HIEN THI 7SEG
+0060 E520             35                     MOV A, 20H
+0062 84               36                     DIV AB
+0063 75F064           37                     MOV B, #100
+0066 84               38                     DIV AB
+0067 E5F0             39                     MOV A, B
+0069 75F00A           40                     MOV B, #10
+006C 84               41                     DIV AB
+006D F530             42                     MOV 30H, A
+006F 85F031           43                     MOV 31H, B 
+0072 22               44                     RET
+0073                  45     HIENTHI:
+0073 C28E             46                     CLR TR1
+0075                  47     HIENTHI1:                                       ; CHUONG TRINH NGAT
+0075 900350           48                     MOV DPTR, #MALED1
+0078 E531             49                     MOV A, 31H
+007A 93               50                     MOVC A, @A+DPTR
+007B F5B0             51                     MOV P3, A
+007D D295             52                     SETB P1.5
+007F 119D             53                     CALL DELAY
+0081 C295             54                     CLR P1.5
+0083 C296             55                     CLR P1.6
+0085 E530             56                     MOV A, 30H
+0087 93               57                     MOVC A, @A+DPTR
+A51 MACRO ASSEMBLER  ADC0804                                                              05/10/2021 21:11:08 PAGE     2
+
+0088 F5B0             58                     MOV P3, A
+008A D296             59                     SETB P1.6
+008C 119D             60                     CALL DELAY
+008E C296             61                     CLR P1.6
+0090 C295             62                     CLR P1.5
+0092 DEE1             63                     DJNZ R6, HIENTHI1
+0094 758DFF           64                     MOV TH1, #HIGH(-100)
+0097 758B9C           65                     MOV TL1, #LOW(-100) 
+009A D28E             66                     SETB TR1
+009C 32               67                     RETI
+                      68     ;DELAY1:
+                      69     ;               CALL DELAY
+                      70     ;               DJNZ R7, DELAY1
+                      71     ;               RET
+                      72     
+009D                  73     DELAY:
+009D 758CFF           74                     MOV TH0, #HIGH(-100)
+00A0 758A9C           75                     MOV TL0, #LOW(-100)
+00A3 D28C             76                     SETB TR0
+00A5 308DFD           77                     JNB TF0, $
+00A8 C28C             78                     CLR TR0
+00AA C28D             79                     CLR TF0
+00AC 22               80                     RET
+0350                  81                     ORG 350H
+0350                  82     MALED1:
+0350 C0F9A4B0         83                     DB 0C0H, 0F9H, 0A4H, 0B0H, 99H, 92H, 82H, 0F8H, 80H, 90H
+0354 999282F8                
+0358 8090                    
+                      84                     END
+                                             ; CHU Y PHAN DELAY KHONG DC NHANH QUA///NEU NHANH QUA THI MO PHONG KHONG CH
+                             AY THEO KIP
+                                             ; SU DUNG NGAT DE TANG KHA NANG HIEN THI
+                                             ; CAN CHINH THOI GIAN HOP LY DE CHAY MO PHONG
+                                             ; DUNG NGAT THI DAP UNG CHO LED7-SEG NHANH HON RAT NHIEU
+A51 MACRO ASSEMBLER  ADC0804                                                              05/10/2021 21:11:08 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+CONVER . . . . . .  C ADDR   005DH   A   
+DELAY. . . . . . .  C ADDR   009DH   A   
+DOC. . . . . . . .  C ADDR   0049H   A   
+DOI. . . . . . . .  C ADDR   0052H   A   
+HIENTHI. . . . . .  C ADDR   0073H   A   
+HIENTHI1 . . . . .  C ADDR   0075H   A   
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0041H   A   
+MALED1 . . . . . .  C ADDR   0350H   A   
+NGAT . . . . . . .  C ADDR   0033H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TL1. . . . . . . .  D ADDR   008BH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+VIET . . . . . . .  C ADDR   0055H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

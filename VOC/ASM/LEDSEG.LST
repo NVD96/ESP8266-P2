@@ -1,0 +1,98 @@
+A51 MACRO ASSEMBLER  LEDSEG                                                               05/03/2021 16:33:04 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN LEDSEG.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  LEDSEG.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1                     ORG 0
+0000 758901            2                     MOV TMOD, #01
+0003 7F01              3                     MOV R7, #1
+0005 7B63              4                     MOV R3, #99
+0007                   5     MAIN:
+0007 1113              6                     CALL HEX_BCD
+0009 111E              7                     CALL BCD_7SEG
+000B 7AFF              8                     MOV R2, #255
+000D                   9     LAP:
+000D 112E             10                     CALL HIENTHI
+                      11     ;               INC R3
+000F DAFC             12                     DJNZ R2, LAP
+0011 80F4             13                     SJMP MAIN
+0013                  14     HEX_BCD:
+0013 EB               15                     MOV A, R3
+0014 75F00A           16                     MOV B, #10
+0017 84               17                     DIV AB
+0018 85F010           18                     MOV 10H, B
+001B F511             19                     MOV 11H, A
+001D 22               20                     RET
+001E                  21     BCD_7SEG:
+001E 7810             22                     MOV R0, #10H
+0020 7920             23                     MOV R1, #20H
+0022 900051           24                     MOV DPTR, #MALED7
+0025                  25     GIAIMA: 
+0025 E6               26                     MOV A, @R0
+0026 93               27                     MOVC A, @A+DPTR
+0027 F7               28                     MOV @R1, A
+0028 08               29                     INC R0
+0029 09               30                     INC R1
+002A B812F8           31                     CJNE R0, #12H, GIAIMA
+002D 22               32                     RET
+002E                  33     HIENTHI:
+002E 7920             34                     MOV R1, #20H
+0030 7402             35                     MOV A, #2
+0032                  36     NAP:
+0032 8790             37                     MOV P1, @R1
+0034 F5A0             38                     MOV P2, A
+0036 1141             39                     CALL DELAY1
+0038 75A000           40                     MOV P2, #0
+003B 09               41                     INC R1
+003C 23               42                     RL A
+003D B408F2           43                     CJNE A, #8, NAP
+0040 22               44                     RET 
+0041                  45     DELAY1:
+0041 758CFF           46                     MOV TH0, #HIGH(-10)
+0044 758AF6           47                     MOV TL0, #LOW(-10)
+0047 D28C             48                     SETB TR0
+0049 308DFD           49                     JNB TF0, $
+004C C28C             50                     CLR TR0
+004E C28D             51                     CLR TF0
+0050 22               52                     RET
+0051                  53     MALED7:
+0051 C0F9A4B0         54             DB 0C0H, 0F9H, 0A4H, 0B0H, 99H, 92H, 82H, 0F8H, 80H, 90H                        ; 8
+                             8H, 83H, 0C6H, 0A1H, 86H, 8EH, 0BFH
+0055 999282F8                
+0059 8090                    
+                      55                     END
+A51 MACRO ASSEMBLER  LEDSEG                                                               05/03/2021 16:33:04 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+BCD_7SEG . . . . .  C ADDR   001EH   A   
+DELAY1 . . . . . .  C ADDR   0041H   A   
+GIAIMA . . . . . .  C ADDR   0025H   A   
+HEX_BCD. . . . . .  C ADDR   0013H   A   
+HIENTHI. . . . . .  C ADDR   002EH   A   
+LAP. . . . . . . .  C ADDR   000DH   A   
+MAIN . . . . . . .  C ADDR   0007H   A   
+MALED7 . . . . . .  C ADDR   0051H   A   
+NAP. . . . . . . .  C ADDR   0032H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

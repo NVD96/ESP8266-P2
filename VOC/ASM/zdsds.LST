@@ -1,0 +1,126 @@
+A51 MACRO ASSEMBLER  ZDSDS                                                                05/12/2021 23:37:20 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN zdsds.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  zdsds.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0030                 1     MAPHIM        EQU    30H
+  0031                 2     MACOT          EQU    31H
+  0032                 3     CHONGDOI    EQU    32H
+  0033                 4     TEMP            EQU    33H
+                       5     
+                       6     ;****************************************************************
+0000                   7             ORG    000H
+0000 7400              8             MOV     A,#0                             ;GIA TRI HIEN THI TREN LED 7 DOAN BAN DAU
+0002 110B              9     X1:   CALL    GIAIMA_HIENTHI
+0004 1112             10     X2:   CALL    QUETPHIM
+0006 B4FFF9           11             CJNE    A,#0FFH,X1
+0009 80F9             12             JMP      X2
+                      13     ;****************************************************************
+000B                  14     GIAIMA_HIENTHI:
+000B 900060           15         MOV      DPTR,#MA7DOAN
+000E 93               16         MOVC    A,@A+DPTR
+000F F590             17         MOV      P1,A
+0011 22               18     RET
+                      19     
+                      20     ;****************************************************************
+0012                  21     QUETPHIM:
+0012 753232           22              MOV    CHONGDOI,#50            ;CHONG DOI KHI NHAN PHIM
+0015 112B             23     X3:    CALL    DOPHIM              
+0017 400F             24             JC         EXIT                             ;C = 1 LA KO CO PHIM NHAN
+0019 D532F9           25             DJNZ     CHONGDOI,X3
+001C F533             26             MOV     TEMP,A                        ;LUU TAM MA PHIM
+                      27       
+001E 753232           28     X4:    MOV    CHONGDOI,#50            ;CHONG DOI KHI NHA PHIM
+0021 112B             29     X5:    CALL    DOPHIM
+0023 50F9             30             JNC       X4                               ;C = 0 LA CO PHIM NHAN
+0025 D532F9           31             DJNZ     CHONGDOI,X5
+0028                  32     EXIT:
+0028 E533             33             MOV     A,TEMP
+002A 22               34     RET
+                      35     
+                      36     ;****************************************************************
+002B                  37     DOPHIM:
+002B 753000           38              MOV    MAPHIM,#0
+002E 7531EF           39              MOV    MACOT,#0EFH            ;MA COT 1
+0031 8531B0           40     X6:    MOV    P3,MACOT
+0034 00               41              NOP                                       ;CHO NHAN PHIM
+0035 00               42              NOP
+0036 00               43              NOP
+0037 00               44              NOP
+0038 00               45              NOP
+0039 00               46              NOP
+003A 00               47              NOP
+003B 00               48              NOP
+003C E5B0             49              MOV     A,P3
+003E 540F             50              ANL      A,#0FH                      ;LAY MA HANG
+0040 B40F12           51              CJNE    A,#0FH,LAPMA          ;KIEM TRA CO NHAN PHIM KO(Chay CT con LAPMA roi tra 
+                             ve cho nao)
+                      52     ;*****ko co phim nhan
+0043 E530             53             MOV     A,MAPHIM
+0045 2404             54             ADD      A,#4
+0047 F530             55             MOV     MAPHIM,A                  ;MAPHIM = MAPHIM + 4
+0049 E531             56             MOV     A,MACOT          
+004B 23               57             RL         A                               ;DICH SANG COT KE
+A51 MACRO ASSEMBLER  ZDSDS                                                                05/12/2021 23:37:20 PAGE     2
+
+004C F531             58             MOV     MACOT,A
+004E B4FEE0           59             CJNE    A,#0FEH,X6                ;KIEM TRA DA DICH DEN COT THU 4 CHUA ?
+0051 D3               60             SETB    C                               ;KO CO PHIM BAM
+0052 74FF             61             MOV     A,#0FFH
+0054 22               62     RET
+                      63     ;*****co phim nhan
+0055                  64     LAPMA:
+0055 13               65            RRC     A
+0056 5004             66            JNC      X7  ;(chay CT con X7 xong roi tra ve cho nao)
+0058 0530             67            INC      MAPHIM                      ;MA PHIM = MA PHIM + 1
+005A 80F9             68            JMP     LAPMA
+005C E530             69     X7:   MOV   A,MAPHIM                   ;DA CO PHIM AN
+005E C3               70            CLR     C
+005F 22               71     RET
+                      72     ;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+0060                  73     MA7DOAN:
+0060 3F065B4F         74             DB 3FH, 06H, 5BH, 4FH, 66H, 6DH, 7DH, 07H, 7FH, 6FH, 77H, 7CH, 39H, 5EH, 79H, 71H, 
+                             40H
+0064 666D7D07                
+0068 7F6F777C                
+006C 395E7971                
+0070 40                      
+                      75     
+                      76     END 
+A51 MACRO ASSEMBLER  ZDSDS                                                                05/12/2021 23:37:20 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CHONGDOI . . . . .  N NUMB   0032H   A   
+DOPHIM . . . . . .  C ADDR   002BH   A   
+EXIT . . . . . . .  C ADDR   0028H   A   
+GIAIMA_HIENTHI . .  C ADDR   000BH   A   
+LAPMA. . . . . . .  C ADDR   0055H   A   
+MA7DOAN. . . . . .  C ADDR   0060H   A   
+MACOT. . . . . . .  N NUMB   0031H   A   
+MAPHIM . . . . . .  N NUMB   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+QUETPHIM . . . . .  C ADDR   0012H   A   
+TEMP . . . . . . .  N NUMB   0033H   A   
+X1 . . . . . . . .  C ADDR   0002H   A   
+X2 . . . . . . . .  C ADDR   0004H   A   
+X3 . . . . . . . .  C ADDR   0015H   A   
+X4 . . . . . . . .  C ADDR   001EH   A   
+X5 . . . . . . . .  C ADDR   0021H   A   
+X6 . . . . . . . .  C ADDR   0031H   A   
+X7 . . . . . . . .  C ADDR   005CH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

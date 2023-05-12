@@ -1,0 +1,267 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        04/21/2022  16:23:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE  testloi.obj TO Bayloi RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  testloi.obj (TESTLOI)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (PRINTF)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CSTPTR)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?PLDIIDATA)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?CCASE)
+  C:\KEIL\C51\LIB\C51S.LIB (PUTCHAR)
+
+
+LINK MAP OF MODULE:  Bayloi (TESTLOI)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0014H     UNIT         _DATA_GROUP_
+            DATA    001CH     0001H     UNIT         ?DT?TESTLOI
+                    001DH     0003H                  *** GAP ***
+            BIT     0020H.0   0001H.1   UNIT         _BIT_GROUP_
+                    0021H.1   0000H.7                *** GAP ***
+            IDATA   0022H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     035CH     UNIT         ?PR?PRINTF?PRINTF
+            CODE    035FH     008EH     UNIT         ?C?LIB_CODE
+            CODE    03EDH     002BH     UNIT         ?PR?MAIN?TESTLOI
+            CODE    0418H     0027H     UNIT         ?PR?PUTCHAR?PUTCHAR
+            CODE    043FH     0024H     UNIT         ?PR?_ROMWRITEBYTE?TESTLOI
+            CODE    0463H     0019H     UNIT         ?PR?_SPIWRITE?TESTLOI
+            CODE    047CH     0015H     UNIT         ?PR?SPIREAD?TESTLOI
+            CODE    0491H     0014H     UNIT         ?PR?_ROMREADBYTE?TESTLOI
+            CODE    04A5H     0014H     UNIT         ?PR?ROMSTATUS?TESTLOI
+            CODE    04B9H     0012H     UNIT         ?CO?TESTLOI
+            CODE    04CBH     000FH     UNIT         ?PR?UARTINIT?TESTLOI
+            CODE    04DAH     000CH     UNIT         ?C_C51STARTUP
+            CODE    04E6H     0007H     UNIT         ?PR?SPIINIT?TESTLOI
+
+
+
+OVERLAY MAP OF MODULE:   Bayloi (TESTLOI)
+
+
+SEGMENT                              BIT_GROUP          DATA_GROUP 
+  +--> CALLED SEGMENT             START    LENGTH     START    LENGTH
+---------------------------------------------------------------------
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/21/2022  16:23:29  PAGE 2
+
+
+?C_C51STARTUP                     -----    -----      -----    -----
+  +--> ?PR?MAIN?TESTLOI
+
+?PR?MAIN?TESTLOI                  -----    -----      -----    -----
+  +--> ?PR?SPIINIT?TESTLOI
+  +--> ?PR?UARTINIT?TESTLOI
+  +--> ?PR?_ROMWRITEBYTE?TESTLOI
+  +--> ?CO?TESTLOI
+  +--> ?PR?PRINTF?PRINTF
+  +--> ?PR?_ROMREADBYTE?TESTLOI
+
+?PR?_ROMWRITEBYTE?TESTLOI         -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?TESTLOI
+  +--> ?PR?ROMSTATUS?TESTLOI
+
+?PR?ROMSTATUS?TESTLOI             -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?TESTLOI
+  +--> ?PR?SPIREAD?TESTLOI
+
+?PR?PRINTF?PRINTF                 0020H.0  0001H.1    0008H    0014H
+  +--> ?PR?PUTCHAR?PUTCHAR
+
+?PR?_ROMREADBYTE?TESTLOI          -----    -----      -----    -----
+  +--> ?PR?_SPIWRITE?TESTLOI
+  +--> ?PR?SPIREAD?TESTLOI
+
+
+
+SYMBOL TABLE OF MODULE:  Bayloi (TESTLOI)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TESTLOI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  C:04E6H         PUBLIC        SPIInit
+  C:0491H         PUBLIC        _ROMReadByte
+  B:00A0H.0       PUBLIC        spi_SCK
+  C:043FH         PUBLIC        _ROMWriteByte
+  C:03EDH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  B:00A0H.3       PUBLIC        spi_CS
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  C:04CBH         PUBLIC        UARTInit
+  B:0088H.6       PUBLIC        TR1
+  D:001CH         PUBLIC        kq
+  B:00A0H.2       PUBLIC        spi_MISO
+  B:00A0H.1       PUBLIC        spi_MOSI
+  C:047CH         PUBLIC        SPIRead
+  C:04A5H         PUBLIC        ROMStatus
+  C:0463H         PUBLIC        _SPIWrite
+  -------         PROC          MAIN
+  C:03EDH         LINE#         26
+  C:03EDH         LINE#         28
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/21/2022  16:23:29  PAGE 3
+
+
+  C:03F0H         LINE#         29
+  C:03F3H         LINE#         30
+  C:03FAH         LINE#         31
+  C:0403H         LINE#         32
+  C:040AH         LINE#         33
+  C:0416H         LINE#         35
+  C:0416H         LINE#         37
+  -------         ENDPROC       MAIN
+  -------         PROC          UARTINIT
+  C:04CBH         LINE#         43
+  C:04CBH         LINE#         44
+  C:04CEH         LINE#         45
+  C:04D1H         LINE#         46
+  C:04D7H         LINE#         47
+  C:04D9H         LINE#         48
+  -------         ENDPROC       UARTINIT
+  -------         PROC          SPIINIT
+  C:04E6H         LINE#         51
+  C:04E6H         LINE#         53
+  C:04E8H         LINE#         54
+  C:04EAH         LINE#         55
+  C:04ECH         LINE#         56
+  -------         ENDPROC       SPIINIT
+  -------         PROC          SPIREAD
+  -------         DO            
+  D:0006H         SYMBOL        i
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:047CH         LINE#         58
+  C:047CH         LINE#         61
+  C:047EH         LINE#         62
+  C:0482H         LINE#         63
+  C:0484H         LINE#         64
+  C:0487H         LINE#         65
+  C:048AH         LINE#         66
+  C:048CH         LINE#         68
+  C:0490H         LINE#         69
+  C:0490H         LINE#         70
+  -------         ENDPROC       SPIREAD
+  -------         PROC          _SPIWRITE
+  D:0007H         SYMBOL        b
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0463H         LINE#         72
+  C:0463H         LINE#         75
+  C:0465H         LINE#         76
+  C:0469H         LINE#         77
+  C:046DH         LINE#         79
+  C:046FH         LINE#         80
+  C:0471H         LINE#         81
+  C:0473H         LINE#         82
+  C:0477H         LINE#         83
+  C:047BH         LINE#         84
+  -------         ENDPROC       _SPIWRITE
+  -------         PROC          _ROMREADBYTE
+  D:0005H         SYMBOL        add
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/21/2022  16:23:29  PAGE 4
+
+
+  -------         DO            
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:0491H         LINE#         86
+  C:0493H         LINE#         89
+  C:0495H         LINE#         90
+  C:049AH         LINE#         91
+  C:049FH         LINE#         92
+  C:04A2H         LINE#         93
+  C:04A4H         LINE#         94
+  C:04A4H         LINE#         96
+  -------         ENDPROC       _ROMREADBYTE
+  -------         PROC          _ROMWRITEBYTE
+  D:0004H         SYMBOL        add
+  D:0005H         SYMBOL        dl
+  C:043FH         LINE#         98
+  C:0441H         LINE#         100
+  C:0443H         LINE#         101
+  C:0448H         LINE#         102
+  C:044AH         LINE#         103
+  C:044CH         LINE#         104
+  C:0451H         LINE#         105
+  C:0456H         LINE#         106
+  C:045BH         LINE#         107
+  C:045DH         LINE#         108
+  C:0462H         LINE#         109
+  -------         ENDPROC       _ROMWRITEBYTE
+  -------         PROC          ROMSTATUS
+  -------         DO            
+  D:0007H         SYMBOL        b
+  -------         ENDDO         
+  C:04A5H         LINE#         112
+  C:04A5H         LINE#         115
+  C:04A7H         LINE#         116
+  C:04ACH         LINE#         117
+  C:04AFH         LINE#         118
+  C:04B1H         LINE#         119
+  C:04B5H         LINE#         120
+  C:04B7H         LINE#         122
+  C:04B8H         LINE#         124
+  -------         ENDPROC       ROMSTATUS
+  -------         ENDMOD        TESTLOI
+
+  -------         MODULE        PRINTF
+  D:0008H         PUBLIC        ?_PRINTF517?BYTE
+  D:0008H         PUBLIC        ?_PRINTF?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF517?BYTE
+  D:0008H         PUBLIC        ?_SPRINTF?BYTE
+  C:0065H         PUBLIC        _PRINTF
+  C:0065H         PUBLIC        _PRINTF517
+  C:005FH         PUBLIC        _SPRINTF
+  C:005FH         PUBLIC        _SPRINTF517
+  -------         ENDMOD        PRINTF
+
+  -------         MODULE        ?C?CLDPTR
+  C:035FH         PUBLIC        ?C?CLDPTR
+  -------         ENDMOD        ?C?CLDPTR
+BL51 BANKED LINKER/LOCATER V6.22                                                      04/21/2022  16:23:29  PAGE 5
+
+
+
+  -------         MODULE        ?C?CLDOPTR
+  C:0378H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTPTR
+  C:03A5H         PUBLIC        ?C?CSTPTR
+  -------         ENDMOD        ?C?CSTPTR
+
+  -------         MODULE        ?C?PLDIIDATA
+  C:03B7H         PUBLIC        ?C?PLDIIDATA
+  -------         ENDMOD        ?C?PLDIIDATA
+
+  -------         MODULE        ?C?CCASE
+  C:03C7H         PUBLIC        ?C?CCASE
+  -------         ENDMOD        ?C?CCASE
+
+  -------         MODULE        PUTCHAR
+  C:0418H         PUBLIC        _PUTCHAR
+  -------         ENDMOD        PUTCHAR
+
+Program Size: data=31.1 xdata=0 code=1261
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

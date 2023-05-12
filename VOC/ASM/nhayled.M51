@@ -1,0 +1,205 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/23/2021  23:05:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE  STARTUP.obj, tl866.obj TO nhayled RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL WITH FLOATING POINT ARITHMETIC
+
+
+INPUT MODULES INCLUDED:
+  STARTUP.obj (?C_STARTUP)
+  tl866.obj (TL866)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPMUL)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FCAST)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?CASTF)
+  C:\KEIL\C51\LIB\C51FPS.LIB (?C?FPGETOPN)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?IMUL)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?UIDIV)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?LNEG)
+
+
+LINK MAP OF MODULE:  nhayled (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0018H     UNIT         ?DT?TL866
+            IDATA   0020H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     023AH     UNIT         ?C?LIB_CODE
+            CODE    023DH     009EH     UNIT         ?PR?MAIN?TL866
+            CODE    02DBH     008CH     UNIT         ?C_C51STARTUP
+            CODE    0367H     0019H     UNIT         ?PR?DELAY?TL866
+            CODE    0380H     0017H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   nhayled (?C_STARTUP)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TL866
+  +--> ?C_INITSEG
+
+?PR?MAIN?TL866
+  +--> ?PR?DELAY?TL866
+
+
+
+SYMBOL TABLE OF MODULE:  nhayled (?C_STARTUP)
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/23/2021  23:05:59  PAGE 2
+
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:02DBH         SEGMENT       ?C_C51STARTUP
+  I:0020H         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:02DEH         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:02DBH         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:02DBH         LINE#         133
+  C:02DDH         LINE#         134
+  C:02DEH         LINE#         135
+  C:02DFH         LINE#         136
+  C:02E1H         LINE#         185
+  C:02E4H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        TL866
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0370H         PUBLIC        delay
+  D:0008H         PUBLIC        array
+  C:023DH         PUBLIC        main
+  D:001CH         PUBLIC        adc
+  B:00B0H.4       PUBLIC        intr
+  D:001EH         PUBLIC        adc_avg
+  B:0080H.7       PUBLIC        dp
+  B:00B0H.5       PUBLIC        cs
+  B:00B0H.7       PUBLIC        rd
+  B:00A0H.0       PUBLIC        led0
+  B:00A0H.1       PUBLIC        led1
+  B:00A0H.2       PUBLIC        led2
+  B:00B0H.6       PUBLIC        wr
+  -------         PROC          L?0011
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/23/2021  23:05:59  PAGE 3
+
+
+  -------         ENDPROC       L?0011
+  -------         PROC          DELAY
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0370H         LINE#         12
+  C:0370H         LINE#         13
+  C:0370H         LINE#         15
+  C:037FH         LINE#         16
+  -------         ENDPROC       DELAY
+  -------         PROC          MAIN
+  -------         DO            
+  D:0003H         SYMBOL        a
+  D:0005H         SYMBOL        b
+  D:0004H         SYMBOL        c
+  -------         ENDDO         
+  C:023DH         LINE#         21
+  C:023DH         LINE#         22
+  C:023DH         LINE#         24
+  C:023FH         LINE#         25
+  C:0245H         LINE#         26
+  C:0245H         LINE#         27
+  C:0245H         LINE#         31
+  C:0247H         LINE#         32
+  C:0249H         LINE#         33
+  C:024CH         LINE#         34
+  C:024EH         LINE#         35
+  C:0255H         LINE#         37
+  C:0277H         LINE#         38
+  C:0280H         LINE#         39
+  C:029CH         LINE#         40
+  C:02B1H         LINE#         41
+  C:02B3H         LINE#         42
+  C:02B4H         LINE#         43
+  C:02B7H         LINE#         44
+  C:02B9H         LINE#         45
+  C:02BBH         LINE#         46
+  C:02C5H         LINE#         47
+  C:02C7H         LINE#         48
+  C:02CAH         LINE#         49
+  C:02CCH         LINE#         50
+  C:02CEH         LINE#         51
+  C:02D0H         LINE#         52
+  C:02D1H         LINE#         53
+  C:02D4H         LINE#         54
+  C:02D6H         LINE#         55
+  C:02D8H         LINE#         56
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TL866
+
+  -------         MODULE        ?C?FPMUL
+  C:0003H         PUBLIC        ?C?FPMUL
+  -------         ENDMOD        ?C?FPMUL
+
+  -------         MODULE        ?C?FCAST
+  C:0113H         PUBLIC        ?C?FCASTC
+  C:010EH         PUBLIC        ?C?FCASTI
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/23/2021  23:05:59  PAGE 4
+
+
+  C:0109H         PUBLIC        ?C?FCASTL
+  -------         ENDMOD        ?C?FCAST
+
+  -------         MODULE        ?C?CASTF
+  C:0147H         PUBLIC        ?C?CASTF
+  -------         ENDMOD        ?C?CASTF
+
+  -------         MODULE        ?C?IMUL
+  C:01C8H         PUBLIC        ?C?IMUL
+  -------         ENDMOD        ?C?IMUL
+
+  -------         MODULE        ?C?UIDIV
+  C:01DAH         PUBLIC        ?C?UIDIV
+  -------         ENDMOD        ?C?UIDIV
+
+  -------         MODULE        ?C?LNEG
+  C:022FH         PUBLIC        ?C?LNEG
+  -------         ENDMOD        ?C?LNEG
+
+Program Size: data=33.0 xdata=0 code=919
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

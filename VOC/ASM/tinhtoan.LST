@@ -1,0 +1,101 @@
+A51 MACRO ASSEMBLER  TINHTOAN                                                             12/15/2021 10:11:05 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN tinhtoan.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  tinhtoan.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H 
+0000 D2A7              2     X: SETB P2.7
+0002 115B              3     CALL DELAY
+0004 C2A7              4     CLR P2.7
+0006 115B              5     CALL DELAY
+0008 D2A7              6     SETB P2.7
+000A 7419              7     MOV A,#25
+000C 75F064            8     MOV B,#100
+000F A4                9     MUL AB
+0010 FC               10     MOV R4,A
+0011 ABF0             11     MOV R3,B
+0013 7D68             12     MOV R5,#104
+0015 75F008           13     MOV B,#08H
+0018 ED               14     MOV A,R5
+0019 C3               15     CLR C
+001A EC               16     DIVIDE: MOV A,R4
+001B 33               17     RLC A
+001C FC               18     MOV R4,A
+001D EB               19     MOV A,R3
+001E 33               20     RLC A
+001F FB               21     MOV R3,A
+0020 4005             22     JC SUBTRACT
+0022 ED               23     MOV A,R5
+0023 9B               24     SUBB A,R3 
+0024 5005             25     JNC NEXT
+0026 C3               26     CLR C
+0027 EB               27     SUBTRACT: MOV A,R3
+0028 9D               28     SUBB A,R5
+0029 FB               29     MOV R3,A
+002A D3               30     SETB C
+002B D5F0EC           31     NEXT: DJNZ B,DIVIDE
+002E EC               32     MOV A,R4
+002F 33               33     RLC A
+0030 75F00A           34     MOV B,#10
+0033 84               35     DIV AB
+0034 A9F0             36     MOV R1,B
+0036 75F00A           37     MOV B,#10
+0039 84               38     DIV AB
+003A 900051           39     MOV DPTR,#MALED
+003D 93               40     MOVC A,@A+DPTR
+003E F5A0             41     MOV P2,A
+0040 E5F0             42     MOV A,B
+0042 900051           43     MOV DPTR,#MALED
+0045 93               44     MOVC A,@A+DPTR
+0046 F5B0             45     MOV P3,A
+0048 E9               46     MOV A,R1
+0049 900051           47     MOV DPTR,#MALED
+004C 93               48     MOVC A,@A+DPTR
+004D F580             49     MOV P0,A 
+004F 80AF             50     JMP X
+0051                  51     MALED:
+0051 C0F9A4B0         52              DB 0C0H,0F9H,0A4H,0B0H,99H,92H,82H,0F8H,80H,90H
+0055 999282F8                
+0059 8090                    
+005B 780A             53     DELAY:MOV R0,#10
+005D 7964             54     W3: MOV R1,#100
+005F 7A64             55     W2: MOV R2,#100
+0061 DAFE             56     W1: DJNZ R2,$
+A51 MACRO ASSEMBLER  TINHTOAN                                                             12/15/2021 10:11:05 PAGE     2
+
+0063 D9FA             57     DJNZ R1,W2
+0065 D8F6             58     DJNZ R0,W3
+0067 22               59     RET
+                      60     END
+                             
+A51 MACRO ASSEMBLER  TINHTOAN                                                             12/15/2021 10:11:05 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DELAY. . . . . . .  C ADDR   005BH   A   
+DIVIDE . . . . . .  C ADDR   001AH   A   
+MALED. . . . . . .  C ADDR   0051H   A   
+NEXT . . . . . . .  C ADDR   002BH   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+SUBTRACT . . . . .  C ADDR   0027H   A   
+W1 . . . . . . . .  C ADDR   0061H   A   
+W2 . . . . . . . .  C ADDR   005FH   A   
+W3 . . . . . . . .  C ADDR   005DH   A   
+X. . . . . . . . .  C ADDR   0000H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

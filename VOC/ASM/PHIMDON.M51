@@ -1,0 +1,108 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/12/2021  13:35:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE  zdsds.obj TO PHIMDON
+
+
+INPUT MODULES INCLUDED:
+  zdsds.obj (ZDSDS)
+
+
+LINK MAP OF MODULE:  PHIMDON (ZDSDS)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     006EH     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  PHIMDON (ZDSDS)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ZDSDS
+  N:0032H         SYMBOL        CHONGDOI
+  C:002BH         SYMBOL        DOPHIM
+  C:0028H         SYMBOL        EXIT
+  C:000BH         SYMBOL        GIAIMA_HIENTHI
+  C:0055H         SYMBOL        LAPMA
+  C:0060H         SYMBOL        MA7DOAN
+  N:0031H         SYMBOL        MACOT
+  N:0030H         SYMBOL        MAPHIM
+  D:0080H         SYMBOL        P0
+  D:00B0H         SYMBOL        P3
+  C:0012H         SYMBOL        QUETPHIM
+  N:0033H         SYMBOL        TEMP
+  C:0002H         SYMBOL        X1
+  C:0004H         SYMBOL        X2
+  C:0015H         SYMBOL        X3
+  C:001EH         SYMBOL        X4
+  C:0021H         SYMBOL        X5
+  C:0031H         SYMBOL        X6
+  C:005CH         SYMBOL        X7
+  C:0000H         LINE#         8
+  C:0002H         LINE#         9
+  C:0004H         LINE#         10
+  C:0006H         LINE#         11
+  C:0009H         LINE#         12
+  C:000BH         LINE#         15
+  C:000EH         LINE#         16
+  C:000FH         LINE#         17
+  C:0011H         LINE#         18
+  C:0012H         LINE#         22
+  C:0015H         LINE#         23
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/12/2021  13:35:16  PAGE 2
+
+
+  C:0017H         LINE#         24
+  C:0019H         LINE#         25
+  C:001CH         LINE#         26
+  C:001EH         LINE#         28
+  C:0021H         LINE#         29
+  C:0023H         LINE#         30
+  C:0025H         LINE#         31
+  C:0028H         LINE#         33
+  C:002AH         LINE#         34
+  C:002BH         LINE#         38
+  C:002EH         LINE#         39
+  C:0031H         LINE#         40
+  C:0034H         LINE#         41
+  C:0035H         LINE#         42
+  C:0036H         LINE#         43
+  C:0037H         LINE#         44
+  C:0038H         LINE#         45
+  C:0039H         LINE#         46
+  C:003AH         LINE#         47
+  C:003BH         LINE#         48
+  C:003CH         LINE#         49
+  C:003EH         LINE#         50
+  C:0040H         LINE#         51
+  C:0043H         LINE#         53
+  C:0045H         LINE#         54
+  C:0047H         LINE#         55
+  C:0049H         LINE#         56
+  C:004BH         LINE#         57
+  C:004CH         LINE#         58
+  C:004EH         LINE#         59
+  C:0051H         LINE#         60
+  C:0052H         LINE#         61
+  C:0054H         LINE#         62
+  C:0055H         LINE#         65
+  C:0056H         LINE#         66
+  C:0058H         LINE#         67
+  C:005AH         LINE#         68
+  C:005CH         LINE#         69
+  C:005EH         LINE#         70
+  C:005FH         LINE#         71
+  -------         ENDMOD        ZDSDS
+
+Program Size: data=8.0 xdata=0 code=110
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

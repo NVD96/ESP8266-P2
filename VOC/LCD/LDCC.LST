@@ -1,0 +1,201 @@
+C51 COMPILER V9.01   LDCC                                                                  04/21/2022 09:11:55 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE LDCC
+OBJECT MODULE PLACED IN LDCC.OBJ
+COMPILER INVOKED BY: c:\keil\c51\bin\c51.exe  LDCC.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<regx52.h>
+   2          
+   3          sbit LCD_RS = P3^5;
+   4          sbit LCD_EN = P3^7;
+   5          sbit LCD_RW = P3^6;     
+   6          sbit spi_SCK = P2^0;
+   7          sbit spi_MOSI = P2^1;
+   8          sbit spi_MISO = P2^2;
+   9          sbit spi_CS = P2^3; 
+  10          #define LCD_DATA P1      // Khai báo chân data.
+  11          
+  12          unsigned char kqua;
+  13          
+  14          
+  15          void Delay_ms(unsigned int t) //Hàm delay
+  16          {
+  17   1              unsigned int x, y ;
+  18   1              for(x=0;x<t;x++)
+  19   1              {
+  20   2               for(y = 0; y<123;y++);
+  21   2              }
+  22   1      }
+  23          
+  24          void SPIInit(){
+  25   1        
+  26   1               spi_CS = 1;      //set muc cao, chuan bi set muc thap de truyen data
+  27   1               spi_SCK = 0;     // set muc thap chuan bi phat xung clock
+  28   1               spi_MISO = 1;   //set muc cao o chip master, san sang doc data tu slave
+  29   1        }
+  30          
+  31          
+  32          unsigned char SPIRead(){                  //Ham doc data
+  33   1        
+  34   1               unsigned char i, b;
+  35   1               for (i = 0; i < 8; i++){       //doc ve 1 byte
+  36   2               b<<=1;                    // dich byte b sang trai 1 bit 
+  37   2               spi_SCK = 1;      // bat dau nhan bit dau tien
+  38   2               if(spi_MISO)      //kiem tra muc tin hieu cua chan MISO 
+  39   2               b|=0x01;                  // dua tin hieu bit cua chan MISO vao byte b
+  40   2               spi_SCK = 0;      // ket thuc qua trinh nhan 1 bit
+  41   2               
+  42   2               }   
+  43   1              return b;        // khi doc du 1 byte tra ve gias tri doc duoc
+  44   1        }
+  45          
+  46          void SPIWrite(unsigned char b){
+  47   1        
+  48   1               unsigned char i;
+  49   1               for(i = 0; i < 8; i++){  // Ghi 1 byte vao EEFROM
+  50   2               spi_SCK = 0;                     // chuan bi de gui 1 bit
+  51   2               if( b &0x80)                     // So sanh de lay gia tri bit dau tien (gui bit cao truoc [bit 7]--> bit thap sau [bit 
+             -1])
+  52   2               spi_MOSI = 1;                    // Neu bit =1 thi chan MOSI = 1
+  53   2               else 
+  54   2               spi_MOSI = 0;                   // Neu bit =0 thi chan MOSI = 0
+C51 COMPILER V9.01   LDCC                                                                  04/21/2022 09:11:55 PAGE 2   
+
+  55   2               spi_SCK =1;                     // Bat dau ghi 1 bit
+  56   2               b<<=1;                                  // Dich trai 1 bit de lay bit tiep theo
+  57   2               }
+  58   1        }
+  59          
+  60          void Lcd_cmd(unsigned char cmd)   //Hàm g?i l?nh ra LCD
+  61          
+  62          { 
+  63   1      
+  64   1         LCD_RW =0;// Ch?n ch? d? ghi
+  65   1         LCD_RS =0;// Ch?n ch? d? ghi l?nh
+  66   1         LCD_DATA =cmd;// cmd là l?nh c?n g?i ra màn hình
+  67   1         LCD_EN = 0;                                            
+  68   1         LCD_EN =1;
+  69   1         if(cmd<=0x02){
+  70   2         Delay_ms(2);
+  71   2         }
+  72   1         else{
+  73   2         Delay_ms(1);}
+  74   1      
+  75   1      }
+  76          void Lcd_Char_Cp(char c)//Hàm hi?n th? 1 kí t? t?i v? trí con tr?
+  77          {
+  78   1         LCD_RW =0;
+  79   1         LCD_RS =1; //Ch?n ch? d? g?i d? li?u
+  80   1         LCD_DATA =c;  //Kí t? c?n g?i ra màn hình
+  81   1         LCD_EN = 0;
+  82   1         LCD_EN =1;
+  83   1         Delay_ms(1);
+  84   1      
+  85   1      }
+  86          void Lcd_Out_Cp(char *str)// Hàm g?i chu?i kí t? t?i v? trí con tr?
+  87          
+  88          {
+  89   1      
+  90   1      unsigned char i=0;
+  91   1      while(str[i]!=0)  //G?i t?ng kí t? c?a chu?i d?n khi g?p kí t? null
+  92   1      {
+  93   2               Lcd_Char_Cp(str[i]);
+  94   2               i++;
+  95   2      }
+  96   1      
+  97   1      }
+  98          
+  99          
+ 100          void Lcd_Out(unsigned char row, unsigned char col, char *str)           //Hàm Di chuy?n v? trí con tr? d?n v? trí b
+             -?t kì và in chu?i ra màn hình
+ 101          {
+ 102   1              unsigned char cmd;
+ 103   1      
+ 104   1              // Di chuy?n con tr? d?n v? trí c?n thi?t
+ 105   1              cmd = (row==1?0x80:0xC0) + col - 1;
+ 106   1              Lcd_cmd(cmd);
+ 107   1              Lcd_Out_Cp(str);
+ 108   1      
+ 109   1      }
+ 110          
+ 111          
+ 112          void Lcd_Init() //Hàm kh?i t?o LCD
+ 113          {
+ 114   1      
+ 115   1       Lcd_cmd(0x30);
+C51 COMPILER V9.01   LDCC                                                                  04/21/2022 09:11:55 PAGE 3   
+
+ 116   1       Delay_ms(5);
+ 117   1       Lcd_cmd(0x30);
+ 118   1       Delay_ms(1);
+ 119   1       Lcd_cmd(0x30);
+ 120   1       Lcd_cmd(0x38);   // S? dòng hi?n th? là 2, c? ch? 5x8
+ 121   1       Lcd_cmd(0x01);   // xóa màn hình
+ 122   1       Lcd_cmd(0x0C);   //B?t hi?n th? và t?t con tr? các b?n có th? dùng l?nh 0xE0 d? b?t hi?n th? và b?t con t
+             -r?
+ 123   1      
+ 124   1      
+ 125   1      
+ 126   1      }
+ 127          
+ 128          
+ 129          main()
+ 130          
+ 131          {
+ 132   1       
+ 133   1      Lcd_Init();
+ 134   1      SPIInit();
+ 135   1      
+ 136   1      //RESET
+ 137   1      spi_CS = 0;
+ 138   1      SPIWrite(0xFF);
+ 139   1      SPIWrite(0x00);
+ 140   1      spi_CS = 1;
+ 141   1      Delay_ms(100);
+ 142   1      
+ 143   1      // SET BANK
+ 144   1      spi_CS = 0;
+ 145   1      Delay_ms(1);
+ 146   1      SPIWrite(0x9F);
+ 147   1      SPIWrite(0x03);
+ 148   1      spi_CS = 1;
+ 149   1      Delay_ms(1);
+ 150   1      
+ 151   1      spi_CS = 0;
+ 152   1      SPIWrite(0xBF);
+ 153   1      SPIWrite(0x00);
+ 154   1      spi_CS = 1;
+ 155   1      Delay_ms(1);
+ 156   1      
+ 157   1      spi_SCK = 0;
+ 158   1      spi_CS = 0;
+ 159   1      SPIWrite(0x00);
+ 160   1      kqua = SPIRead();
+ 161   1      spi_CS = 1;
+ 162   1      if(kqua == 0xFA)
+ 163   1              Lcd_Out(1, 2, "DUNG");
+ 164   1      else 
+ 165   1          Lcd_Out(1, 2, "SAI");
+ 166   1      while(1)
+ 167   1      {
+ 168   2      }
+ 169   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    342    ----
+   CONSTANT SIZE    =      9    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   LDCC                                                                  04/21/2022 09:11:55 PAGE 4   
+
+   DATA SIZE        =      1       7
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

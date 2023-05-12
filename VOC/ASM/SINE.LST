@@ -1,0 +1,321 @@
+A51 MACRO ASSEMBLER  SINE                                                                 02/14/2022 12:13:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN SINE.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  SINE.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     ;*************************************************************
+                       2     ;** SIMPLE SCALAR (V/F) INVERTER CONTROL OF INDUCTION MOTOR **
+                       3     ;** VIA PWM TECHNIQUE                                       **
+                       4     ;**                                                         **
+                       5     ;** AUTHOR: EZEQUIEL RABELO DE AGUIAR  (ZECRUEL@IG.COM.BR)  **
+                       6     ;** DATE: FEB/2014                                          **
+                       7     ;** TARGET: 8051 ARCHITECTURE (FITS ON AT89C2051)           **
+                       8     ;** CHARACTERISTICS:                                        **
+                       9     ;**    OUT FREQUENCIES AVAILABLE: 60,50,40,30,20 AND 10Hz   **
+                      10     ;**    CRYSTAL = 11.0592MHz                                 **
+                      11     ;**    INPUT = ONE BUTTON (P3.7)                            **
+                      12     ;**    OUTPUTS = SIX LED INDICATORS (P3.0 TO P3.5)          **
+                      13     ;**              PWM OUT (P1.0)                             **
+                      14     ;**              POLARITY OUT (P1.1)                        **
+                      15     ;**                                                         **
+                      16     ;*************************************************************
+                      17     
+                      18     ;======== CONSTANTS=====================
+                      19             ;VALUES OF THE AMPLITUDE STEP OF THE SAWTOOTH WAVE, ACCORDING TO THE FREQUENCY
+  001C                20             STEP_60 EQU 28D 
+  0005                21             STEP_50 EQU 5D
+  0006                22             STEP_40 EQU 6D
+  0008                23             STEP_30 EQU 8D
+  000B                24             STEP_20 EQU 11D
+  0017                25             STEP_10 EQU 23D
+                      26             
+                      27             ;VALUE TO BE RELOADED IN SAWTHOOTH´S TIMER
+                      28             ;SAW FREQ = 1200Hz IN 10 STEPS
+  00B3                29             T_SAW EQU 179D
+                      30             
+                      31             ;VALUES TO BE RELOADED IN SINE´S TIMER, ACCORDING TO THE FREQUENCY
+  FE80                32             T_60 EQU 65152D
+  FE33                33             T_50 EQU 65075D
+  FDC0                34             T_40 EQU 64960D
+  FD00                35             T_30 EQU 64768D
+  FB80                36             T_20 EQU 64384D
+  F700                37             T_10 EQU 63232D
+                      38             
+                      39     ;======== VARIABLES IN INTERNAL RAM=====================
+  0020                40             SINE EQU 20H            ;SINE'S CURRENT VALUE
+  0021                41             COUNT_SIN EQU 21H       ;COUNTER FOR THE SINE'S LOOCKUP TABLE
+  0022                42             SAWTOOTH EQU 22H        ;SAWTHOOTH´S CURRENT VALUE
+  0023                43             COUNT_SAW EQU 23H       ;COUNTER FOR THE SAWTHOOTH WAVE GENERATOR
+  0024                44             STEP_SAW EQU 24H        ;CURRENT STEP FOR THE SAW'S COUNTER, ACCORDING TO THE FREQU
+                             ENCY
+  0025                45             T_SIN_L EQU 25H         ;VALUE TO BE RELOADED IN SINE´S TIMER, LOW BYTE
+  0026                46             T_SIN_H EQU 26H         ;VALUE TO BE RELOADED IN SINE´S TIMER, HIGH BYTE
+  0027                47             FREQ EQU 27H            ;CURRENT FREQUENCY INDEX, WHERE 0 = 60HZ ... 5 = 10HZ
+                      48     
+                      49     ;======= FLOW AFTER RESET AND INTERRUPTS ===========
+                      50     ;======= 8051 ARCHITETURE =======================
+0000                  51             ORG 0000H
+0000 8053             52             SJMP START              ;RESET-> PROGRAM INITIALIZATION
+                      53     
+                      54             ;ORG 03H                ;IE0 INTERRUPT
+                      55     
+000B                  56             ORG     0BH             ;T0 INTERRUPT
+000B 8010             57             SJMP    T0_INT          ; -> SINE WAVE GENERATION
+A51 MACRO ASSEMBLER  SINE                                                                 02/14/2022 12:13:29 PAGE     2
+
+                      58     
+                      59             ;ORG 13H                ;IE1 INTERRUPT
+                      60     
+001B                  61             ORG     1BH             ;T1 INTERRUPT
+001B 8021             62             SJMP    T1_INT          ; -> SAW WAVE GENERATION AND PWM OUTPUT
+                      63             
+                      64             ;ORG    23H             ; SERIAL INTERRUPT
+                      65             ;ORG    2BH             ; T2 INTERRUPT
+                      66             
+                      67     ;===== SINE WAVE GENERATION =======
+                      68     ;THE SINE WAVE IS USED AS A COMPARATIVE REFERENCE IN THE PWM OUTPUT.
+                      69     ;THE SINE VALUE IS PERIODICALLY UPDATED BY T0 INTERRUPTION CALL,
+                      70     ;VIA LOOKUP TABLE TECHNIQUE. THE TIME OF INTERRUPTION VARIES, 
+                      71     ;DEPENDING ON THE SELECTED OUTPUT FREQ.
+                      72     
+001D                  73     T0_INT:
+001D C28C             74             CLR TR0                 ;STOP THE TIMER
+001F 900116           75             MOV DPTR, #SINE_WAVE
+0022 E521             76             MOV A, COUNT_SIN
+0024 93               77             MOVC A, @A+DPTR         ;SEE THE VALUE OF COUNT_SIN INDEX IN THE SINE_WAVE TABLE
+0025 F520             78             MOV SINE, A             ;AND STORE IN SINE VARIABLE
+                      79             
+0027 A207             80             MOV C, SINE.7           ;HIGH BIT OF VALUE IS THE POLARITY
+0029 9291             81             MOV P1.1,C              ;SEND IT TO THE OWN OUTPUT
+                      82             ;CLR SINE.7             ;AND CLEAR IT
+                      83             
+002B 0521             84             INC COUNT_SIN           ;GO TO NEXT VALUE
+002D E521             85             MOV A, COUNT_SIN
+                      86             
+002F B42803           87             CJNE A, #40, QUIT_T0    ;CHECK IF TABLE ARE AT THE END
+0032 752100           88             MOV COUNT_SIN, #0       ;THEN, RESTART THE TABLE COUNT
+                      89             
+0035                  90     QUIT_T0:
+0035 85258A           91             MOV     TL0, T_SIN_L    ;RELOAD THE TIMER COUNTER
+0038 85268C           92             MOV     TH0, T_SIN_H
+003B D28C             93             SETB TR0                ;RESTART THE TIMER
+003D 32               94             RETI
+                      95     
+                      96     ;===== SAW WAVE GENERATION  AND PWM OUTPUT =======
+                      97     ;THE FREQUENCY OF SAWTHOOTH WAVE IS FIXED AT 1200Hz,
+                      98     ;AND THIS SIGNAL IS GENERATE WITH 10 STEPS.
+                      99     
+003E                 100     T1_INT:
+                     101             ;FIRST, THE PWM!
+003E E522            102             MOV A,SAWTOOTH          ;COMPARES THE SAW WAVE
+0040 9520            103             SUBB A,SINE             ;VERSUS THE SINE WAVE
+0042 9290            104             MOV P1.0,C              ;<==== PMW OUTPUT
+                     105     
+                     106             ;CONTINUE THE SAWTOOTH WAVE GENERATION
+0044 E522            107             MOV A, SAWTOOTH         
+0046 2524            108             ADD A, STEP_SAW         ;INCREMENT THE SAW WIHT CURRENT STEP
+0048 F522            109             MOV SAWTOOTH, A
+                     110             
+004A D52306          111             DJNZ COUNT_SAW, QUIT_T1 ;CHECK IT'S DONE
+004D 752200          112             MOV SAWTOOTH, #0        ;THEN, RESTART THE WAVE
+0050 75230A          113             MOV COUNT_SAW, #10D     ;AND RESET ITS COUNTER
+0053                 114     QUIT_T1:
+0053 18              115             DEC R0                  ;R0 FOR BUTTON DEBOUNCE ROUTINE
+0054 32              116             RETI
+                     117     
+                     118     ;=========== INITIALIZATION =============
+0055                 119     START:
+                     120             ;INITIALIZE VARIABLES FOR 60Hz OUTPUT
+0055 752100          121             MOV     COUNT_SIN, #0H
+0058 75241C          122             MOV STEP_SAW,#STEP_60
+005B 752580          123             MOV T_SIN_L,#LOW(T_60)
+A51 MACRO ASSEMBLER  SINE                                                                 02/14/2022 12:13:29 PAGE     3
+
+005E 7526FE          124             MOV T_SIN_H,#HIGH(T_60)
+0061 752700          125             MOV FREQ, #0
+0064 C2B0            126             CLR P3.0                ;<--- LED INDICATOR
+                     127             
+                     128             ;INITIALIZE SAW'S VARIABLES
+0066 752200          129             MOV SAWTOOTH,#0
+0069 75230A          130             MOV     COUNT_SAW, #10D
+                     131             
+                     132             ;INITIALIZE TIMERS
+006C 85258A          133             MOV     TL0, T_SIN_L
+006F 85268C          134             MOV     TH0, T_SIN_H
+0072 758DB3          135             MOV     TH1, #T_SAW
+0075 758921          136             MOV     TMOD, #21H      ;TIMER0 MODE 1, TIMER1 MODE 2
+0078 D2A9            137             SETB ET0                ;ENABLE T0 INTERRUPT
+007A D2AB            138             SETB ET1                ;ENABLE T1 INTERRUPT
+007C D2AF            139             SETB EA                 ;ENABLE INTERRUPTS
+007E D28C            140             SETB    TR0             ;START TIMER 0
+0080 D28E            141             SETB    TR1             ;START TIMER 1
+                     142             
+0082 759000          143             MOV P1,#0               ;CLEAR OUTPUT
+                     144     
+                     145     ;============ MAIN LOOP (OR IDLE STATE) ===========
+0085                 146     MAIN:
+                     147     
+                     148             ;----------- USER INTERFACE  -------
+                     149             ;USER ACTION -> PRESS THE BUTTON FOR CHANGE THE OUTPUT FREQ
+                     150             ;INDICATION -> ONE LED FOR EVERY FREQ AVAILABLE
+                     151             
+0085                 152     WAIT_PRESS:
+0085 20B7FD          153             JB P3.7,WAIT_PRESS      ;CHECK IF BUTTON WAS PRESSED
+0088 7801            154             MOV R0, #01H            ;THEN, WAIT THE HOLD TIME (DEBOUNCE), VIA TIMER 1
+008A                 155     HOLD_TIME:
+008A 20B7F8          156             JB P3.7, WAIT_PRESS     ;BUTTON STILL PRESSED
+008D B800FA          157             CJNE R0,#0, HOLD_TIME   ;AND HOLD TIME ELAPSED
+                     158             
+                     159             ;PRESSED BUTTON FOR SURE, NEXT: SELECT THE OUTPUT FREQ
+                     160     
+0090 A927            161             MOV R1,FREQ             ;CHECK THE PAST FREQ
+0092                 162     F_60:
+0092 B90013          163             CJNE R1,#0, F_50        ;IF PAST FREQ IS 60HZ (INDEX 0)
+0095 752701          164             MOV FREQ,#1             ;CHANGE TO 50Hz (INDEX 1)
+0098 752405          165             MOV STEP_SAW,#STEP_50   ;CHANGE THE AMPLITUDE OF SAW WAVE
+009B 752533          166             MOV T_SIN_L,#LOW(T_50)  ;CHANGE THE FREQ OF SINE WAVE
+009E 7526FE          167             MOV T_SIN_H,#HIGH(T_50) ;
+00A1 43B03F          168             ORL P3,#00111111B       ;CLEAR ALL LEDS
+00A4 C2B1            169             CLR P3.1                ;<--- LED INDICATOR FOR 50HZ
+00A6 8069            170             SJMP RELEASE_B          ;WAIT THE BUTON RELEASE
+                     171             
+                     172             ;FOR THE OTHER FREQS, THE PROCEDURE IS SIMILAR
+00A8                 173     F_50:
+00A8 B90113          174             CJNE R1,#1,F_40         
+00AB 752702          175             MOV FREQ,#2
+00AE 752406          176             MOV STEP_SAW,#STEP_40
+00B1 7525C0          177             MOV T_SIN_L,#LOW(T_40)
+00B4 7526FD          178             MOV T_SIN_H,#HIGH(T_40)
+00B7 43B03F          179             ORL P3,#00111111B
+00BA C2B2            180             CLR P3.2
+00BC 8053            181             SJMP RELEASE_B
+00BE                 182     F_40:
+00BE B90213          183             CJNE R1,#2,F_30
+00C1 752703          184             MOV FREQ,#3
+00C4 752408          185             MOV STEP_SAW,#STEP_30
+00C7 752500          186             MOV T_SIN_L,#LOW(T_30)
+00CA 7526FD          187             MOV T_SIN_H,#HIGH(T_30)
+00CD 43B03F          188             ORL P3,#00111111B
+00D0 C2B3            189             CLR P3.3
+A51 MACRO ASSEMBLER  SINE                                                                 02/14/2022 12:13:29 PAGE     4
+
+00D2 803D            190             SJMP RELEASE_B
+00D4                 191     F_30:
+00D4 B90313          192             CJNE R1,#3,F_20
+00D7 752704          193             MOV FREQ,#4
+00DA 75240B          194             MOV STEP_SAW,#STEP_20
+00DD 752580          195             MOV T_SIN_L,#LOW(T_20)
+00E0 7526FB          196             MOV T_SIN_H,#HIGH(T_20)
+00E3 43B03F          197             ORL P3,#00111111B
+00E6 C2B4            198             CLR P3.4
+00E8 8027            199             SJMP RELEASE_B
+00EA                 200     F_20:
+00EA B90413          201             CJNE R1,#4,F_10
+00ED 752705          202             MOV FREQ,#5
+00F0 752417          203             MOV STEP_SAW,#STEP_10
+00F3 752500          204             MOV T_SIN_L,#LOW(T_10)
+00F6 7526F7          205             MOV T_SIN_H,#HIGH(T_10)
+00F9 43B03F          206             ORL P3,#00111111B
+00FC C2B5            207             CLR P3.5
+00FE 8011            208             SJMP RELEASE_B
+0100                 209     F_10:
+                     210             ;IF PAST FREQ IS 10HZ (FOR EXCLUSION)
+                     211             ;THEN BACK TO 60HZ
+0100 752700          212             MOV FREQ,#0
+0103 75241C          213             MOV STEP_SAW,#STEP_60
+0106 752580          214             MOV T_SIN_L,#LOW(T_60)
+0109 7526FE          215             MOV T_SIN_H,#HIGH(T_60)
+010C 43B03F          216             ORL P3,#00111111B
+010F C2B0            217             CLR P3.0
+                     218             
+                     219             ;--------------------------------------------------
+0111                 220     RELEASE_B:
+0111 30B7FD          221             JNB P3.7,RELEASE_B      ;WAIT THE BUTON RELEASE
+                     222     
+0114 0185            223     AJMP    MAIN    ;INFINITE LOOP
+                     224     
+                     225     ;======== SINE WAVE TABLE ==================
+                     226     ;FULL CYCLE OF SINE WAVE, SAMPLED AT 40 POINTS
+                     227     ;MOST SIGNIFICANT BIT INDICATES NEGATIVE POLARITY
+0116                 228     SINE_WAVE: 
+0116 8094A7BA        229             DB 128,148,167,186,203,218,231,242,249,254,255,254,249,242,231,218,203,186,168,148,
+                             128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+011A CBDAE7F2                
+011E F9FEFFFE                
+0122 F9F2E7DA                
+0126 CBBAA894                
+012A 80000000                
+012E 00000000                
+0132 00000000                
+0136 00000000                
+013A 00000000                
+013E 00                      
+                     230     
+                     231     ;======================================
+                     232     END
+A51 MACRO ASSEMBLER  SINE                                                                 02/14/2022 12:13:29 PAGE     5
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+COUNT_SAW. . . . .  N NUMB   0023H   A   
+COUNT_SIN. . . . .  N NUMB   0021H   A   
+EA . . . . . . . .  B ADDR   00A8H.7 A   
+ET0. . . . . . . .  B ADDR   00A8H.1 A   
+ET1. . . . . . . .  B ADDR   00A8H.3 A   
+FREQ . . . . . . .  N NUMB   0027H   A   
+F_10 . . . . . . .  C ADDR   0100H   A   
+F_20 . . . . . . .  C ADDR   00EAH   A   
+F_30 . . . . . . .  C ADDR   00D4H   A   
+F_40 . . . . . . .  C ADDR   00BEH   A   
+F_50 . . . . . . .  C ADDR   00A8H   A   
+F_60 . . . . . . .  C ADDR   0092H   A   
+HOLD_TIME. . . . .  C ADDR   008AH   A   
+MAIN . . . . . . .  C ADDR   0085H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+QUIT_T0. . . . . .  C ADDR   0035H   A   
+QUIT_T1. . . . . .  C ADDR   0053H   A   
+RELEASE_B. . . . .  C ADDR   0111H   A   
+SAWTOOTH . . . . .  N NUMB   0022H   A   
+SINE . . . . . . .  N NUMB   0020H   A   
+SINE_WAVE. . . . .  C ADDR   0116H   A   
+START. . . . . . .  C ADDR   0055H   A   
+STEP_10. . . . . .  N NUMB   0017H   A   
+STEP_20. . . . . .  N NUMB   000BH   A   
+STEP_30. . . . . .  N NUMB   0008H   A   
+STEP_40. . . . . .  N NUMB   0006H   A   
+STEP_50. . . . . .  N NUMB   0005H   A   
+STEP_60. . . . . .  N NUMB   001CH   A   
+STEP_SAW . . . . .  N NUMB   0024H   A   
+T0_INT . . . . . .  C ADDR   001DH   A   
+T1_INT . . . . . .  C ADDR   003EH   A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+T_10 . . . . . . .  N NUMB   F700H   A   
+T_20 . . . . . . .  N NUMB   FB80H   A   
+T_30 . . . . . . .  N NUMB   FD00H   A   
+T_40 . . . . . . .  N NUMB   FDC0H   A   
+T_50 . . . . . . .  N NUMB   FE33H   A   
+T_60 . . . . . . .  N NUMB   FE80H   A   
+T_SAW. . . . . . .  N NUMB   00B3H   A   
+T_SIN_H. . . . . .  N NUMB   0026H   A   
+T_SIN_L. . . . . .  N NUMB   0025H   A   
+WAIT_PRESS . . . .  C ADDR   0085H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

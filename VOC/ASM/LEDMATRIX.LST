@@ -1,0 +1,91 @@
+A51 MACRO ASSEMBLER  LEDMATRIX                                                            05/12/2021 23:54:49 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN LEDMATRIX.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  LEDMATRIX.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0
+0000 758901            2             MOV TMOD, #01
+0003 7FC8              3             MOV R7, #200
+0005                   4     CT: 
+0005 900500            5             MOV DPTR, #MALED
+0008 7A01              6             MOV R2, #1
+000A                   7     MAIN:
+000A 7800              8             MOV R0, #0
+000C 75A001            9             MOV P2, #00000001B
+000F                  10     QUETCOT:
+000F E8               11             MOV A, R0
+0010 93               12             MOVC A, @A+DPTR
+0011 F590             13             MOV P1, A
+0013 08               14             INC R0
+0014 1126             15             CALL DELAY
+0016 E5A0             16             MOV A, P2
+0018 23               17             RL A
+0019 F5A0             18             MOV P2, A
+001B B401F1           19             CJNE A, #00000001B, QUETCOT
+                      20     ;       DJNZ  R2, MAIN
+001E A3               21             INC DPTR
+001F E582             22             MOV A, DPL
+0021 B428E6           23             CJNE A, #40, MAIN
+0024 80DF             24             SJMP CT
+0026                  25     DELAY:
+0026 112B             26             CALL DELAY1
+0028 DFFC             27             DJNZ R7, DELAY
+002A 22               28             RET
+002B                  29     DELAY1:
+002B 758CFF           30              MOV TH0, #HIGH(-20)
+002E 758AEC           31              MOV TL0, #LOW(-20)
+0031 D28C             32              SETB TR0
+0033 308DFD           33              JNB TF0, $
+0036 C28C             34              CLR TR0
+0038 C28D             35              CLR TF0
+003A 22               36              RET
+                      37     ;CHAYLED:
+                      38     ;       DB  80H,40H,20H,10H,08H,04H,02H,01H,00H
+0500                  39             ORG 500H
+0500                  40     MALED:
+0500 FFFFFFFF         41             DB  0FFH, 0FFH, 0FFH,0FFH,0FFH,0FFH,0FFH,0FFH
+0504 FFFFFFFF                
+0508 0000F9F3         42             DB      00H,00H,0F9H,0F3H,0E7H,0CFH,00H,00H              ; CHU N
+050C E7CF0000                
+0510 FFFFFFFF         43             DB  0FFH, 0FFH, 0FFH,0FFH                                        ; KHOANG TRONG 
+0514 FFC0803F         44             DB  0FFH,0C0H,80H,3FH,3FH,80H,0C0H,0FFH           ; CHU V
+0518 3F80C0FF                
+051C FFFFFFFF         45             DB  0FFH, 0FFH, 0FFH,0FFH                                               ; KHOANG TR
+                             ONG
+0520 E7000024         46             DB  0E7H,00H,00H,24H,24H,3CH,00H,81H             ; CHU DD
+0524 243C0081                
+0528 FFFFFFFF         47             DB  0FFH, 0FFH, 0FFH,0FFH,0FFH,0FFH,0FFH,0FFH   ; KHOANG TRONG
+052C FFFFFFFF                
+                      48              END
+A51 MACRO ASSEMBLER  LEDMATRIX                                                            05/12/2021 23:54:49 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+CT . . . . . . . .  C ADDR   0005H   A   
+DELAY. . . . . . .  C ADDR   0026H   A   
+DELAY1 . . . . . .  C ADDR   002BH   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+MAIN . . . . . . .  C ADDR   000AH   A   
+MALED. . . . . . .  C ADDR   0500H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+QUETCOT. . . . . .  C ADDR   000FH   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

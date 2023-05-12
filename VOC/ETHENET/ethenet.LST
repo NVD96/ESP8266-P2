@@ -1,0 +1,557 @@
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE ETHENET
+OBJECT MODULE PLACED IN ethenet.OBJ
+COMPILER INVOKED BY: c:\keil\c51\bin\c51.exe  ethenet.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          
+   4          #define READCMD 0x00  //Opcode Read Control Register
+   5          #define WRITECMD 0x40 //Opcode Write Control Register
+   6          #define BFSet 0x80        //Opcode Bit Field Set
+   7          #define BFClear 0xA0  //Opcode Bit Field Set
+   8          #define SoftReset 0xFF  //Opcode Systerm Reset
+   9          #define WRITEBUFF 0x7A//Opcode Write Buff Register
+  10          #define READBUFF 0x3A  //Opcode Read Buff Register
+  11           //Bank 2
+  12          #define MACON1 0x00
+  13          #define MACON3 0x02
+  14          #define MABBIPG 0x04
+  15          #define MAIPGL 0x06
+  16          #define MAIPGH 0x07
+  17          #define MAMXFLL 0x0A
+  18          #define MAMXFLH 0x0B
+  19          #define MIREGADR 0x14
+  20          #define MIWRL 0x16
+  21          #define MIWRH 0x17
+  22          #define EIE 0x1B
+  23          #define EIR 0x1C
+  24          #define ECON2 0x1E
+  25          #define ECON1 0x1F
+  26           //Bank 3
+  27          #define MAADR5 0x00
+  28          #define MAADR6 0x01
+  29          #define MAADR3 0x02
+  30          #define MAADR4 0x03
+  31          #define MAADR1 0x04
+  32          #define MAADR2 0x05
+  33          //PHY
+  34          #define PHCON2 0x10
+  35          #define PHCON1 0x00
+  36          #define PHLCON 0x14
+  37          
+  38          
+  39          sbit spi_SCK = P2^0;
+  40          sbit spi_MOSI = P2^1;
+  41          sbit spi_MISO = P2^2;
+  42          sbit spi_CS = P2^3;
+  43          
+  44          unsigned int NextPacket;
+  45          unsigned char NextPacketL, NextPacketH;
+  46          unsigned char myaddr[6];
+  47          unsigned char arp[50]; /*= {
+  48          0x00,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF, //board cat
+  49          0x10,0x0A,0x20,0x07,0x19,0x89, //source MAC
+  50          0x08,0x06, //Ethernet type - ARP
+  51          0x00,0x01, //HTPYE
+  52          0x08,0x00,
+  53          0x06,0x04,
+  54          0x00,0x01,
+  55          0x10,0x0A,0x20,0x07,0x19,0x89, //source MAC
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 2   
+
+  56          192,168,1,197,
+  57          0x00,0x00,0x00,0x00,0x00,0x00,
+  58          192,168,1,10,
+  59          0x00,0x00,0x00,0x00,0x00,0x00,
+  60          0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,
+  61          };*/ 
+  62          
+  63          void UARTInit();
+  64          void SPIInit();
+  65          void delay_ms(int tg);
+  66          unsigned char SPIRead();
+  67          void SPIWrite(unsigned char b);
+  68          void WriteByte(unsigned char op, unsigned char add, unsigned char dl);
+  69          unsigned char ReadByte(unsigned char op, unsigned char add);
+  70          unsigned char ReadByteMII(unsigned char op, unsigned char add);
+  71          void SysReset();
+  72          void SetBank(unsigned char bank);
+  73          //void EnRX();
+  74          void ENCInit();
+  75          void Buff_TX_RX();
+  76          void ConfigMAC();
+  77          void ReadMAC();
+  78          void WritePHY(unsigned char add, unsigned char dlL, unsigned char dlH);
+  79          void ConfigPHY();
+  80          void ENC_MISTAT();
+  81          void Write_Buff(int len, unsigned char* dl);
+  82          void Send_Packet(int len, unsigned char* dl);
+  83          
+  84          unsigned char Read_BuffByte();
+  85          void Read_Buff(unsigned int len, unsigned char* dl);
+  86          unsigned int Read_Packet(int bufflen, unsigned char* dl);
+  87          
+  88          void CheckARP();
+  89          void ARPrequest(unsigned int bufflen, unsigned char* dl);
+  90          
+  91          int ghepint(unsigned char a,unsigned char b);
+  92          void tachint(unsigned int c);
+  93          
+  94          
+  95          
+  96          void main(){
+  97   1      
+  98   1      SPIInit();
+  99   1      UARTInit();
+ 100   1      ENCInit();
+ 101   1      Buff_TX_RX();
+ 102   1      ConfigMAC();
+ 103   1      ConfigPHY();
+ 104   1      
+ 105   1      
+ 106   1      
+ 107   1      while(1){
+ 108   2                
+ 109   2                 CheckARP();
+ 110   2               //SetBank(0x01);
+ 111   2              // if(ReadByte(READCMD, 0x19) > 0) 
+ 112   2              // P1_1 = 0;
+ 113   2      
+ 114   2               //delay_ms(1000);
+ 115   2      }
+ 116   1      
+ 117   1      }
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 3   
+
+ 118          
+ 119          /* Khoi tao UART*/
+ 120          
+ 121          void UARTInit(){
+ 122   1      
+ 123   1      SCON =0x52; // Port noi tiep che do 1, REN =TI =1;       {Chu y co TI khi khoi tao, code chay khong la do co TI
+             -}
+ 124   1      TMOD = 0x20; //Timer 1 mode 2
+ 125   1      TH1 = TL1 = -3; // Toc do baud la 9600, NHO SET TRONG PROTEUS 11.059
+ 126   1      TR1 =1;
+ 127   1      
+ 128   1      }
+ 129          
+ 130          /* Khoi tao SPI*/
+ 131          
+ 132          void SPIInit(){
+ 133   1      
+ 134   1               spi_CS = 1;      //set muc cao, chuan bi set muc thap de truyen data
+ 135   1               spi_SCK = 0;     // set muc thap chuan bi phat xung clock
+ 136   1               spi_MISO = 1;   //set muc cao o chip master, san sang doc data tu slave
+ 137   1      
+ 138   1      }
+ 139          
+ 140          /*Delay ms*/
+ 141          
+ 142          void delay_ms(int tg){
+ 143   1      
+ 144   1                      int x, i;
+ 145   1                      for(i = 0; i < tg; i++){
+ 146   2                              for(x = 0; x < 123; x++);
+ 147   2                      }
+ 148   1      }
+ 149          
+ 150          /* Doc 1 Byte*/
+ 151          
+ 152          unsigned char SPIRead(){
+ 153   1               
+ 154   1               unsigned char i, b;
+ 155   1               for (i = 0; i < 8; i++){       //doc ve 1 byte
+ 156   2               b<<=1;                    // dich byte b sang trai 1 bit 
+ 157   2               spi_SCK = 1;      // nhan bit dau tien
+ 158   2               if(spi_MISO)      //kiem tra muc tin hieu cua chan MISO 
+ 159   2               b|=0x01;          // dua tin hieu bit cua chan MISO vao byte b
+ 160   2               spi_SCK = 0;      // ket thuc qua trinh nhan 1 bit
+ 161   2               }   
+ 162   1              return b;        // khi doc du 1 byte tra ve gias tri doc duoc
+ 163   1        
+ 164   1      }
+ 165          
+ 166          /* Ghi 1 Byte*/
+ 167          
+ 168          void SPIWrite(unsigned char b){
+ 169   1      
+ 170   1           unsigned char i;
+ 171   1               for(i = 0; i < 8; i++){  // Ghi 1 byte vao EEFROM
+ 172   2               if( b & 0x80)                    // So sanh de lay gia tri bit dau tien (gui bit cao truoc [bit 7]--> bit thap sau [bit
+             - 1])
+ 173   2               spi_MOSI = 1;                    // Neu bit =1 thi chan MOSI = 1
+ 174   2               else 
+ 175   2               spi_MOSI = 0;                   // Neu bit =0 thi chan MOSI = 0
+ 176   2               spi_SCK = 1;                    // Bat dau ghi 1 bit
+ 177   2               spi_SCK = 0;                     // Ket thuc qua trinh ghi bit dau tien
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 4   
+
+ 178   2               b<<=1;                                  // Dich trai 1 bit de lay bit tiep theo
+ 179   2               }
+ 180   1      }
+ 181          
+ 182          /*Ham ghi du lieu vao thanh ghi dia chi*/
+ 183          
+ 184          void WriteByte(unsigned char op, unsigned char add, unsigned char dl){    // Ham Write Control Regis ter
+ 185   1      
+ 186   1               spi_CS = 0;                                    // Cho phep truyen data
+ 187   1               SPIWrite(op|(add&0x1F));                 // Ghi 1 byte bao gom opcode va address
+ 188   1               SPIWrite(dl);                            // Ghi byte data
+ 189   1               spi_CS = 1;                              // Ngat ghi data
+ 190   1      
+ 191   1      }
+ 192          
+ 193          /*Ham doc du lieu thanh ghi*/
+ 194          
+ 195          unsigned char ReadByte(unsigned char op, unsigned char add){
+ 196   1      
+ 197   1                unsigned char b;                              
+ 198   1                spi_CS = 0;                                    // Cho phep truyen data
+ 199   1                SPIWrite(op|(add&0x1F));               // Ghi 1 byte bao gom opcode va address
+ 200   1                b = SPIRead();                                         // Doc gia tri cua thanh ghi
+ 201   1                spi_CS = 1;                                    // Ngat doc data
+ 202   1                return b;                                              // Tra ve gia tri cho ham ReadByte
+ 203   1      
+ 204   1      }
+ 205           
+ 206          unsigned char ReadByteMII(unsigned char op, unsigned char add){
+ 207   1      
+ 208   1                unsigned char b;                              
+ 209   1                spi_CS = 0;                                    // Cho phep truyen data
+ 210   1                SPIWrite(op|(add&0x1F));               // Ghi 1 byte bao gom opcode va address
+ 211   1                SPIRead();                                     // Byte rac 
+ 212   1                b = SPIRead();                             // Doc gia tri cua thanh ghi
+ 213   1                spi_CS = 1;                                    // Ngat doc data
+ 214   1                return b;                                              // Tra ve gia tri cho ham ReadByte
+ 215   1      
+ 216   1      }
+ 217          
+ 218          
+ 219          /* RESET chip ENC28J60*/
+ 220          
+ 221          void SysReset(){
+ 222   1      
+ 223   1               spi_CS = 0;                                    // Cho phep truyen data
+ 224   1               SPIWrite(0xFF);                  // Ghi 1 byte soft reset 
+ 225   1               SPIWrite(0x00);                 // Ghi byte data
+ 226   1               spi_CS = 1;                              // Ngat ghi data
+ 227   1      }
+ 228          
+ 229          /*Chon Bank */
+ 230          
+ 231          void SetBank(unsigned char bank){                //bank co gia tri 0 = 0x00, 1 = 0x01, 2 = 0x02, 3 = 0x03
+ 232   1      
+ 233   1              spi_CS = 0;                              // Cho phep truyen data
+ 234   1              SPIWrite(BFClear|0x1F);  // Ghi lenh xoa bit theo truong cua thanh ghi ECON1 = 0x1F
+ 235   1              SPIWrite(0x03);                  // Xoa bit 0 va 1 cua truong thanh ghi ECON1
+ 236   1              spi_CS = 1;                              // Ngat ghi data
+ 237   1      
+ 238   1              delay_ms(1);
+ 239   1      
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 5   
+
+ 240   1              spi_CS = 0;                              // Cho phep truyen data
+ 241   1              SPIWrite(BFSet|0x1F);    // Ghi lenh set bit theo truong cua thanh ghi ECON1 = 0x1F
+ 242   1              SPIWrite(bank);                  // Set bit 0 va 1 cua truong thanh ghi ECON1  de chon bank
+ 243   1              spi_CS = 1;                               // Ngat ghi data
+ 244   1      
+ 245   1      }
+ 246          
+ 247          /*Khoi tao ENC28J60*/
+ 248          
+ 249          void ENCInit(){
+ 250   1      
+ 251   1              printf("Dang khoi tao ENC28J60:\n");
+ 252   1              SysReset();                                             // Reset enc 
+ 253   1              delay_ms(10);
+ 254   1      //      WriteByte(BFClear, ECON1, 0xFF);
+ 255   1              SetBank(0x00);                          // Chon Bank 0
+ 256   1              while(!ReadByte(READCMD, 0x1D)&0x01);    // kiem tra ENC da san sang chua?, bit CLKRDY cua thanh ghi ESTAT 
+             -phai = 1
+ 257   1              if( ReadByte(READCMD, 0x00) == 0xFA)    printf("Khoi tao thanh cong!!!\n");        // Kiiem tra thanh ghi ERDPTL
+             - = 0x00 da gan gia tri mac dinh la 0XFA chua?
+ 258   1              else printf("Khoi tao that bai....\n");
+ 259   1      
+ 260   1      }
+ 261          
+ 262          /*Phan vung dia chi truyen va nhan*/
+ 263          
+ 264          void Buff_TX_RX(){
+ 265   1              // Set NextPacket = RX Start
+ 266   1              NextPacketL = 0x00;
+ 267   1              NextPacketH = 0x00;
+ 268   1      
+ 269   1              SetBank(0x00);
+ 270   1              //Dia chi TX bat dau la 0x0C00
+ 271   1              WriteByte(WRITECMD, 0x04, 0x00);  //Vi tri TX bat dau byte thap                                                 ETXSTL
+ 272   1              WriteByte(WRITECMD, 0x05, 0x0C);  //Vi tri TX bat dau byte cao                                                  ETXSTH
+ 273   1              //Dia chi TX ket thuc la 0x11FF
+ 274   1              WriteByte(WRITECMD, 0x06, 0xFF);  //Vi tri TX ket thuc byte thap                                                ETXNDL
+ 275   1              WriteByte(WRITECMD, 0x07, 0x1F);  //Vi tri TX bat ket thuc byte cao                                             ETXNDH
+ 276   1              //Dia chi RX bat dau la 0x0000
+ 277   1              WriteByte(WRITECMD, 0x08, 0x00);  //Vi tri RX bat dau byte thap                                                 ERXSTL
+ 278   1              WriteByte(WRITECMD, 0x09, 0x00);  //Vi tri RX bat dau byte cao                                                  ERXSTH
+ 279   1              //Dia chi RX ket thuc la 0x0BFF
+ 280   1              WriteByte(WRITECMD, 0x0A, 0xFF);  //Vi tri RX ket thuc byte thap                                                ERXNDL
+ 281   1              WriteByte(WRITECMD, 0x0B, 0x0B);  //Vi tri RX bat ket thuc byte cao                                             ERXNDH
+ 282   1              //Dua con tro RX ve vi tri bat dau      READ                                                                            
+ 283   1              WriteByte(WRITECMD, 0x0C, 0x00);  // Dua con tro RX ve vi tri ban dau byte thap                 ERXRDPTL
+ 284   1              WriteByte(WRITECMD, 0x0D, 0x00);  // Dua con tro RX ve vi tri ban dau byte cao                  ERXRDPTH
+ 285   1              //Dua con tro RX ve vi tri bat dau WRITE
+ 286   1              WriteByte(WRITECMD, 0x0E, 0x00);  // Dua con tro TX ve vi tri ban dau byte thap                 ERXWRPTL
+ 287   1              WriteByte(WRITECMD, 0x0F, 0x00);  // Dua con tro TX ve vi tri ban dau byte cao                  ERXWRPTH
+ 288   1      
+ 289   1      
+ 290   1      }
+ 291          
+ 292          /*cau hinh dia chi MAC*/
+ 293          
+ 294          void ConfigMAC(){
+ 295   1              // Set cac thanh ghi bank 2 theo datasheet
+ 296   1              SetBank(0x02);                                              //Chon Bank 2                                              
+ 297   1              WriteByte(WRITECMD, MACON1, 0x0D);         //Set bit 0, 2, 3 thanh ghi MACON1
+ 298   1              WriteByte(WRITECMD, MACON3, 0x32);         //Set bit 1, 4, 5 thanh ghi MACON3
+ 299   1              WriteByte(WRITECMD, MABBIPG, 0x12);
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 6   
+
+ 300   1              WriteByte(WRITECMD, MAIPGL, 0x12);
+ 301   1              WriteByte(WRITECMD, MAIPGH, 0x0C);
+ 302   1              WriteByte(WRITECMD, MAMXFLL, 0xDC);       // Packet 1500(0x05DC) byte
+ 303   1              WriteByte(WRITECMD, MAMXFLH, 0x05);
+ 304   1      
+ 305   1              //Set dia chi MAC o Bank 3
+ 306   1              SetBank(0x03);                          //Chon Bank 3
+ 307   1              WriteByte(WRITECMD, MAADR6, 0x10);              //Dia chi MAC 10:0A:20:07:19:98
+ 308   1              WriteByte(WRITECMD, MAADR5, 0x0A);
+ 309   1              WriteByte(WRITECMD, MAADR4, 0x20);
+ 310   1              WriteByte(WRITECMD, MAADR3, 0x07);
+ 311   1              WriteByte(WRITECMD, MAADR2, 0x19);
+ 312   1              WriteByte(WRITECMD, MAADR1, 0x89);
+ 313   1      
+ 314   1      }
+ 315          
+ 316          /*Ham docj dia chi MAC*/
+ 317          
+ 318          void ReadMAC(){
+ 319   1      
+ 320   1          SetBank(0x03);
+ 321   1          myaddr[0] = ReadByteMII(READCMD, MAADR6);
+ 322   1              myaddr[1] = ReadByteMII(READCMD, MAADR5);
+ 323   1          myaddr[2] = ReadByteMII(READCMD, MAADR4);
+ 324   1              myaddr[3] = ReadByteMII(READCMD, MAADR3);
+ 325   1              myaddr[4] = ReadByteMII(READCMD, MAADR2);
+ 326   1              myaddr[5] = ReadByteMII(READCMD, MAADR1);
+ 327   1      
+ 328   1      }
+ 329          
+ 330          /*Ham ghi cau hinh PHY*/
+ 331          
+ 332          void WritePHY(unsigned char add, unsigned char dlL, unsigned char dlH){
+ 333   1      
+ 334   1               WriteByte(WRITECMD, MIREGADR, add);
+ 335   1               WriteByte(WRITECMD, MIWRL, dlL);
+ 336   1               WriteByte(WRITECMD, MIWRH, dlH);
+ 337   1               ENC_MISTAT();
+ 338   1      }
+ 339          
+ 340          /*Cau hinh cac thanh ghi PHY PHYCON2, PHYCON*/
+ 341          
+ 342          void ConfigPHY(){
+ 343   1      
+ 344   1              SetBank(0x02);
+ 345   1              WritePHY(PHCON1, 0x00, 0x00);    //Set bit PDPXMP
+ 346   1              WritePHY(PHCON2, 0x00, 0x01);    //Set bit HDLDIS
+ 347   1          WritePHY(PHLCON, 0x26, 0x34);        //Cau hinh LED A va B; 0x04 = LED A hien thi trang thai Link, 0x76 = LE
+             -D B hien thi trang thai TX va RX voi thoi gian 70ms 
+ 348   1              SetBank(0x03);
+ 349   1              WriteByte(WRITECMD, 0x15, 0x02);        //ECOCON
+ 350   1              delay_ms(1);
+ 351   1              WriteByte(BFSet, EIE, 0xC0);       
+ 352   1              WriteByte(BFSet, ECON1, 0x04);     //ECON1        Cho phen nhan
+ 353   1      
+ 354   1      }
+ 355          
+ 356          
+ 357          void ENC_MISTAT(){
+ 358   1         SetBank(0x03);
+ 359   1         while(ReadByteMII(READCMD, 0x0A)&0x01);
+ 360   1         SetBank(0x02);
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 7   
+
+ 361   1      
+ 362   1      }
+ 363          
+ 364          void Write_Buff(int len, unsigned char* dl){    //Gui goi ARP
+ 365   1      
+ 366   1               spi_CS = 0;
+ 367   1               SPIWrite(WRITEBUFF);
+ 368   1               while(len--)
+ 369   1               SPIWrite(*dl++);
+ 370   1               spi_CS = 1;
+ 371   1      }
+ 372          
+ 373          void Send_Packet(int len, unsigned char* dl ){
+ 374   1      
+ 375   1              SetBank(0x00);
+ 376   1              while(ReadByte(READCMD, ECON1)&0x08);
+ 377   1      
+ 378   1              WriteByte(WRITECMD, 0x02, 0x00);  //                                            EWRPTL
+ 379   1              WriteByte(WRITECMD, 0x03, 0x0C);  //                                        EWRPTH
+ 380   1      
+ 381   1              WriteByte(WRITECMD, 0x06, 0x3E);  //Vi tri TX ket thuc byte thap                                                ETXNDL
+ 382   1              WriteByte(WRITECMD, 0x07, 0x0C);  //Vi tri TX bat ket thuc byte cao                                             ETXNDH
+ 383   1              //Gui buyte 0x00 vao bo dem TX
+ 384   1              SPIWrite(WRITEBUFF);
+ 385   1              SPIWrite(0x00);
+ 386   1              //Gui goi tin vao bo dem TX
+ 387   1              Write_Buff(len, dl);
+ 388   1              //set bit TXRTS de gui goi tin
+ 389   1          WriteByte(BFSet, ECON1, 0x08);
+ 390   1      }
+ 391          
+ 392          unsigned char Read_BuffByte(){
+ 393   1      
+ 394   1               unsigned char b;                               
+ 395   1                spi_CS = 0;                                    // Cho phep truyen data
+ 396   1                SPIWrite(READBUFF);            // Ghi 1 byte opcode
+ 397   1                b = SPIRead();                                         // Doc gia tri cua thanh ghi
+ 398   1                spi_CS = 1;                                    // Ngat doc data
+ 399   1                return b;                                              // Tra ve gia tri cho ham ReadByte
+ 400   1      
+ 401   1      }
+ 402          
+ 403          void Read_Buff(unsigned int len, unsigned char* dl){
+ 404   1      
+ 405   1                spi_CS = 0;
+ 406   1                SPIWrite(READBUFF);
+ 407   1                while(len){
+ 408   2                 len--;
+ 409   2                 *dl = SPIRead();
+ 410   2                 dl++;
+ 411   2                }
+ 412   1      
+ 413   1               spi_CS = 1;
+ 414   1      }
+ 415          
+ 416          unsigned int Read_Packet(int bufflen, unsigned char* dl){
+ 417   1      
+ 418   1        unsigned int len = 0;
+ 419   1        unsigned int status = 0;
+ 420   1        unsigned char lenL, lenH, statusL, statusH;
+ 421   1        SetBank(0x01);
+ 422   1        if(ReadByte(READCMD, 0x19)>0){
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 8   
+
+ 423   2               printf("Da nhan 1 goi tin \n");
+ 424   2               // Set ERDPT ve vi tri NextPaxket
+ 425   2              SetBank(0x00);
+ 426   2              WriteByte(WRITECMD, 0x00, NextPacketL);  //                                             ERDPTL
+ 427   2              WriteByte(WRITECMD, 0x01, NextPacketH);  //                                         ERDPTH
+ 428   2              //Doc gia tri con tro cua goi tin tiep theo
+ 429   2              NextPacketL = Read_BuffByte();
+ 430   2              NextPacketH = Read_BuffByte();
+ 431   2              NextPacket = ghepint(NextPacketH, NextPacketL);
+ 432   2              // Doc do dai goi tin
+ 433   2              lenL =  Read_BuffByte();
+ 434   2              lenH =  Read_BuffByte();
+ 435   2              //Tru di 4 byte CRC
+ 436   2              len = ghepint(lenH, lenL) - 4;
+ 437   2              if(len > bufflen) len = bufflen;
+ 438   2              
+ 439   2              //Doc trang thai cua bo nhan
+ 440   2              statusL =       Read_BuffByte();
+ 441   2              statusH =       Read_BuffByte();
+ 442   2              status = ghepint(statusH, statusL);
+ 443   2              //Kieem tra bit  Received OK, neu Error  thi khong doc goi tin
+ 444   2              if((status&0x80)==0) len = 0;
+ 445   2              else {
+ 446   3              Read_Buff(len, dl);              // Doc du lieu goi tin
+ 447   3              }
+ 448   2              //Chuyen con tro nhan du lieu toi goi tin tiep theo
+ 449   2              if(NextPacket - 1 > 0xBFF) {
+ 450   3              
+ 451   3              WriteByte(WRITECMD, 0x0C, 0xFF);  // Dua con tro RX ve vi tri ban dau byte thap                 ERXRDPTL
+ 452   3              WriteByte(WRITECMD, 0x0D, 0x0B);  // Dua con tro RX ve vi tri ban dau byte cao                  ERXRDPTH
+ 453   3              
+ 454   3              }
+ 455   2              else{
+ 456   3              
+ 457   3              WriteByte(WRITECMD, 0x0C, NextPacketL);  // Dua con tro RX ve vi tri ban dau byte thap                  ERXRDPTL
+ 458   3              WriteByte(WRITECMD, 0x0D, NextPacketH);  // Dua con tro RX ve vi tri ban dau byte cao                   ERXRDPTH
+ 459   3              
+ 460   3              }
+ 461   2      
+ 462   2              // Set bit PKTDEC cua thanh ghi ECON2
+ 463   2              WriteByte(BFSet, ECON2, 0x40);
+ 464   2      
+ 465   2        }
+ 466   1       return len;
+ 467   1      }
+ 468          
+ 469          //Kiem tra co phai goi tin ARP?
+ 470          void CheckARP(){
+ 471   1        
+ 472   1         unsigned int len;
+ 473   1         while(1){
+ 474   2      
+ 475   2              len = Read_Packet(50, arp);
+ 476   2              if(len == 0) return;
+ 477   2              else ARPrequest(len, arp);
+ 478   2         
+ 479   2         }
+ 480   1      }
+ 481          
+ 482          void ARPrequest(unsigned int bufflen, unsigned char* dl){
+ 483   1      
+ 484   1               
+C51 COMPILER V9.01   ETHENET                                                               05/15/2022 00:17:16 PAGE 9   
+
+ 485   1      
+ 486   1               if(bufflen > 41){
+ 487   2               
+ 488   2               if(dl[12] == 0x08 && dl[13] == 0x06){
+ 489   3                       printf("Da nhan goi tin co do dai = %i \n", bufflen);
+ 490   3                       printf("Day la goi tin ARP \n");
+ 491   3                      }
+ 492   2               
+ 493   2               }
+ 494   1      
+ 495   1               
+ 496   1      }
+ 497          
+ 498          
+ 499          int ghepint(unsigned char a,unsigned char b)    {
+ 500   1                 int c;
+ 501   1               c= a&0xFF;
+ 502   1               c = (c<<8)|b;
+ 503   1               return c;
+ 504   1      }
+ 505          
+ 506          void tachint(unsigned int c){
+ 507   1               unsigned char aH, aL;
+ 508   1               aL =  c&0xFF;
+ 509   1               aH = (c>>8)&0xFF;
+ 510   1               printf("%X \n", aH, aL);
+ 511   1      
+ 512   1      }
+ 513          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   1197    ----
+   CONSTANT SIZE    =    151    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     60      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

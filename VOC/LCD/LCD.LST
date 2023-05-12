@@ -1,0 +1,131 @@
+A51 MACRO ASSEMBLER  LCD                                                                  04/20/2022 21:11:42 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN LCD.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  LCD.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG     0
+0000 802E              2     JMP     MAIN
+0030                   3     ORG     30H
+0030                   4     MAIN:
+0030 7438              5     MOV A,#38H
+0032 1183              6     ACALL COMMAND
+0034 740E              7     MOV A,#0EH
+0036 1183              8     ACALL COMMAND
+                       9     
+0038 9000C8           10     MOV DPTR,#POINT1
+003B 780B             11     MOV R0,#11
+003D E4               12     LOOP: CLR A
+003E 93               13     MOVC A,@A+DPTR
+003F 116A             14     ACALL TIME
+0041 1190             15     ACALL DISPLAY
+0043 A3               16     INC DPTR
+0044 D8F7             17     DJNZ R0,LOOP
+                      18     
+0046 74C0             19     MOV A,#0C0H
+0048 1183             20     ACALL COMMAND
+                      21     
+                      22     
+004A 9000D3           23     MOV DPTR,#POINT2
+004D 790A             24     MOV R1,#10
+004F E4               25     LOOP2: CLR A
+0050 93               26     MOVC A,@A+DPTR
+0051 116A             27     ACALL TIME
+0053 1190             28     ACALL DISPLAY
+0055 A3               29     INC DPTR
+0056 D9F7             30     DJNZ R1,LOOP2
+0058 7402             31     MOV A,#2
+005A 1183             32     ACALL COMMAND
+005C 9000DD           33     MOV DPTR,#POINT3
+005F 7B11             34     MOV R3,#17
+0061 E4               35     LOOP4: CLR A
+0062 93               36     MOVC A,@A+DPTR
+0063 116A             37     ACALL TIME
+0065 1190             38     ACALL DISPLAY
+0067 A3               39     INC DPTR
+0068 DBF7             40     DJNZ R3,LOOP4
+                      41     
+006A 7A02             42     TIME: MOV R2,#2
+006C 758901           43     MOV     TMOD,#01
+006F 758C27           44     LOOP3: MOV TH0,#27H
+0072 758A10           45     MOV TL0,#10H
+0075 D28C             46     SETB TR0
+0077 308DFD           47     JNB TF0,$
+007A C28C             48     CLR TR0
+007C C28D             49     CLR TF0
+007E DAEF             50     DJNZ R2,LOOP3
+0080 22               51     RET
+0081 80FE             52     WAIT: SJMP WAIT
+0083 119D             53     COMMAND: ACALL DELAY
+0085 F590             54     MOV     P1,A    ;Ghi lenh vao LCD
+0087 C2B5             55     CLR             P3.5    ;RS=0 cho phep xuat lenh vao LCD
+0089 C2B6             56     CLR             P3.6    ;R/W=0 cho phep ghi
+008B D2B7             57     SETB    P3.7    ;E=1
+008D C2B7             58     CLR             P3.7    ;E=0
+A51 MACRO ASSEMBLER  LCD                                                                  04/20/2022 21:11:42 PAGE     2
+
+008F 22               59     RET
+0090 119D             60     DISPLAY: ACALL DELAY
+0092 F590             61     MOV             P1,A    ;Ghi du lieu len LCD
+0094 D2B5             62     SETB    P3.5    ;RS=1 cho phep xuat du lei len LCD
+0096 C2B6             63     CLR             P3.6    ;R/W=0 cho phep xuat du lieu len LCD
+0098 D2B7             64     SETB    P3.7    ;E=1
+009A C2B7             65     CLR             P3.7    ;E=0
+009C 22               66     RET
+009D D297             67     DELAY: SETB P1.7
+009F C2B5             68     CLR             P3.5
+00A1 D2B6             69     SETB    P3.6
+00A3 C2B7             70     BACK: CLR P3.7
+00A5 D2B7             71     SETB    P3.7
+00A7 2097F9           72     JB P1.7,BACK
+00AA 22               73     RET
+00C8                  74     ORG 200
+00C8 4C55204D         75     POINT1: DB 'LU MINH THI'
+00CC 494E4820                
+00D0 544849                  
+00D3 4449454E         76     POINT2: DB 'DIEN TU K6'
+00D7 20545520                
+00DB 4B36                    
+00DD 4C6D7468         77     POINT3: DB 'Lmthidt@yahoo...'
+00E1 69647440                
+00E5 7961686F                
+00E9 6F2E2E2E                
+                      78     END
+A51 MACRO ASSEMBLER  LCD                                                                  04/20/2022 21:11:42 PAGE     3
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BACK . . . . . . .  C ADDR   00A3H   A   
+COMMAND. . . . . .  C ADDR   0083H   A   
+DELAY. . . . . . .  C ADDR   009DH   A   
+DISPLAY. . . . . .  C ADDR   0090H   A   
+LOOP . . . . . . .  C ADDR   003DH   A   
+LOOP2. . . . . . .  C ADDR   004FH   A   
+LOOP3. . . . . . .  C ADDR   006FH   A   
+LOOP4. . . . . . .  C ADDR   0061H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+POINT1 . . . . . .  C ADDR   00C8H   A   
+POINT2 . . . . . .  C ADDR   00D3H   A   
+POINT3 . . . . . .  C ADDR   00DDH   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TIME . . . . . . .  C ADDR   006AH   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+WAIT . . . . . . .  C ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

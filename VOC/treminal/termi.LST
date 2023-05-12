@@ -1,0 +1,48 @@
+A51 MACRO ASSEMBLER  TERMI                                                                04/13/2022 23:39:58 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN termi.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  termi.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1        ORG 0H
+0000 758920            2        MOV TMOD, #20H
+0003 758DFD            3        MOV TH1, #-3
+0006 759850            4        MOV SCON, #50H
+0009 D28E              5        SETB TR1
+000B                   6     AGAIN:
+000B 7444              7             MOV A, #"D"
+000D 1111              8             ACALL TRANS
+000F 80FA              9             SJMP AGAIN
+0011                  10     TRANS:
+0011 F599             11             MOV SBUF, A
+0013                  12     HERE:
+0013 3099FD           13             JNB TI, HERE
+0016 C299             14             CLR TI
+0018 22               15             RET
+                      16             END
+A51 MACRO ASSEMBLER  TERMI                                                                04/13/2022 23:39:58 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+AGAIN. . . . . . .  C ADDR   000BH   A   
+HERE . . . . . . .  C ADDR   0013H   A   
+SBUF . . . . . . .  D ADDR   0099H   A   
+SCON . . . . . . .  D ADDR   0098H   A   
+TH1. . . . . . . .  D ADDR   008DH   A   
+TI . . . . . . . .  B ADDR   0098H.1 A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR1. . . . . . . .  B ADDR   0088H.6 A   
+TRANS. . . . . . .  C ADDR   0011H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

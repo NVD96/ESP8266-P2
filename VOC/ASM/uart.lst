@@ -1,0 +1,113 @@
+C51 COMPILER V9.01   UART                                                                  04/13/2022 22:07:56 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE UART
+OBJECT MODULE PLACED IN .\ENC28J60\uart.obj
+COMPILER INVOKED BY: c:\keil\c51\bin\c51.exe  ENC28J60\uart.c BROWSE DEBUG OBJECTEXTEND PRINT(.\uart.lst) OBJECT(.\ENC28
+                    -J60\uart.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          
+   3          char tempuart;
+   4          unsigned int sp=0;
+   5          uart_init(void)
+   6          {
+   7   1      
+   8   1              TMOD =  0x20;           //Timer 1 che do 2
+   9   1              TH1=TL1=-3; //toc do 9600 baud ;TH1=0xF3 Toc do 2400 baud
+  10   1              SCON=0x52;                      //0x50;
+  11   1              TR1 =1;
+  12   1              TI = 1;
+  13   1      
+  14   1      }
+  15          //Chuong trinh nhan du lieu tu PC
+  16          
+  17          void getPC (void)interrupt 4
+  18          {
+  19   1      //Nhan du lieu truyen den tu may tinh
+  20   1              while(RI==0);
+  21   1              tempuart = (SBUF); //Nhan menu dieu khien tu VB
+  22   1              RI = 0;
+  23   1      }
+  24          void sendPC(char m)
+  25          {
+  26   1              SBUF=m;
+  27   1              while(!TI);
+  28   1              TI = 0;
+  29   1      
+  30   1      }
+  31          void sendPCstr(unsigned char *s)
+  32          {
+  33   1              while(*s!=0x00)
+  34   1              {
+  35   2                      SBUF = *s;
+  36   2                      while(!TI);
+  37   2                      TI = 0;
+  38   2                      s++;
+  39   2              }
+  40   1      }
+  41           void sendPCint(long int i)
+  42           {
+  43   1         int j,m;
+  44   1         char c=0;
+  45   1         unsigned char d[20];
+  46   1         if(i>=0)
+  47   1                      c=0;
+  48   1         else if(i<0)
+  49   1         {
+  50   2              c=1;
+  51   2                      i=0-i;
+  52   2         }
+  53   1         for(j=0;j<20;j++)
+  54   1         {
+C51 COMPILER V9.01   UART                                                                  04/13/2022 22:07:56 PAGE 2   
+
+  55   2              d[j]=i%10;
+  56   2                      i/=10;
+  57   2         if(i==0)
+  58   2         {
+  59   3              m=j;
+  60   3                      break;
+  61   3         }
+  62   2         }
+  63   1         if(c==1)
+  64   1          sendPCstr("-");
+  65   1         for(j=m;j>=0;j--)
+  66   1         sendPC(d[j]+48);
+  67   1       }
+  68          void delay(void)
+  69          {
+  70   1              long x;
+  71   1              for(x=1;x<=5000;x++);
+  72   1      }
+  73          void main(void)
+  74          {
+  75   1              EA=1;
+  76   1              EX0=IT0=1;
+  77   1              uart_init(); //Cai dat UART
+  78   1              
+  79   1              while(1)
+  80   1      
+  81   1                                      {
+  82   2                              
+  83   2                                      P2=0xf0;
+  84   2                                      sendPCstr("SO SAN PHAM\n");
+  85   2                                      sendPC(10);
+  86   2                                      sendPCint(sp);  P2=0x0f;
+  87   2                              delay();
+  88   2                                      sendPC(12);
+  89   2                                      
+  90   2                                       }
+  91   1      
+  92   1      }
+  93          
+  94          void ngat_ngoai0() interrupt 0
+  95          {
+  96   1        sp++;
+  97   1      }
+  98          sion flag for next emission*/
+*** ERROR C129 IN LINE 98 OF ENC28J60\UART.C: missing ';' before 'flag'
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  1 ERROR(S)

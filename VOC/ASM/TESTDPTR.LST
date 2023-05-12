@@ -1,0 +1,43 @@
+A51 MACRO ASSEMBLER  TESTDPTR                                                             05/07/2021 12:25:27 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN TESTDPTR.OBJ
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  TESTDPTR.ASM SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 0
+0000 7800              2             MOV R0, #0
+0002                   3     MAIN:
+                       4     ;       MOV DPTR, #MALED
+                       5     ;       MOV A, R0
+                       6     ;       MOVC A, @A+DPTR
+0002 A3                7             INC DPTR
+                       8     ;       MOVC A, @A+DPTR
+                       9     ;       MOV DPTR, #2000H
+0003 80FE             10             SJMP $
+0005                  11     MALED:
+0005 80608101         12             DB 80H, 60H, 81H, 01H, 04H, 40H, 02H, 20H
+0009 04400220                
+000D FEFDFBF7         13             DB 0FEH,0FDH,0FBH,0F7H,0EFH,0DFH,0BFH,7FH
+0011 EFDFBF7F                
+0015 7FBFDFEF         14             DB 7FH,0BFH,0DFH,0EFH,0F7H,0FBH,0FDH,0FEH
+0019 F7FBFDFE                
+                      15             END
+A51 MACRO ASSEMBLER  TESTDPTR                                                             05/07/2021 12:25:27 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+MAIN . . . . . . .  C ADDR   0002H   A   
+MALED. . . . . . .  C ADDR   0005H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

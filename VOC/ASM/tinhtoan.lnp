@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"tinhtoan.obj" 
+TO "tinhtoan" 
+RAMSIZE(256) 

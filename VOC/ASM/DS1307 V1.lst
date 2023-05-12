@@ -1,0 +1,479 @@
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN ..\..\New folder\DS1307 V1.obj
+ASSEMBLER INVOKED BY: c:\keil\c51\bin\a51.exe  ..\Code DS1307 tienhuypro\Code ASM\DS1307 V1.asm SET(SMALL) DEBUG PRINT(.
+                      \DS1307 V1.lst) OBJECT(..\..\New folder\DS1307 V1.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+  0090                 1     SDA     BIT     P1.0
+  0091                 2     SCL     BIT     P1.1
+  0000                 3     F_SEND_TIME     BIT     00H
+  0001                 4     F_SEND_DATE     BIT     01H
+  0002                 5     F_SEND          BIT     02H
+  0030                 6     SECONDS         DATA    30H
+  0031                 7     MINUTES         DATA    31H
+  0032                 8     HOUR            DATA    32H
+  0033                 9     DAY             DATA    33H
+  0034                10     DATE            DATA    34H
+  0035                11     MONTH           DATA    35H
+  0036                12     YEAR            DATA    36H
+0000                  13     org     0000h
+0000 020030           14     ljmp    main
+0003                  15     org     0003h           ;NGAT NGOAI0
+0003 D200             16             SETB    F_SEND_TIME
+0005 D201             17             SETB    F_SEND_DATE
+0007 D202             18             SETB    F_SEND
+0009 32               19             RETI
+0030                  20     ORG 0030H
+0030                  21     MAIN:
+0030 759842           22             mov     scon,#42h
+0033 758920           23             mov     tmod,#20h
+0036 E587             24             mov     a,pcon                  ;nhan doi toc do baud
+0038 D2E7             25             setb    acc.7
+003A F587             26             mov     pcon,a
+003C 758DFF           27             mov     th1,#0fFh               ;57600  11.0592Mhz
+003F D28E             28             setb    tr1
+0041 D288             29             setb    it0             ;ngat ngoai 0 kich canh xuong
+0043 75A881           30             mov     ie,#81h         ;cho phep ngat ngoai0
+                      31     
+0046 512B             32             CALL    I2C_INIT
+0048 3125             33             CALL    DS1307_INIT
+004A 3139             34             CALL    DS1307_OUTPUT
+                      35     ;       MOV     SECONDS,#31H    
+                      36     ;       MOV     MINUTES,#31H
+                      37     ;       MOV     HOUR,#10H
+                      38             ;CALL   DS1307_WRITE_TIME
+                      39     ;   ___WHILE1:
+                      40     ;       JNB     F_SEND,$
+                      41     ;       CLR     F_SEND
+                      42     ;       CALL    SEND_UART_TIME
+                      43     ;       CALL    SEND_UART_DATE
+004C 80FE             44             SJMP    $;___WHILE1
+                      45     
+004E                  46     SEND_UART_TIME:
+004E 200002           47             JB      F_SEND_TIME,___SEND_TIME
+0051 805B             48             JMP     ___EXIT_SEND_TIME
+0053                  49        ___SEND_TIME:
+0053 C200             50             CLR     F_SEND_TIME
+0055 7454             51             MOV     A,#'T'
+0057 5171             52             CALL    OUTCHAR
+0059 7449             53             MOV     A,#'I'
+005B 5171             54             CALL    OUTCHAR
+005D 744D             55             MOV     A,#'M'
+005F 5171             56             CALL    OUTCHAR
+0061 7445             57             MOV     A,#'E'
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     2
+
+0063 5171             58             CALL    OUTCHAR
+0065 7420             59             MOV     A,#' '
+0067 5171             60             CALL    OUTCHAR
+0069 3180             61             CALL    DS1307_READ_TIME
+006B E532             62             MOV     A,HOUR
+006D C4               63             swap    a
+006E 540F             64             anl     a,#0fh
+0070 2430             65             add     a,#48
+0072 5171             66             call    outchar
+0074 E532             67             MOV     A,HOUR
+0076 540F             68             anl     a,#0fh
+0078 2430             69             add     a,#48
+007A 5171             70             call    outchar
+007C 743A             71             MOV     A,#':'
+007E 5171             72             call    outchar
+0080 E531             73             MOV     A,MINUTES
+0082 C4               74             swap    a
+0083 540F             75             anl     a,#0fh
+0085 2430             76             add     a,#48
+0087 5171             77             call    outchar
+0089 E531             78             MOV     A,MINUTES
+008B 540F             79             anl     a,#0fh
+008D 2430             80             add     a,#48
+008F 5171             81             call    outchar
+0091 743A             82             MOV     A,#':'
+0093 5171             83             call    outchar
+0095 E530             84             MOV     A,SECONDS
+0097 C4               85             swap    a
+0098 540F             86             anl     a,#0fh
+009A 2430             87             add     a,#48
+009C 5171             88             call    outchar
+009E E530             89             MOV     A,SECONDS
+00A0 540F             90             anl     a,#0fh
+00A2 2430             91             add     a,#48
+00A4 5171             92             call    outchar
+00A6 740D             93             MOV     A,#0DH
+00A8 5171             94             call    outchar
+00AA 740A             95             MOV     A,#0AH
+00AC 5171             96             call    outchar
+00AE                  97        ___EXIT_SEND_TIME:
+00AE 22               98             RET
+                      99     
+00AF                 100     SEND_UART_DATE:
+00AF 200102          101             JB      F_SEND_DATE,___SEND_DATE
+00B2 8070            102             JMP     ___EXIT_SEND_DATE
+00B4                 103        ___SEND_DATE:
+00B4 C201            104             CLR     F_SEND_DATE
+00B6 7444            105             MOV     A,#'D'
+00B8 5171            106             CALL    OUTCHAR
+00BA 7441            107             MOV     A,#'A'
+00BC 5171            108             CALL    OUTCHAR
+00BE 7454            109             MOV     A,#'T'
+00C0 5171            110             CALL    OUTCHAR
+00C2 7445            111             MOV     A,#'E'
+00C4 5171            112             CALL    OUTCHAR
+00C6 7420            113             MOV     A,#' '
+00C8 5171            114             CALL    OUTCHAR
+00CA 319F            115             CALL    DS1307_READ_DATE
+00CC E533            116             MOV     A,DAY
+00CE C4              117             swap    a
+00CF 540F            118             anl     a,#0fh
+00D1 2430            119             add     a,#48
+00D3 5171            120             call    outchar
+00D5 E533            121             MOV     A,DAY
+00D7 540F            122             anl     a,#0fh
+00D9 2430            123             add     a,#48
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     3
+
+00DB 5171            124             call    outchar
+00DD 743A            125             MOV     A,#':'
+00DF 5171            126             call    outchar
+00E1 E534            127             MOV     A,DATE
+00E3 C4              128             swap    a
+00E4 540F            129             anl     a,#0fh
+00E6 2430            130             add     a,#48
+00E8 5171            131             call    outchar
+00EA E534            132             MOV     A,DATE
+00EC 540F            133             anl     a,#0fh
+00EE 2430            134             add     a,#48
+00F0 5171            135             call    outchar
+00F2 743A            136             MOV     A,#':'
+00F4 5171            137             call    outchar
+00F6 E535            138             MOV     A,MONTH
+00F8 C4              139             swap    a
+00F9 540F            140             anl     a,#0fh
+00FB 2430            141             add     a,#48
+00FD 5171            142             call    outchar
+00FF E535            143             MOV     A,MONTH
+0101 540F            144             anl     a,#0fh
+0103 2430            145             add     a,#48
+0105 5171            146             call    outchar
+0107 743A            147             MOV     A,#':'
+0109 5171            148             call    outchar
+010B E536            149             MOV     A,YEAR
+010D C4              150             swap    a
+010E 540F            151             anl     a,#0fh
+0110 2430            152             add     a,#48
+0112 5171            153             call    outchar
+0114 E536            154             MOV     A,YEAR
+0116 540F            155             anl     a,#0fh
+0118 2430            156             add     a,#48
+011A 5171            157             call    outchar
+011C 740D            158             MOV     A,#0DH
+011E 5171            159             call    outchar
+0120 740A            160             MOV     A,#0AH
+0122 5171            161             call    outchar
+0124                 162        ___EXIT_SEND_DATE:
+0124 22              163             RET
+0125                 164     DS1307_INIT:
+0125 5130            165             CALL    I2C_START
+0127 74D0            166             MOV     A,#0D0H         ;DIA CHI DS1307
+0129 1201C2          167             LCALL   I2C_WRITE       ;
+                     168             ;JC     $-5     
+012C 7400            169             MOV     A,#00H          ;DIA CHI THANH GHI 0
+012E 1201C2          170             LCALL   I2C_WRITE
+0131 7400            171             MOV     A,#00H          ;ENABLE THE oscillator (CH bit = 0)
+0133 1201C2          172             LCALL   I2C_WRITE
+0136 5142            173             CALL    I2C_STOP
+0138 22              174             RET
+0139                 175     DS1307_OUTPUT:
+0139 5130            176             CALL    I2C_START
+013B 74D0            177             MOV     A,#0D0H         ;DIA CHI DS1307
+013D 31C2            178             CALL    I2C_WRITE       ;
+013F 7407            179             MOV     A,#07H          ;DIA CHI THANH GHI 0
+0141 31C2            180             CALL    I2C_WRITE
+0143 7410            181             MOV     A,#10H          ;ENABLE THE OUTPUT oscillator F=1HZ 
+0145 31C2            182             CALL    I2C_WRITE
+0147 5142            183             CALL    I2C_STOP
+0149 22              184             RET
+014A                 185     DS1307_WRITE_TIME:
+014A 5130            186             CALL    I2C_START
+014C 74D0            187             MOV     A,#0D0H         ;DIA CHI DS1307
+014E 31C2            188             CALL    I2C_WRITE       ;
+0150 7400            189             MOV     A,#00H          ;DIA CHI THANH GHI 0
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     4
+
+0152 31C2            190             CALL    I2C_WRITE
+0154 E530            191             MOV     A,SECONDS       ;
+0156 31C2            192             CALL    I2C_WRITE
+0158 E531            193             MOV     A,MINUTES       ;
+015A 31C2            194             CALL    I2C_WRITE
+015C E532            195             MOV     A,HOUR          ;
+015E 31C2            196             CALL    I2C_WRITE
+0160 5142            197             CALL    I2C_STOP
+0162 22              198             RET
+0163                 199     DS1307_WRITE_DATE:
+0163 5130            200             CALL    I2C_START
+0165 74D0            201             MOV     A,#0D0H         ;DIA CHI DS1307
+0167 31C2            202             CALL    I2C_WRITE       ;
+0169 7403            203             MOV     A,#03H          ;DIA CHI THANH GHI 3
+016B 31C2            204             CALL    I2C_WRITE
+016D E533            205             MOV     A,DAY           ;THU    
+016F 31C2            206             CALL    I2C_WRITE
+0171 E534            207             MOV     A,DATE          ;NGAY
+0173 31C2            208             CALL    I2C_WRITE
+0175 E535            209             MOV     A,MONTH         ;THANG
+0177 31C2            210             CALL    I2C_WRITE       
+0179 E536            211             MOV     A,YEAR          ;NAM
+017B 31C2            212             CALL    I2C_WRITE
+017D 5142            213             CALL    I2C_STOP
+017F 22              214             RET
+0180                 215     DS1307_READ_TIME:
+0180 5130            216             CALL    I2C_START
+0182 74D0            217             MOV     A,#0D0H         ;DIA CHI DS1307 VA WRITE
+0184 31C2            218             CALL    I2C_WRITE       ;
+0186 7400            219             MOV     A,#00H          ;DIA CHI THANH GHI 0
+0188 31C2            220             CALL    I2C_WRITE
+018A 514E            221             CALL    I2C_RESTART
+018C 74D1            222             MOV     A,#0D1H         ;DIA CHI DS1307 VA READ
+018E 31C2            223             CALL    I2C_WRITE
+0190 31E7            224             CALL    I2C_READ_ACK
+0192 F530            225             MOV     SECONDS,A
+0194 31E7            226             CALL    I2C_READ_ACK
+0196 F531            227             MOV     MINUTES,A
+0198 5109            228             CALL    I2C_READ_NACK
+019A F532            229             MOV     HOUR,A
+019C 5142            230             CALL    I2C_STOP
+019E 22              231             RET
+019F                 232     DS1307_READ_DATE:
+019F 5130            233             CALL    I2C_START
+01A1 74D0            234             MOV     A,#0D0H         ;DIA CHI DS1307 VA WRITE
+01A3 31C2            235             CALL    I2C_WRITE       ;
+01A5 7403            236             MOV     A,#03H          ;DIA CHI THANH GHI 3
+01A7 31C2            237             CALL    I2C_WRITE
+01A9 514E            238             CALL    I2C_RESTART
+01AB 74D1            239             MOV     A,#0D1H         ;DIA CHI DS1307 VA READ
+01AD 31C2            240             CALL    I2C_WRITE
+01AF 31E7            241             CALL    I2C_READ_ACK
+01B1 F533            242             MOV     DAY,A
+01B3 31E7            243             CALL    I2C_READ_ACK
+01B5 F534            244             MOV     DATE,A
+01B7 31E7            245             CALL    I2C_READ_ACK
+01B9 F535            246             MOV     MONTH,A
+01BB 5109            247             CALL    I2C_READ_NACK
+01BD F536            248             MOV     YEAR,A
+01BF 5142            249             CALL    I2C_STOP
+01C1 22              250             RET
+01C2                 251     I2C_WRITE:
+01C2 C007            252             PUSH    07H
+01C4 7F08            253             MOV     R7,#8
+01C6                 254        ___LOOP_I2C_WRITE:
+01C6 C291            255             CLR     SCL
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     5
+
+01C8 33              256             RLC     A
+01C9 9290            257             MOV     SDA,C
+01CB 00              258             NOP
+01CC 00              259             NOP
+01CD D291            260             SETB    SCL
+01CF 00              261             NOP
+01D0 00              262             NOP
+01D1 DFF3            263             DJNZ    R7,___LOOP_I2C_WRITE
+01D3 C291            264             CLR     SCL
+01D5 00              265             NOP
+01D6 00              266             NOP
+01D7 00              267             NOP
+01D8 00              268             NOP
+01D9 D290            269             SETB    SDA             ;CAU HINH NGO VAO SDA DOC ACK
+01DB D291            270             SETB    SCL
+01DD 00              271             NOP
+01DE A290            272             MOV     C,SDA           ;KIEM TRA CO "C" DE XAC DINH LOI 
+01E0 00              273             NOP
+01E1 00              274             NOP
+01E2 C291            275             CLR     SCL
+01E4 D007            276             POP     07H
+01E6 22              277             RET
+01E7                 278     I2C_READ_ACK:
+01E7 C007            279             PUSH    07H
+01E9 7F08            280             MOV     R7,#8
+01EB D290            281             SETB    SDA             ;CAU HINH NGO VAO SDA
+01ED                 282        ___LOOP_I2C_READ_ACK:
+01ED D291            283             SETB    SCL
+01EF 00              284             NOP
+01F0 A290            285             MOV     C,SDA
+01F2 33              286             RLC     A               ;BYTE DOC VE LUU TRONG THANH GHI "A"
+01F3 00              287             NOP
+01F4 C291            288             CLR     SCL
+01F6 00              289             NOP
+01F7 00              290             NOP
+01F8 00              291             NOP
+01F9 DFF2            292             DJNZ    R7,___LOOP_I2C_READ_ACK
+01FB C290            293             CLR     SDA
+01FD 00              294             NOP
+01FE D291            295             SETB    SCL
+0200 00              296             NOP
+0201 00              297             NOP
+0202 00              298             NOP
+0203 00              299             NOP
+0204 C291            300             CLR     SCL
+0206 D007            301             POP     07H
+0208 22              302             RET
+0209                 303     I2C_READ_NACK:
+0209 C007            304             PUSH    07H
+020B 7F08            305             MOV     R7,#8
+020D D290            306             SETB    SDA             ;CAU HINH NGO VAO SDA
+020F                 307        ___LOOP_I2C_READ_NACK:
+020F D291            308             SETB    SCL
+0211 00              309             NOP
+0212 A290            310             MOV     C,SDA
+0214 33              311             RLC     A               ;BYTE DOC VE LUU TRONG THANH GHI "A"
+0215 00              312             NOP
+0216 C291            313             CLR     SCL
+0218 00              314             NOP
+0219 00              315             NOP
+021A 00              316             NOP
+021B DFF2            317             DJNZ    R7,___LOOP_I2C_READ_NACK
+021D D290            318             SETB    SDA
+021F 00              319             NOP
+0220 D291            320             SETB    SCL
+0222 00              321             NOP
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     6
+
+0223 00              322             NOP
+0224 00              323             NOP
+0225 00              324             NOP
+0226 C291            325             CLR     SCL
+0228 D007            326             POP     07H
+022A 22              327             RET
+022B                 328     I2C_INIT:
+022B D291            329             SETB    SCL
+022D D290            330             SETB    SDA
+022F 22              331             RET
+0230                 332     I2C_START:
+0230 D290            333             SETB    SDA
+0232 D291            334             SETB    SCL
+0234 00              335             NOP             ;DELAY 4.7US
+0235 00              336             NOP             ;Bus Free Time Between a STOP and START Condition
+0236 00              337             NOP     
+0237 00              338             NOP
+0238 00              339             NOP
+0239 C290            340             CLR     SDA
+023B 00              341             NOP             ;DELAY 4US
+023C 00              342             NOP             ;Hold Time (Repeated) START Condition
+023D 00              343             NOP     
+023E 00              344             NOP
+023F C291            345             CLR     SCL
+0241 22              346             RET
+0242                 347     I2C_STOP:
+0242 C290            348             CLR     SDA
+0244 D291            349             SETB    SCL
+0246 00              350             NOP             ;DELAY  4.7US
+0247 00              351             NOP             ;Setup Time for STOP Condition
+0248 00              352             NOP
+0249 00              353             NOP     
+024A 00              354             NOP
+024B D290            355             SETB    SDA
+024D 22              356             RET
+024E                 357     I2C_RESTART:
+024E D290            358             SETB    SDA
+0250 D291            359             SETB    SCL
+0252 00              360             NOP             ;DELAY 4.7US
+0253 00              361             NOP             ;Setup Time for a Repeated START Condition
+0254 00              362             NOP     
+0255 00              363             NOP
+0256 00              364             NOP
+0257 C290            365             CLR     SDA
+0259 00              366             NOP             ;DELAY 4US
+025A 00              367             NOP             ;Hold Time (Repeated) START Condition
+025B 00              368             NOP     
+025C 00              369             NOP
+025D C291            370             CLR     SCL
+025F 00              371             NOP
+0260 00              372             NOP
+0261 22              373             RET
+0262                 374     SCL_HIGH:
+0262 00              375             NOP             ;DELAY 4US
+0263 00              376             NOP             ;HIGH Period of SCL Clock
+0264 D291            377             SETB    SCL
+0266 00              378             NOP
+0267 00              379             NOP
+0268 22              380             RET
+0269                 381     SCL_LOW:
+0269 00              382             NOP             ;DELAY 4.7US
+026A 00              383             NOP             ;LOW Period of SCL Clock
+026B C291            384             CLR     SCL
+026D 00              385             NOP
+026E 00              386             NOP
+026F 00              387             NOP
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     7
+
+0270 22              388             RET
+0271                 389     outchar:        
+0271 3099FD          390             jnb     ti,$
+0274 C299            391             clr     ti
+0276 F599            392             mov     sbuf,a
+0278 22              393             ret
+                     394     END
+A51 MACRO ASSEMBLER  DS1307_V1                                                            09/23/2021 21:47:39 PAGE     8
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E                T Y P E  V A L U E   ATTRIBUTES
+
+ACC . . . . . . . . .  D ADDR   00E0H   A   
+DATE. . . . . . . . .  D ADDR   0034H   A   
+DAY . . . . . . . . .  D ADDR   0033H   A   
+DS1307_INIT . . . . .  C ADDR   0125H   A   
+DS1307_OUTPUT . . . .  C ADDR   0139H   A   
+DS1307_READ_DATE. . .  C ADDR   019FH   A   
+DS1307_READ_TIME. . .  C ADDR   0180H   A   
+DS1307_WRITE_DATE . .  C ADDR   0163H   A   
+DS1307_WRITE_TIME . .  C ADDR   014AH   A   
+F_SEND. . . . . . . .  B ADDR   0020H.2 A   
+F_SEND_DATE . . . . .  B ADDR   0020H.1 A   
+F_SEND_TIME . . . . .  B ADDR   0020H.0 A   
+HOUR. . . . . . . . .  D ADDR   0032H   A   
+I2C_INIT. . . . . . .  C ADDR   022BH   A   
+I2C_READ_ACK. . . . .  C ADDR   01E7H   A   
+I2C_READ_NACK . . . .  C ADDR   0209H   A   
+I2C_RESTART . . . . .  C ADDR   024EH   A   
+I2C_START . . . . . .  C ADDR   0230H   A   
+I2C_STOP. . . . . . .  C ADDR   0242H   A   
+I2C_WRITE . . . . . .  C ADDR   01C2H   A   
+IE. . . . . . . . . .  D ADDR   00A8H   A   
+IT0 . . . . . . . . .  B ADDR   0088H.0 A   
+MAIN. . . . . . . . .  C ADDR   0030H   A   
+MINUTES . . . . . . .  D ADDR   0031H   A   
+MONTH . . . . . . . .  D ADDR   0035H   A   
+OUTCHAR . . . . . . .  C ADDR   0271H   A   
+P1. . . . . . . . . .  D ADDR   0090H   A   
+PCON. . . . . . . . .  D ADDR   0087H   A   
+SBUF. . . . . . . . .  D ADDR   0099H   A   
+SCL . . . . . . . . .  B ADDR   0090H.1 A   
+SCL_HIGH. . . . . . .  C ADDR   0262H   A   
+SCL_LOW . . . . . . .  C ADDR   0269H   A   
+SCON. . . . . . . . .  D ADDR   0098H   A   
+SDA . . . . . . . . .  B ADDR   0090H.0 A   
+SECONDS . . . . . . .  D ADDR   0030H   A   
+SEND_UART_DATE. . . .  C ADDR   00AFH   A   
+SEND_UART_TIME. . . .  C ADDR   004EH   A   
+TH1 . . . . . . . . .  D ADDR   008DH   A   
+TI. . . . . . . . . .  B ADDR   0098H.1 A   
+TMOD. . . . . . . . .  D ADDR   0089H   A   
+TR1 . . . . . . . . .  B ADDR   0088H.6 A   
+YEAR. . . . . . . . .  D ADDR   0036H   A   
+___EXIT_SEND_DATE . .  C ADDR   0124H   A   
+___EXIT_SEND_TIME . .  C ADDR   00AEH   A   
+___LOOP_I2C_READ_ACK.  C ADDR   01EDH   A   
+___LOOP_I2C_READ_NACK  C ADDR   020FH   A   
+___LOOP_I2C_WRITE . .  C ADDR   01C6H   A   
+___SEND_DATE. . . . .  C ADDR   00B4H   A   
+___SEND_TIME. . . . .  C ADDR   0053H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

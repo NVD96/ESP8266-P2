@@ -1,0 +1,232 @@
+C51 COMPILER V9.01   HIENTHI                                                               05/18/2022 11:02:30 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE HIENTHI
+OBJECT MODULE PLACED IN hienthi.OBJ
+COMPILER INVOKED BY: c:\keil\c51\bin\c51.exe  hienthi.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include<stdio.h>
+   3          
+   4          #define No_OP 0x00
+   5          #define Decode 0x09
+   6          #define Intensity 0x0A
+   7          #define Scan 0x0B
+   8          #define Shutdown 0x0C
+   9          #define DislayTest 0x0F
+  10          
+  11          LED[32]={0xFF,0xFF,0xC0,0xFE,0xFF,0x03,0xFF,0xFE,0xFF,0xFF,0x18,0x18,0x18,0x18,0x18,0x18,0xC3,0xC3,0xC3,0x
+             -66,0x66,0x24,0x18,0x18,0xFF,0xFF,0x18,0x18,0x18,0x18,0x18,0x18};
+  12          sbit spi_SCK = P2^0;
+  13          sbit spi_DI = P2^1;
+  14          sbit spi_CS = P2^2;
+  15          
+  16          unsigned char chay;
+  17          
+  18          void SPI_Int();
+  19          void delay_ms(unsigned int tg);
+  20          void SPI_Write(unsigned char b);
+  21          void WriteByte(unsigned char op, unsigned char dl);
+  22          void Shutdown_Max(unsigned char status);
+  23          void Scan_Max(unsigned char status);
+  24          void Intensity_Max(unsigned char status);
+  25          void Decode_Max(unsigned char status);
+  26          void DislayTest_Max(unsigned char status);
+  27          void Max_Int();
+  28          void Del_Reg();
+  29          void Del_LedMax();
+  30          void Quet1LedMax(unsigned char n);
+  31          void LedMax();
+  32          
+  33          
+  34          
+  35          void main(){
+  36   1      
+  37   1      SPI_Int();
+  38   1      Max_Int();
+  39   1      Del_LedMax();
+  40   1      
+  41   1      
+  42   1      while(1){
+  43   2      
+  44   2                LedMax();
+  45   2                delay_ms(1000); 
+  46   2              } 
+  47   1      }
+  48          
+  49          void SPI_Int(){
+  50   1      
+  51   1               spi_SCK = 0;
+  52   1               spi_CS = 1;
+  53   1      }
+  54          void delay_ms(unsigned int tg){
+C51 COMPILER V9.01   HIENTHI                                                               05/18/2022 11:02:30 PAGE 2   
+
+  55   1              int i,j;
+  56   1              for(i = 0; i<tg; i++){
+  57   2                      for(j=0; j<123; j++);
+  58   2                      }
+  59   1      }
+  60          
+  61          void SPI_Write(unsigned char b){
+  62   1                unsigned char i;
+  63   1                for(i = 0; i<8; i++){
+  64   2                      spi_SCK = 0;
+  65   2                      if(b&0x80) spi_DI = 1;
+  66   2                      else spi_DI = 0;
+  67   2                      spi_SCK = 1;
+  68   2                      b<<=1;
+  69   2                }
+  70   1      }
+  71          
+  72          
+  73          void WriteByte(unsigned char op, unsigned char dl){
+  74   1      
+  75   1                spi_CS = 0;
+  76   1                SPI_Write(op);
+  77   1                SPI_Write(dl);
+  78   1                spi_CS = 1;
+  79   1      }
+  80          
+  81          
+  82          
+  83          void Shutdown_Max(unsigned char status){
+  84   1      
+  85   1                unsigned char i;
+  86   1                spi_CS = 0;
+  87   1                for(i = 0; i < 4; i++){
+  88   2                SPI_Write(Shutdown);
+  89   2                SPI_Write(status);
+  90   2                }
+  91   1                spi_CS = 1;
+  92   1      
+  93   1      }
+  94          
+  95          void Scan_Max(unsigned char status){
+  96   1      
+  97   1                unsigned char i;
+  98   1                spi_CS = 0;
+  99   1                for(i = 0; i < 4; i++){
+ 100   2                SPI_Write(Scan);
+ 101   2                SPI_Write(status);
+ 102   2                }
+ 103   1                spi_CS = 1;
+ 104   1      }
+ 105          
+ 106          
+ 107          void Intensity_Max(unsigned char status){
+ 108   1      
+ 109   1                unsigned char i;
+ 110   1                spi_CS = 0;
+ 111   1                for(i = 0; i < 4; i++){
+ 112   2                SPI_Write(Intensity);
+ 113   2                SPI_Write(status);
+ 114   2                }
+ 115   1                spi_CS = 1;
+ 116   1      }
+C51 COMPILER V9.01   HIENTHI                                                               05/18/2022 11:02:30 PAGE 3   
+
+ 117          
+ 118          
+ 119          void Decode_Max(unsigned char status){
+ 120   1      
+ 121   1                unsigned char i;
+ 122   1                spi_CS = 0;
+ 123   1                for(i = 0; i < 4; i++){
+ 124   2                SPI_Write(Decode);
+ 125   2                SPI_Write(status);
+ 126   2                }
+ 127   1                spi_CS = 1;
+ 128   1      }
+ 129          
+ 130          void DislayTest_Max(unsigned char status){
+ 131   1      
+ 132   1                unsigned char i;
+ 133   1                spi_CS = 0;
+ 134   1                for(i = 0; i < 4; i++){
+ 135   2                SPI_Write(DislayTest);
+ 136   2                SPI_Write(status);
+ 137   2                }
+ 138   1                spi_CS = 1;
+ 139   1      }
+ 140          
+ 141          void Max_Int(){
+ 142   1      
+ 143   1      Shutdown_Max(0x00);
+ 144   1      delay_ms(100);
+ 145   1      Shutdown_Max(0x01);
+ 146   1      DislayTest_Max(0x00);
+ 147   1      Decode_Max(0x00);
+ 148   1      Intensity_Max(0x00);
+ 149   1      Scan_Max(0x07);
+ 150   1      
+ 151   1      }
+ 152          
+ 153          void Del_LedMax(){
+ 154   1              unsigned char i;
+ 155   1              for(i = 0; i < 11; i++){
+ 156   2              WriteByte((i%8) + 1, 0x00);
+ 157   2              }
+ 158   1      }
+ 159          
+ 160          void Quet1LedMax(unsigned char n){
+ 161   1              unsigned char i;
+ 162   1      
+ 163   1              spi_CS = 0;
+ 164   1              SPI_Write((chay%8) + 1);
+ 165   1              SPI_Write(LED[chay]);
+ 166   1              for(i = 0; i < 2*n; i++){
+ 167   2                 SPI_Write(No_OP);
+ 168   2              }
+ 169   1              spi_CS = 1;
+ 170   1              Del_Reg();
+ 171   1      }
+ 172          
+ 173          void Del_Reg(){
+ 174   1      
+ 175   1              unsigned char i; 
+ 176   1              spi_CS = 0;
+ 177   1              for(i = 0; i <8; i++){
+ 178   2                 SPI_Write(No_OP);
+C51 COMPILER V9.01   HIENTHI                                                               05/18/2022 11:02:30 PAGE 4   
+
+ 179   2              }
+ 180   1              spi_CS = 1;
+ 181   1      }
+ 182          
+ 183          void LedMax(){
+ 184   1              
+ 185   1                for(chay = 0; chay < 32; chay++){
+ 186   2                Quet1LedMax(chay/8);
+ 187   2                      }
+ 188   1      }
+ 189          
+ 190          
+ 191          
+ 192          
+ 193          
+ 194          
+ 195          
+ 196          
+ 197          
+ 198          
+ 199          
+ 200          
+ 201          
+ 202          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    340    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     65    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

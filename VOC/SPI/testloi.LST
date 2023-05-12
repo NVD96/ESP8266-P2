@@ -1,0 +1,156 @@
+C51 COMPILER V9.01   TESTLOI                                                               04/21/2022 16:23:29 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE TESTLOI
+OBJECT MODULE PLACED IN testloi.OBJ
+COMPILER INVOKED BY: c:\keil\c51\bin\c51.exe  testloi.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <stdio.h>
+   3          
+   4          #define READ 0x03                // Doc data tu bo nho, chu y bit A8   (ADD[0-->7] A8 = 0 <==> 0x03, ADD[8-512] A8 = 1 
+             -<==> 0x0B])
+   5          #define WRITE 0x02               //     Ghi data vao bo nho, chu y bit A8  (ADD[0-->7] A8 = 0 <==> 0x02, ADD[8-512] A8 = 1
+             - <==> 0x0A])
+   6          #define WRDI 0x04                 // Khong cho phep ghi vao EEFROM
+   7          #define WREN 0x06                // cho phep ghi vao EEFROM
+   8          #define RDSR 0x05                // Doc trang thai cua qua trinh doc
+   9          #define WRSR 0x01                // Doc trang thai cua qua trinh ghi
+  10          
+  11            sbit spi_SCK = P2^0;
+  12            sbit spi_MOSI = P2^1;
+  13            sbit spi_MISO = P2^2;
+  14            sbit spi_CS = P2^3;   
+  15          
+  16          char kq;
+  17          
+  18          void SPIInit();
+  19          void UARTInit();
+  20          unsigned char SPIRead();
+  21          void SPIWrite(unsigned char b);
+  22          unsigned char ROMReadByte(unsigned char add);
+  23          void ROMWriteByte(unsigned char add, unsigned char dl);
+  24          bit ROMStatus();
+  25          
+  26          void main(){
+  27   1      
+  28   1        SPIInit();
+  29   1        UARTInit();
+  30   1        ROMWriteByte(0x09, 0xFA);
+  31   1        printf("Dang test SPI\n");
+  32   1        kq = ROMReadByte(0x09);
+  33   1        printf("%c", kq);
+  34   1      
+  35   1        while(1){
+  36   2        
+  37   2        }
+  38   1      
+  39   1      
+  40   1      }
+  41          
+  42          
+  43          void UARTInit(){
+  44   1       SCON =0x52; // Port noi tiep che do 1, REN =TI =1;      {Chu y co TI khi khoi tao, code chay khong la do co T
+             -I}
+  45   1      TMOD = 0x20; //Timer 1 mode 2
+  46   1      TH1 = TL1 = -3; // Toc do baud la 9600
+  47   1      TR1 =1;
+  48   1      }
+  49          
+  50          
+  51           void SPIInit(void){
+  52   1        
+C51 COMPILER V9.01   TESTLOI                                                               04/21/2022 16:23:29 PAGE 2   
+
+  53   1               spi_CS = 1;      //set muc cao, chuan bi set muc thap de truyen data
+  54   1               spi_SCK = 0;     // set muc thap chuan bi phat xung clock
+  55   1               spi_MISO = 1;   //set muc cao o chip master, san sang doc data tu slave
+  56   1        }
+  57          
+  58           unsigned char SPIRead(){                 //Ham doc data
+  59   1        
+  60   1               unsigned char i, b;
+  61   1               for (i = 0; i < 8; i++){       //doc ve 1 byte
+  62   2               b<<=1;                    // dich byte b sang trai 1 bit 
+  63   2               spi_SCK = 1;      // bat dau nhan bit dau tien
+  64   2               if(spi_MISO)      //kiem tra muc tin hieu cua chan MISO 
+  65   2               b|=0x01;                  // dua tin hieu bit cua chan MISO vao byte b
+  66   2               spi_SCK = 0;      // ket thuc qua trinh nhan 1 bit
+  67   2               
+  68   2               }   
+  69   1              return b;        // khi doc du 1 byte tra ve gias tri doc duoc
+  70   1        }
+  71          
+  72            void SPIWrite(unsigned char b){
+  73   1        
+  74   1               unsigned char i;
+  75   1               for(i = 0; i < 8; i++){  // Ghi 1 byte vao EEFROM
+  76   2               if( b &0x80)                     // So sanh de lay gia tri bit dau tien (gui bit cao truoc [bit 7]--> bit thap sau [bit 
+             -1])
+  77   2               spi_MOSI = 1;                    // Neu bit =1 thi chan MOSI = 1
+  78   2               else 
+  79   2               spi_MOSI = 0;                   // Neu bit =0 thi chan MOSI = 0
+  80   2               spi_SCK = 1;                     // Bat dau ghi 1 bit
+  81   2               spi_SCK =0;                     /// chuan bi de gui 1 bit tiep theo
+  82   2               b<<=1;                                  // Dich trai 1 bit de lay bit tiep theo
+  83   2               }
+  84   1        }
+  85          
+  86             unsigned char ROMReadByte(unsigned char add){
+  87   1      
+  88   1        unsigned char b;   // Dia chi can doc ve
+  89   1        spi_CS = 0;              // Cho phep bat dau doc EEFROM
+  90   1        SPIWrite(READ);          // Ghi xuong lenh doc data
+  91   1        SPIWrite(add);           // Ghi xuong dia chi muon doc
+  92   1        b = SPIRead();          //  Doc data va luu vao byte b
+  93   1        spi_CS = 1;             // Khong cho giao tiep EEFROM
+  94   1        return b;                       // Tra ve data doc duoc
+  95   1        
+  96   1        }
+  97          
+  98             void ROMWriteByte(unsigned char add, unsigned char dl){
+  99   1      
+ 100   1        spi_CS = 0; //Cho phep giao tiep EEFROM
+ 101   1        SPIWrite(WREN); // Cho phep ghi vao EEFROM
+ 102   1        spi_CS = 1; // Khoong cho phep giao tiep EEFROM
+ 103   1        spi_CS = 0; //Cho phep giao tiep EEFROM
+ 104   1        SPIWrite(WRITE); // Ghi xuong lenh ghi data
+ 105   1        SPIWrite(add);   // Ghi xuong dia chi muon ghi data
+ 106   1        SPIWrite(dl);   // Ghi xuong gia tri dl vao dia chi add
+ 107   1        spi_CS = 1;    // Khoong cho phep giao tiep EEFROM
+ 108   1        while(ROMStatus()); // Kiem tra trang thai cua thanh (Neu EEFROM dang luu gia tri thi KHONG cho phep doc
+             - hay ghi du lieu)
+ 109   1        }
+ 110           
+ 111          
+ 112            bit ROMStatus(){
+C51 COMPILER V9.01   TESTLOI                                                               04/21/2022 16:23:29 PAGE 3   
+
+ 113   1      
+ 114   1        unsigned char b;
+ 115   1        spi_CS = 0;     //Cho phep giao tiep EEFROM
+ 116   1        SPIWrite(RDSR); // Ghi xuong lenh doc trang thai thanh ghi
+ 117   1        b = SPIRead();  // Doc ve gia tri trang thai thanh ghi va luu vao b
+ 118   1        spi_CS = 1;     //Cho phep giao tiep EEFROM
+ 119   1        if (b & 0x01)  // So sanh voi 0x01
+ 120   1        return 1;               // Neu b = 0x01 thi tra ve 1
+ 121   1        else
+ 122   1        return 0;               // Neu b # 0x01 thi tra ve 0
+ 123   1       
+ 124   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    187    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,3 @@
+"LDCC.obj" 
+TO "LCD16" 
+RAMSIZE(256) 
