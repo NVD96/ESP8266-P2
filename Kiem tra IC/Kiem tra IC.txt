@@ -1,0 +1,5 @@
+1 - Kiểm tra nguồn cấp cho IC (có bị sụt áp không?)
+2 - Kiểm tra chân Reset cho bị Reset không?
+3 - Kiểm tra chân dao động (có dao động không ?)
+4 - Kiểm tra nhiệt độ IC có bất thường không?
+5 - Kiểm tra IO có bất thường không?
