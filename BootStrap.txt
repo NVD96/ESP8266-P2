@@ -1,0 +1,5 @@
+bootstrap là 1 cách thức nhân đôi điện áp lái mosfet lên để có thể dùng mosfet kênh N ở phía điện áp cao ( đủ áp mở bão hòa )
+
+Mạch Bootstrap là mạch tạo nguồn 12V để cung cấp nguồn cho mạch lái FET nằm lơ lửng bên trên ( upper FET) trong mạch cầu H.
+
+Theo e hiểu là cầu H dùng fet kênh N khi mà đóng cắt on/off thì phía nửa trên sẽ k mở bão hoà được cho nên đẻ ra cái mạch bootstrap mục đích để lấy điện áp trên 2 đầu con tụ tạo tạo ra sự chênh áp Vgs thì mosfet phía trên đóng mở bình thường dc. Em giải thích vậy đúng k các bác???
