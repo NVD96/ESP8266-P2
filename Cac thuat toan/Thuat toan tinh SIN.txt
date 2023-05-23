@@ -1,0 +1,69 @@
+def tinh_giai_thua(N):
+    giai_thua = 1
+    for i  in range(1, N + 1):
+       giai_thua = giai_thua * i 
+    return giai_thua
+
+
+def tinh_sinx(x):
+    sinx = 0;
+    do_chinh_xac_can_co = 0.00001
+    do_chinh_xac_hien_thoi = do_chinh_xac_can_co + 1 # cong 1 de no lon hon do_chinh_xac_can_co
+
+    i = 0
+    while(do_chinh_xac_hien_thoi > do_chinh_xac_can_co):
+        phan_bien_thien = pow((-1), i)  * ( float( pow(x, (2 * i + 1) ) )  / (tinh_giai_thua(2 * i + 1)) )
+        sinx = sinx + phan_bien_thien
+        do_chinh_xac_hien_thoi = abs(phan_bien_thien)
+        i += 1
+
+    return sinx
+
+print tinh_sinx(3)
+
+///////////////
+/////////////
+
+#include<stdio.h>
+double x;
+int main(){
+    double sinx = 0;
+    scanf("%lf", &x);
+    double n = 1.000000;
+    double gt = x;
+    double u = 1.000000;
+    while( gt >= 0.0001 ){
+        sinx += u*gt;
+        u *= -1.00000;
+        gt *= (x*x)/(2*n*(2*n+1));
+        n++;
+    }
+    printf("%.6f", sinx);
+    return 0;
+}
+
+
+/////////////
+/////////
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    double sinx, temp, x;   // x tinh theo radian
+    int i = 0;
+    scanf("%lf", &x);
+    sinx = temp = x;
+    while (temp > 0.000001 || temp < -0.000001)   // lam tron den 5 so thap phan
+    {
+        i++;
+        temp = temp*x/(2*i+1)*x/(2*i);  // x^(2i+1)/(2i+1)!
+        if (i%2==0) sinx = sinx + temp;
+        else sinx = sinx - temp;
+    }
+     
+    printf("%.5f",sinx);
+    return 0;
+}

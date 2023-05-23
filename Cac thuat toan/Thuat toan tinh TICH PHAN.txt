@@ -1,0 +1,79 @@
+hì theo đúng định nghĩa tích phân thôi;
+
+Chia đoạn [a, b] thành n đoạn, cách đều nhau bởi các điểm chia x[0] = a, ... ,x[k] = a + k * delta, ..x[n] = b;
+với delta = (b - a) / n;
+
+sau đó tính y[k] = f(x[k]);
+sau đó tính S = (y[0] + ... + y[n]) * delta; // Edit lại chỗ này nhé
+(lâu ngày không dở định nghĩa tích phân ra, không biết có đúng không nữa
+
+int n = 2000; //2000 điểm chia nhá
+
+float delta = (float)(b - a)/(n - 1);
+
+float S = 0.0f;
+for(int i = 0; i < n; i++)
+{
+    S += f(a + delta * i);         
+}
+S = S * delta; // Edit lại chỗ này nhé :D
+
+//////////////
+///////////
+
+
+
+#include <math.h>
+#include <conio.h>
+#include <stdio.h>
+ 
+float integral(float a, float b, int part, float (*f)(float))
+{
+    float result = 0.0f;
+   
+    int i;
+    float delta = (float)(b - a) / (part - 1);
+    for(i = 0; i < n; i++)
+        result += f(a + i * delta);
+    result = result * delta;
+    return result;
+}
+ 
+int main()
+{  
+    float result_sin = integral(0, 3.14128 / 2, 20000,  sin);  
+    float result_cos = integral(0, 3.14128 / 2, 20000, cos);
+    printf("cos_result = %6.6f\n sin_result = %6.6f\n", result_cos, result_sin);
+    while(1)
+    {
+        if(kbhit())
+        {
+            if(getch() == 27) // Press ESC to exit program
+                return 0;
+        }
+    }
+    return 0;
+}
+
+
+//////////////
+/////////
+
+
+Để tính gần đúng tích phân của f(x) trên [a, b], ngưới ta thường dùng hai phương pháp sau:
+1. Phương pháp hình thang: Chia [a, b] thành n phần bằng nhau
+I = {[y(0) + (y(n)]/2 + y(1) + ... + y(n-1)}*h, trong đó y(k) = f(x(k)) và h = (b – a)/n.
+Sai số: (b – a)^3*M/(12*n^2), với M = max{f ”(x)} trên [a, b].
+
+2. Phương pháp Simson: Chia [a, b] thành n = 2m phần bằng nhau
+I = [y(0) + y(2m) + 4*D1 + 2*D2]*h/3, trong đó
+D1 = y(1) + y(3) + ... + y(2m-1), D2 = y(2) + y(4) + ... + y(2m-2)
+Sai số: (b – a)^5*M/(180*n^4), với M = max{f ””(x)} trên [a, b].
+
+Như vậy, phương pháp Simson cho độ chính xác cao hơn đối với cùng số đoạn chia.
+
+//////////////////////////////
+///////////////
+
+
+

@@ -1,0 +1,17 @@
+#include <stdio.h>
+double myabs(double x)
+{
+	return ((x>=0)?x:(-x));
+}
+void main()
+{
+	double a=2.0, xo, xn=1, e=1e-8;
+	do
+	{
+	   xo=xn;
+	   xn=(a/xo+xo)/2.0;
+	}
+	while (myabs(xn-xo)>e);
+	printf("Can bac 2 cua 2 = %1.8f\n",xn);
+}
+

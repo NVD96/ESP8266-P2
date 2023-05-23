@@ -1,0 +1,33 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+
+void main()
+{
+  clrscr();
+  double t;
+  float a,x,cos;
+  int n;
+  printf("Nhap goc x (tinh theo do):");
+  scanf("%f",&x);
+  a=x;
+  x=M_PI*x/180;
+  cos=1;
+  n=1;
+  t=1;
+  do
+    {
+      t=-t*x*x/n/(n+1);
+      cos=cos+t;
+      n=n+2;
+    }
+  while (fabs(t)>0.000001);
+  printf("Ket qua: COS(%.2f)= %f",a,cos);
+  getch();
+}
+
+
+/////////////
+////////////
+
+
