@@ -1,0 +1,1702 @@
+Dependencies for Project 'CH579_Demo', Target 'CH579_Demo': (DO NOT MODIFY !)
+F (.\Main.c)(0x62F0FBAD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+I (main.h)(0x62F0EF7B)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+I (..\Net\inc\mych579mac.h)(0x62DA76AC)
+I (..\HareWare\inc\ethernetif.h)(0x62F0F3AB)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\netif/etharp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\netif/ethernet.h)(0x5877D667)
+I (..\Net\inc\mytcpserver.h)(0x62F0FBAD)
+I (..\lwip-2.1.2\src\include\lwip\sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+F (..\SRC\StdPeriphDriver\CH57x_adc.c)(0x5E912E5E)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_adc.o --omf_browse ..\obj\ch57x_adc.crf --depend ..\obj\ch57x_adc.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_flash.c)(0x5E9515E2)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_flash.o --omf_browse ..\obj\ch57x_flash.crf --depend ..\obj\ch57x_flash.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_gpio.c)(0x5EA12E4A)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_gpio.o --omf_browse ..\obj\ch57x_gpio.crf --depend ..\obj\ch57x_gpio.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_int.c)(0x5F62FE34)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_int.o --omf_browse ..\obj\ch57x_int.crf --depend ..\obj\ch57x_int.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_pwr.c)(0x5F335F96)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_pwr.o --omf_browse ..\obj\ch57x_pwr.crf --depend ..\obj\ch57x_pwr.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_sys.c)(0x5DD287C2)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_sys.o --omf_browse ..\obj\ch57x_sys.crf --depend ..\obj\ch57x_sys.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_uart1.c)(0x5DAEC5BE)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_uart1.o --omf_browse ..\obj\ch57x_uart1.crf --depend ..\obj\ch57x_uart1.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_uart0.c)(0x5DAEC5AA)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_uart0.o --omf_browse ..\obj\ch57x_uart0.crf --depend ..\obj\ch57x_uart0.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_clk.c)(0x6084FE8E)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_clk.o --omf_browse ..\obj\ch57x_clk.crf --depend ..\obj\ch57x_clk.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\SRC\StdPeriphDriver\CH57x_timer0.c)(0x5FC733BE)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ch57x_timer0.o --omf_browse ..\obj\ch57x_timer0.crf --depend ..\obj\ch57x_timer0.d)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+F (..\HareWare\src\mybufque.c)(0x62F0FBAD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\mybufque.o --omf_browse ..\obj\mybufque.crf --depend ..\obj\mybufque.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+F (..\HareWare\src\parameter_setting.c)(0x62F0FA7B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\parameter_setting.o --omf_browse ..\obj\parameter_setting.crf --depend ..\obj\parameter_setting.d)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+F (..\HareWare\src\ethernetif.c)(0x62F0FBAD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ethernetif.o --omf_browse ..\obj\ethernetif.crf --depend ..\obj\ethernetif.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\netif/etharp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\netif/ethernet.h)(0x5877D667)
+I (..\Net\inc\mych579mac.h)(0x62DA76AC)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\ethernetif.h)(0x62F0F3AB)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+I (..\lwip-2.1.2\src\include\lwip/snmp.h)(0x5877D667)
+F (..\SRC\Startup\startup_ARMCM0.s)(0x5C4E75E2)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 525"--list ..\list\startup_armcm0.lst --xref -o ..\obj\startup_armcm0.o --depend ..\obj\startup_armcm0.d)
+F (..\lwip-2.1.2\src\api\api_lib.c)(0x5B698498)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\api_lib.o --omf_browse ..\obj\api_lib.crf --depend ..\obj\api_lib.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\api_msg.c)(0x5B3A441C)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\api_msg.o --omf_browse ..\obj\api_msg.crf --depend ..\obj\api_msg.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\err.c)(0x59BEB749)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\err.o --omf_browse ..\obj\err.crf --depend ..\obj\err.d)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/errno.h)(0x589E1F9C)
+F (..\lwip-2.1.2\src\api\if_api.c)(0x5A1F1F4A)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\if_api.o --omf_browse ..\obj\if_api.crf --depend ..\obj\if_api.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\netbuf.c)(0x59BEB749)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\netbuf.o --omf_browse ..\obj\netbuf.crf --depend ..\obj\netbuf.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\netdb.c)(0x59BEB749)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\netdb.o --omf_browse ..\obj\netdb.crf --depend ..\obj\netdb.d)
+I (..\lwip-2.1.2\src\include\lwip/netdb.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\netifapi.c)(0x5A0DFF94)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\netifapi.o --omf_browse ..\obj\netifapi.crf --depend ..\obj\netifapi.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\sockets.c)(0x5BE45C03)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\sockets.o --omf_browse ..\obj\sockets.crf --depend ..\obj\sockets.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\api\tcpip.c)(0x5BD0BAC3)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\tcpip.o --omf_browse ..\obj\tcpip.crf --depend ..\obj\tcpip.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\ipv4\autoip.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\autoip.o --omf_browse ..\obj\autoip.crf --depend ..\obj\autoip.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\ipv4\dhcp.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\dhcp.o --omf_browse ..\obj\dhcp.crf --depend ..\obj\dhcp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\ipv4\etharp.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\etharp.o --omf_browse ..\obj\etharp.crf --depend ..\obj\etharp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/snmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/dhcp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/autoip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/iana.h)(0x5B50ED6C)
+I (..\lwip-2.1.2\src\include\netif/ethernet.h)(0x5877D667)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\ipv4\icmp.c)(0x5BA00041)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\icmp.o --omf_browse ..\obj\icmp.crf --depend ..\obj\icmp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\ipv4\igmp.c)(0x5B3A441C)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\igmp.o --omf_browse ..\obj\igmp.crf --depend ..\obj\igmp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\ipv4\ip4.c)(0x5BE45BDA)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ip4.o --omf_browse ..\obj\ip4.crf --depend ..\obj\ip4.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/ip4_frag.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/igmp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/priv/raw_priv.h)(0x5A6C8512)
+I (..\lwip-2.1.2\src\include\lwip/udp.h)(0x5B3BC5C8)
+I (..\lwip-2.1.2\src\include\lwip/prot/udp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/autoip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/iana.h)(0x5B50ED6C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\ipv4\ip4_addr.c)(0x5A03609B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ip4_addr.o --omf_browse ..\obj\ip4_addr.crf --depend ..\obj\ip4_addr.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+F (..\lwip-2.1.2\src\core\ipv4\ip4_frag.c)(0x5B33DD83)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ip4_frag.o --omf_browse ..\obj\ip4_frag.crf --depend ..\obj\ip4_frag.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_frag.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\altcp.c)(0x5BD0BAC3)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\altcp.o --omf_browse ..\obj\altcp.crf --depend ..\obj\altcp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\altcp_alloc.c)(0x5BA9409B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\altcp_alloc.o --omf_browse ..\obj\altcp_alloc.crf --depend ..\obj\altcp_alloc.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\altcp_tcp.c)(0x5B2AA1E4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\altcp_tcp.o --omf_browse ..\obj\altcp_tcp.crf --depend ..\obj\altcp_tcp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\def.c)(0x5B27EF9B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\def.o --omf_browse ..\obj\def.crf --depend ..\obj\def.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\dns.c)(0x5B2117D4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\dns.o --omf_browse ..\obj\dns.crf --depend ..\obj\dns.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\inet_chksum.c)(0x5A03609B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\inet_chksum.o --omf_browse ..\obj\inet_chksum.crf --depend ..\obj\inet_chksum.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\init.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\init.o --omf_browse ..\obj\init.crf --depend ..\obj\init.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/init.h)(0x5BF707B8)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/sockets.h)(0x5BCE18E0)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/raw.h)(0x5B3BC5BF)
+I (..\lwip-2.1.2\src\include\lwip/udp.h)(0x5B3BC5C8)
+I (..\lwip-2.1.2\src\include\lwip/prot/udp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/igmp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/dns.h)(0x5A893116)
+I (..\lwip-2.1.2\src\include\lwip/timeouts.h)(0x5A59090E)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/nd6.h)(0x5B1AF03F)
+I (..\lwip-2.1.2\src\include\lwip/mld6.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/api.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\netif/ppp/ppp_opts.h)(0x5B27EF9B)
+I (..\lwip-2.1.2\src\include\netif/ppp/ppp_impl.h)(0x5B561713)
+F (..\lwip-2.1.2\src\core\ip.c)(0x59C0251F)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ip.o --omf_browse ..\obj\ip.crf --depend ..\obj\ip.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+F (..\lwip-2.1.2\src\core\mem.c)(0x5AD7A609)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\mem.o --omf_browse ..\obj\mem.crf --depend ..\obj\mem.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\memp.c)(0x5A8345FB)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\memp.o --omf_browse ..\obj\memp.crf --depend ..\obj\memp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/raw.h)(0x5B3BC5BF)
+I (..\lwip-2.1.2\src\include\lwip/udp.h)(0x5B3BC5C8)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/prot/udp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/altcp.h)(0x5BA948A8)
+I (..\lwip-2.1.2\src\include\lwip/ip4_frag.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/netbuf.h)(0x5B3A441C)
+I (..\lwip-2.1.2\src\include\lwip/api.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcpip_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/api_msg.h)(0x5AD794B9)
+I (..\lwip-2.1.2\src\include\lwip/igmp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/priv/sockets_priv.h)(0x5A118837)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/timeouts.h)(0x5A59090E)
+I (..\lwip-2.1.2\src\include\netif/ppp/ppp_opts.h)(0x5B27EF9B)
+I (..\lwip-2.1.2\src\include\lwip/netdb.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/dns.h)(0x5A893116)
+I (..\lwip-2.1.2\src\include\lwip/priv/nd6_priv.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/ip6_frag.h)(0x5894F655)
+I (..\lwip-2.1.2\src\include\lwip/mld6.h)(0x5BD0BAC4)
+F (..\lwip-2.1.2\src\core\netif.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\netif.o --omf_browse ..\obj\netif.crf --depend ..\obj\netif.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/udp.h)(0x5B3BC5C8)
+I (..\lwip-2.1.2\src\include\lwip/prot/udp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/priv/raw_priv.h)(0x5A6C8512)
+I (..\lwip-2.1.2\src\include\lwip/snmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/igmp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\netif/ethernet.h)(0x5877D667)
+F (..\lwip-2.1.2\src\core\pbuf.c)(0x5B50E977)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\pbuf.o --omf_browse ..\obj\pbuf.crf --depend ..\obj\pbuf.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\raw.c)(0x5B3A441C)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\raw.o --omf_browse ..\obj\raw.crf --depend ..\obj\raw.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\stats.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\stats.o --omf_browse ..\obj\stats.crf --depend ..\obj\stats.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\core\sys.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\sys.o --omf_browse ..\obj\sys.crf --depend ..\obj\sys.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+F (..\lwip-2.1.2\src\core\tcp.c)(0x5BE9DA80)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\tcp.o --omf_browse ..\obj\tcp.crf --depend ..\obj\tcp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/nd6.h)(0x5B1AF03F)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\tcp_in.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\tcp_in.o --omf_browse ..\obj\tcp_in.crf --depend ..\obj\tcp_in.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/nd6.h)(0x5B1AF03F)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\tcp_out.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\tcp_out.o --omf_browse ..\obj\tcp_out.crf --depend ..\obj\tcp_out.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\core\timeouts.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\timeouts.o --omf_browse ..\obj\timeouts.crf --depend ..\obj\timeouts.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/timeouts.h)(0x5A59090E)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcp_priv.h)(0x5B2BF4A1)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/prot/tcp.h)(0x5A735E16)
+I (..\lwip-2.1.2\src\include\lwip/priv/tcpip_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4_frag.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/dhcp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/autoip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/igmp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/dns.h)(0x5A893116)
+I (..\lwip-2.1.2\src\include\lwip/nd6.h)(0x5B1AF03F)
+I (..\lwip-2.1.2\src\include\lwip/ip6_frag.h)(0x5894F655)
+I (..\lwip-2.1.2\src\include\lwip/mld6.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/dhcp6.h)(0x5B50EE1B)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+F (..\lwip-2.1.2\src\core\udp.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\udp.o --omf_browse ..\obj\udp.crf --depend ..\obj\udp.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/udp.h)(0x5B3BC5C8)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/prot/udp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/inet_chksum.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/icmp6.h)(0x59C2ACA2)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp6.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/snmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/dhcp.h)(0x5BD0BAC4)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\netif\bridgeif.c)(0x5B210D7B)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\bridgeif.o --omf_browse ..\obj\bridgeif.crf --depend ..\obj\bridgeif.d)
+I (..\lwip-2.1.2\src\include\netif/bridgeif.h)(0x5B50EE9D)
+I (..\lwip-2.1.2\src\include\netif/bridgeif_opts.h)(0x59E8E1C9)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/ethip6.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/snmp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/timeouts.h)(0x5A59090E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\netif\bridgeif_fdb.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\bridgeif_fdb.o --omf_browse ..\obj\bridgeif_fdb.crf --depend ..\obj\bridgeif_fdb.d)
+I (..\lwip-2.1.2\src\include\netif/bridgeif.h)(0x5B50EE9D)
+I (..\lwip-2.1.2\src\include\netif/bridgeif_opts.h)(0x59E8E1C9)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/timeouts.h)(0x5A59090E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+F (..\lwip-2.1.2\src\netif\ethernet.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\ethernet.o --omf_browse ..\obj\ethernet.crf --depend ..\obj\ethernet.d)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\netif/ethernet.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/snmp.h)(0x5877D667)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\lwip-2.1.2\src\include\netif/ppp/ppp_opts.h)(0x5B27EF9B)
+F (..\lwip-2.1.2\src\netif\lowpan6.c)(0x5BC790BF)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\lowpan6.o --omf_browse ..\obj\lowpan6.crf --depend ..\obj\lowpan6.d)
+I (..\lwip-2.1.2\src\include\netif/lowpan6.h)(0x5AB2B899)
+I (..\lwip-2.1.2\src\include\netif/lowpan6_opts.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\netif\lowpan6_ble.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\lowpan6_ble.o --omf_browse ..\obj\lowpan6_ble.crf --depend ..\obj\lowpan6_ble.d)
+I (..\lwip-2.1.2\src\include\netif/lowpan6_ble.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\netif/lowpan6_opts.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\netif\lowpan6_common.c)(0x5BD0BAC4)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\lowpan6_common.o --omf_browse ..\obj\lowpan6_common.crf --depend ..\obj\lowpan6_common.d)
+I (..\lwip-2.1.2\src\include\netif/lowpan6_common.h)(0x5AB2B899)
+I (..\lwip-2.1.2\src\include\netif/lowpan6_opts.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+F (..\lwip-2.1.2\src\arch\sys_arch.c)(0x62F0FBAD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\sys_arch.o --omf_browse ..\obj\sys_arch.crf --depend ..\obj\sys_arch.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/sys.h)(0x5BD0BAC4)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+F (..\Net\scr\lwipcomm.c)(0x62F0FBAD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\lwipcomm.o --omf_browse ..\obj\lwipcomm.crf --depend ..\obj\lwipcomm.d)
+I (..\lwip-2.1.2\src\include\netif/etharp.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/etharp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/prot/ethernet.h)(0x599B25F2)
+I (..\lwip-2.1.2\src\include\lwip/prot/ieee.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/etharp.h)(0x5988C522)
+I (..\lwip-2.1.2\src\include\netif/ethernet.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/dhcp.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/init.h)(0x5BF707B8)
+I (..\lwip-2.1.2\src\include\lwip/ip4_frag.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/tcpip.h)(0x5A590F42)
+I (..\lwip-2.1.2\src\include\lwip/timeouts.h)(0x5A59090E)
+I (..\HareWare\inc\ethernetif.h)(0x62F0F3AB)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+I (..\Net\inc\mych579mac.h)(0x62DA76AC)
+F (..\Net\scr\mych579mac.c)(0x62F0FBAD)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\mych579mac.o --omf_browse ..\obj\mych579mac.crf --depend ..\obj\mych579mac.d)
+I (..\Net\inc\mych579mac.h)(0x62DA76AC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+F (..\Net\scr\mytcpserver.c)(0x62F0FC07)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork -I ..\HareWare\inc -I ..\SRC\StdPeriphDriver\inc -I ..\User -I ..\SRC\CMSIS\Include -I ..\lwip-2.1.2\src\include -I ..\lwip-2.1.2\src\include\lwip\apps -I ..\lwip-2.1.2\src\include\lwip\priv -I ..\lwip-2.1.2\src\include\lwip -I ..\lwip-2.1.2\src\netif -I ..\lwip-2.1.2\src -I ..\lwip-2.1.2\src\arch -I ..\Net\inc-I.\RTE\_CH579_Demo-IC:\Keil_v5\ARM\PACK\Keil\WCH57x_DFP\1.1.0\Drivers\CMSIS\Device\WCH\CH57x\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="525" -DDEBUG-o ..\obj\mytcpserver.o --omf_browse ..\obj\mytcpserver.crf --depend ..\obj\mytcpserver.d)
+I (..\Net\inc\mytcpserver.h)(0x62F0FBAD)
+I (..\lwip-2.1.2\src\include\lwip\sys.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/opt.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\arch\lwipopts.h)(0x62F0F97F)
+I (..\lwip-2.1.2\src\include\lwip/debug.h)(0x591C99DB)
+I (..\lwip-2.1.2\src\include\lwip/arch.h)(0x62F0EFDC)
+I (..\lwip-2.1.2\src\arch/cc.h)(0x62F0EFC1)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\limits.h)(0x599ECD2A)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x599ECD2C)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\inttypes.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x599ECD2E)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x599ECD2C)
+I (..\HareWare\inc\parameter_setting.h)(0x62F0FBAD)
+I (..\SRC\StdPeriphDriver\inc\CH57x_common.h)(0x608509D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_clk.h)(0x5FA90752)
+I (..\SRC\StdPeriphDriver\inc\CH579SFR.h)(0x60963692)
+I (..\SRC\CMSIS\Include\core_cm0.h)(0x5C2C2AFC)
+I (..\SRC\CMSIS\Include\core_cmInstr.h)(0x53FEF2AA)
+I (..\SRC\CMSIS\Include\core_cmFunc.h)(0x53FEF2AA)
+I (..\SRC\StdPeriphDriver\inc\CH57x_uart.h)(0x5CC6B8D4)
+I (..\SRC\StdPeriphDriver\inc\CH57x_gpio.h)(0x5EA12E30)
+I (..\SRC\StdPeriphDriver\inc\CH57x_lcd.h)(0x5C6D0596)
+I (..\SRC\StdPeriphDriver\inc\CH57x_flash.h)(0x5E913D32)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwr.h)(0x5E82B97C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_pwm.h)(0x5C6D059A)
+I (..\SRC\StdPeriphDriver\inc\CH57x_adc.h)(0x5E912E5C)
+I (..\SRC\StdPeriphDriver\inc\CH57x_sys.h)(0x5DD28746)
+I (..\SRC\StdPeriphDriver\inc\CH57x_timer.h)(0x5FC732DC)
+I (..\SRC\StdPeriphDriver\inc\CH57x_spi.h)(0x5F33B292)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbdev.h)(0x5C6D05D0)
+I (..\SRC\StdPeriphDriver\inc\CH57x_usbhost.h)(0x601CB758)
+I (..\HareWare\inc\mybufque.h)(0x62F0FBAD)
+I (..\lwip-2.1.2\src\include\lwip/stats.h)(0x595BE6CE)
+I (..\lwip-2.1.2\src\include\lwip/mem.h)(0x5877D667)
+I (..\lwip-2.1.2\src\include\lwip/memp.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_std.h)(0x5A6396B9)
+I (..\lwip-2.1.2\src\include\lwip/priv/memp_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/priv/mem_priv.h)(0x5A81EBDE)
+I (..\lwip-2.1.2\src\include\lwip/tcp.h)(0x5B3BC5F8)
+I (..\lwip-2.1.2\src\include\lwip/tcpbase.h)(0x5A0F4044)
+I (..\lwip-2.1.2\src\include\lwip/pbuf.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/err.h)(0x5BD0BA9B)
+I (..\lwip-2.1.2\src\include\lwip/ip.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/def.h)(0x5BC7914E)
+I (..\lwip-2.1.2\src\include\lwip/ip_addr.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4_addr.h)(0x5B072A8B)
+I (..\lwip-2.1.2\src\include\lwip/ip6_addr.h)(0x596E41C1)
+I (..\lwip-2.1.2\src\include\lwip/netif.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/ip4.h)(0x5BD0BAC4)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip4.h)(0x5A36DE5E)
+I (..\lwip-2.1.2\src\arch/bpstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\arch/epstruct.h)(0x62EA4C5C)
+I (..\lwip-2.1.2\src\include\lwip/ip6.h)(0x5908CC05)
+I (..\lwip-2.1.2\src\include\lwip/prot/ip.h)(0x5B50ED92)
+I (..\lwip-2.1.2\src\include\lwip/icmp.h)(0x58BB18DB)
+I (..\lwip-2.1.2\src\include\lwip/prot/icmp.h)(0x5877D667)
+I (..\Net\inc\mych579mac.h)(0x62DA76AC)
