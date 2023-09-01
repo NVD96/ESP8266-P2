@@ -1,0 +1,11 @@
+D:\Source\WINFORM\ReadRFID\ReadRFID\bin\Debug\ReadRFID.exe.config
+D:\Source\WINFORM\ReadRFID\ReadRFID\bin\Debug\ReadRFID.exe
+D:\Source\WINFORM\ReadRFID\ReadRFID\bin\Debug\ReadRFID.pdb
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.csproj.AssemblyReference.cache
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.csproj.SuggestedBindingRedirects.cache
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.Properties.Resources.resources
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.csproj.GenerateResource.cache
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.csproj.CoreCompileInputs.cache
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.exe
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.pdb
+D:\Source\WINFORM\ReadRFID\ReadRFID\obj\Debug\ReadRFID.FrmMain.resources
