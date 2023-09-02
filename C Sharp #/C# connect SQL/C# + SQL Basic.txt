@@ -1,0 +1,56 @@
+Để connect C# với SQL Sever thì ta làm các bước sau.
+Bước 1: Thêm using System.Data.SqlClient;
+BƯớc 2: Add những hàm này vào 
+public static string ConnectString = @"Data Source=Connect\SQLEXPRESS;Initial Catalog=MNF;"
+                                          + "Integrated Security=true"; // nếu Integrated Security=false thì phải điền password and user name
+    public static SqlConnection ConnectData = new SqlConnection(ConnectString);
+    public static SqlDataAdapter adapt;
+Bước 3: Ví dụ
+    public static string Get_ThongTinNhanVien(string CodeID)
+    {
+        string query = "select FullName from ThongTinNhanVien where CodeID = '{0}' ";
+        query = string.Format(query, CodeID);
+        SqlCommand cmd = new SqlCommand(query, SqlSever.ConnectData);
+        try
+        {
+            ConnectData.Open();
+            var row = cmd.ExecuteScalar();
+            if (row != null)
+            {
+                return row.ToString();
+            }
+            else
+            {
+                return "";
+            }
+        }
+        catch (SqlException ex)
+        {
+            MessageBox.Show("Lỗi: " + ex.Message);
+            return "";
+        }
+        finally
+        {
+            if (SqlSever.ConnectData.State == ConnectionState.Open)
+            {
+                SqlSever.ConnectData.Close();
+            }
+            cmd.Dispose();
+        }
+    }
+Bước 4: Gán giá trị
+   txtFullName.Text = SqlSever.Get_ThongTinNhanVien(txtCodeID.Text);
+Nếu ai khó khăn trong việc connect với SQL thì có thể cmt hoặc ib để được hỗ trợ
+
+
+/////////////////////////
+//////////////////////
+////////////////////
+Chuyển đổi số thực ghi xuống PLC Mitsubishi. Ai cần connect c# với PLC dòng mitsubishi ib em hỗ trợ nhé
+private int[] ConvertFloatToWord(float Value)
+        {
+            byte[] floatBytes = BitConverter.GetBytes(Value);
+            byte[] highWordBytes = { floatBytes[2], floatBytes[3]};         
+            byte[] lowWordBytes = { floatBytes[0], floatBytes[1] };           
+            return new int[] { BitConverter.ToInt16(lowWordBytes, 0), BitConverter.ToInt16(highWordBytes,0) };
+        }
