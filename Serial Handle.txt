@@ -153,3 +153,184 @@ void SoftwareSerial::begin(long speed)
 //////////////
 ///////////////
 
+void SoftwareSerial::recv()
+{
+
+#if GCC_VERSION < 40302
+// Work-around for avr-gcc 4.3.0 OSX version bug
+// Preserve the registers that the compiler misses
+// (courtesy of Arduino forum user *etracer*)
+  asm volatile(
+    "push r18 \n\t"
+    "push r19 \n\t"
+    "push r20 \n\t"
+    "push r21 \n\t"
+    "push r22 \n\t"
+    "push r23 \n\t"
+    "push r26 \n\t"
+    "push r27 \n\t"
+    ::);
+#endif  
+
+  uint8_t d = 0;
+
+  // If RX line is high, then we don't see any start bit
+  // so interrupt is probably not for us
+  if (_inverse_logic ? rx_pin_read() : !rx_pin_read())
+  {
+    // Disable further interrupts during reception, this prevents
+    // triggering another interrupt directly after we return, which can
+    // cause problems at higher baudrates.
+    setRxIntMsk(false);
+
+    // Wait approximately 1/2 of a bit width to "center" the sample
+    tunedDelay(_rx_delay_centering);
+    DebugPulse(_DEBUG_PIN2, 1);
+
+    // Read each of the 8 bits
+    for (uint8_t i=8; i > 0; --i)
+    {
+      tunedDelay(_rx_delay_intrabit);
+      d >>= 1;
+      DebugPulse(_DEBUG_PIN2, 1);
+      if (rx_pin_read())
+        d |= 0x80;
+    }
+
+    if (_inverse_logic)
+      d = ~d;
+
+    // if buffer full, set the overflow flag and return
+    uint8_t next = (_receive_buffer_tail + 1) % _SS_MAX_RX_BUFF;
+    if (next != _receive_buffer_head)
+    {
+      // save new data in buffer: tail points to where byte goes
+      _receive_buffer[_receive_buffer_tail] = d; // save new byte
+      _receive_buffer_tail = next;
+    } 
+    else 
+    {
+      DebugPulse(_DEBUG_PIN1, 1);
+      _buffer_overflow = true;
+    }
+
+    // skip the stop bit
+    tunedDelay(_rx_delay_stopbit);
+    DebugPulse(_DEBUG_PIN1, 1);
+
+    // Re-enable interrupts when we're sure to be inside the stop bit
+    setRxIntMsk(true);
+
+  }
+
+#if GCC_VERSION < 40302
+// Work-around for avr-gcc 4.3.0 OSX version bug
+// Restore the registers that the compiler misses
+  asm volatile(
+    "pop r27 \n\t"
+    "pop r26 \n\t"
+    "pop r23 \n\t"
+    "pop r22 \n\t"
+    "pop r21 \n\t"
+    "pop r20 \n\t"
+    "pop r19 \n\t"
+    "pop r18 \n\t"
+    ::);
+#endif
+}
+
+////////////////
+////////////
+//////////
+
+uint8_t SoftwareSerial::rx_pin_read()
+{
+  return *_receivePortRegister & _receiveBitMask;
+}
+
+
+///////////
+/////////////
+///////////
+
+f you are running 512k baud or 256k baud, then the transmitters send data faster than the receive can keep up with them them. I had this problem, we used a 100 or 200 microsec delay between transmits. if you are running a normal baud rate this shouldnt be a problem. But we had to set the serial interrupt highest priorty. Also if there is any other interrupt the could prevent the receive interrupt from immediately vectoring then you could have a situation where your second or third or any receive interrupt could get interrupted again before you leave the interrupt routine. So RI=1 when you leave the the rxinterrupt routine...you never will vector...hung. There is rx and tx stuff in the example below to take note of.
+The following code is from memory, it is not working code.
+
+char TxCount = -1;
+char CurrentTxBuffer[10];
+char NewTxBuffer[10];
+char *SendData;
+char RxBuffer[10];
+// a circular rx buffer is best...not shown
+char *RxData;
+
+void MainLoop
+{
+char *RxData2;
+
+RxData = &RxBuffer; //do each new rx msg
+
+RxData2 = RxData; // do each new rx msg
+
+do
+{
+
+...
+//Rx
+if(RxData2 != RxData)
+new rx data at *(++RxData2)
+...
+
+//Is Tx Busy? example is CurrentTxBuffer
+// is not done yet but you want to send
+// another NextTxBuffer
+// nothing should interfere with TxCount
+// or SendData unless TxCount < 0
+if(TxCount<0) //TxCount<0 = Tx not busy
+{
+TxCount = length of new tx message -1
+SendData = &NewTxBuffer
+SBUF = *SendData++; //this starts tx
+}
+
+
+...other mainloop stuff
+
+}while(1);
+
+}
+
+void SerialInterrupt(void) ...
+{
+do
+{
+if(RI)
+{
+RI=0;
+*RxData++=SBUF;
+}
+
+// Tx
+// dont forget there is always 1 more
+// TI after the last byte has been sent
+// So you need to transmit only if Tx
+// buffer count is not zero.
+//
+
+if(TI)
+{
+TI=0; // always clr interrupt first
+
+// dont write SBUF if Count = 0
+if(TxCount--) //TxCount=TxBuffLength
+SBUF = *SendData++;
+}
+}while( RI || TI );
+
+// only use the do while if you think you
+// are sometimes not finishing transmit,
+// tx hangs up. or your losing rx bytes
+}
+///////////////////////
+////////////////
+////////////////
