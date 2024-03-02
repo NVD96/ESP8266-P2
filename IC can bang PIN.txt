@@ -1,0 +1,18 @@
+Dưới đây là một số thông tin về vi mạch giám sát và cân bằng pin:
+LTC6803:
+Hãng sản xuất: Linear Technology (nay là phần của Analog Devices).
+Chức năng: Giám sát và cân bằng pin cho pin lithium-ion.
+Thông tin thêm: LTC6803 - Analog Devices
+BQ76PL536A:
+Hãng sản xuất: Texas Instruments.
+Chức năng: IC giám sát và cân bằng pin cho hệ thống pin lithium-ion.
+Thông tin thêm: BQ76PL536A - Texas Instruments
+MAX14920:
+Hãng sản xuất: Maxim Integrated.
+Chức năng: IC giám sát và cân bằng pin cho ổn định và an toàn của pin lithium-ion.
+Thông tin thêm: MAX14920 - Maxim Integrated
+AD8283:
+Hãng sản xuất: Analog Devices.
+Chức năng: Giám sát và cân bằng pin cho ứng dụng pin lithium-ion.
+Thông tin thêm: AD8283 - Analog Devices
+Nhớ kiểm tra các tài liệu kỹ thuật và hướng dẫn sử dụng cụ thể từ nhà sản xuất để đảm bảo tính chính xác và hiệu quả trong việc tích hợp vào dự án của bạn.
