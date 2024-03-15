@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=C Pin=J1-1
+Removed Pin From Net: NetName=B. Pin=J1-2
+Removed Pin From Net: NetName=A Pin=J1-3
+Removed Pin From Net: NetName=0V Pin=J1-4
+Removed Pin From Net: NetName=A Pin=R6-1
+Removed Pin From Net: NetName=C Pin=R8-1
+Change Component Description : Designator=JP1 Old Description=C?m New Description=C?m
+Change Component Description : Designator=JP2 Old Description=C?m New Description=C?m
+Added Pin To Net: NetName=0V Pin=J1-1
+Added Pin To Net: NetName=A Pin=J1-2
+Added Pin To Net: NetName=B. Pin=J1-3
+Added Pin To Net: NetName=C Pin=J1-4
+Added Pin To Net: NetName=C Pin=R6-1
+Added Pin To Net: NetName=A Pin=R8-1
+Added Room: Name=Bodem_Sch

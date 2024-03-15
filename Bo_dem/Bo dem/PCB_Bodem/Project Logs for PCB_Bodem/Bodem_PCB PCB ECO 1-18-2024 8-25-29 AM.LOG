@@ -1,0 +1,12 @@
+Change Component Description : Designator=JP1 Old Description=C?m New Description=C?m
+Change Component Description : Designator=JP2 Old Description=C?m New Description=C?m
+Added Component: Designator=C1(tu 0603)
+Added Component: Designator=C2(tu 0603)
+Added Pin To Net: NetName=5V Pin=C1-1
+Added Pin To Net: NetName=0V Pin=C1-2
+Added Pin To Net: NetName=3V3 Pin=C2-1
+Added Pin To Net: NetName=0V Pin=C2-2
+Added Pin To Net: NetName=GPIO2 Pin=U1-17
+Added Member To Class: ClassName=Bodem_Sch Member=Component C1 103
+Added Member To Class: ClassName=Bodem_Sch Member=Component C2 103
+Added Room: Name=Bodem_Sch

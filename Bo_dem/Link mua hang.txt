@@ -1,0 +1,23 @@
+---LCD---
+https://shopee.vn/M%C3%B4-%C4%90un-M%C3%A0n-H%C3%ACnh-LCD-1602-1602-LCD1602-I2C-IIC-16x2-PCF8574T-PCF8574-IIC-I2C-Giao-Di%E1%BB%87n-5V-Cho-Arduino-i.812409307.20322229832?xptdk=12bf086c-a5ea-4df7-8b6f-85274c948884
+---ESP---
+https://shopee.vn/M%C3%B4-%C4%90un-Thu-Ph%C3%A1t-T%C3%ADn-Hi%E1%BB%87u-Kh%C3%B4ng-D%C3%A2y-ESP8266-ESP-01-ESP-01S-ESP-12E-ESP-12F-ESP-32-ESP-32S-2.4G-Cho-Arduino-i.812409307.20522645636?sp_atk=c56342ae-fa4a-42c3-b8c4-56fb2ad87184&xptdk=c56342ae-fa4a-42c3-b8c4-56fb2ad87184
+---HILINK---
+https://shopee.vn/M%C3%B4-%C4%90un-H%E1%BA%A1-%C3%81p-HLK-5M03-HLK-5M05-HLK-5M12-5W-AC-DC-220V-Sang-12V-5V-3.3V-i.812409307.20422229765?sp_atk=b37e09af-7475-4d71-a621-7ad8550a0d2d&xptdk=b37e09af-7475-4d71-a621-7ad8550a0d2d
+https://shopee.vn/M%C3%B4-%C4%90un-C%E1%BA%A5p-Ngu%E1%BB%93n-mini-HLK-PM01-HLK-PM03-HLK-PM12-AC-DC-220V-i.812409307.18822230291?sp_atk=a7c1292f-2f3d-4156-b895-785e6a2ab4b8&xptdk=a7c1292f-2f3d-4156-b895-785e6a2ab4b8
+----LM1117---
+https://www.thegioiic.com/ams1117-3-3v-ic-on-ap-3-3v-1a-sot-223
+---Phip Dong---
+https://www.thegioiic.com/tam-dong-fr-4-1-lop-12x18cm-day-1-5mm
+---Nut nhan---
+https://www.thegioiic.com/nut-nhan-3-5x6mm-cao-2-5mm-2-chan-smd-dau-trang
+----Hop nhua---
+https://www.thegioiic.com/hop-nhua-plc-145x90x40-v1
+---Dien tro---
+https://www.thegioiic.com/dien-tro-10-kohm-0603-1-
+---Terminal---
+https://www.thegioiic.com/hb762-3-terminal-khoi-han-pcb-3-cuc-24a-450v-7-62mm
+https://www.thegioiic.com/hb762-4-terminal-khoi-han-pcb-4-cuc-24a-450v-7-62mm
+---Hang rao---
+https://www.thegioiic.com/hang-rao-duc-don-2-54mm-40-chan-cong-3mm-xuyen-lo
+https://www.thegioiic.com/hang-rao-duc-don-2-54mm-40-chan-1-hang-cao-11-2mm-xuyen-lo-chan-dong-ma-niken

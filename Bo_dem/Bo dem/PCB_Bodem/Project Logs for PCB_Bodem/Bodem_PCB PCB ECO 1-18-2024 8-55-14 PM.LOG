@@ -1,0 +1,7 @@
+Added Component: Designator=B1(HLKPM01)
+Added Pin To Net: NetName=NetB1_1 Pin=B1-1
+Added Pin To Net: NetName=NetB1_2 Pin=B1-2
+Added Pin To Net: NetName=0V Pin=B1-3
+Added Pin To Net: NetName=5V Pin=B1-4
+Added Member To Class: ClassName=Bodem_Sch Member=Component B1 HLK-PM01
+Added Room: Name=Bodem_Sch
