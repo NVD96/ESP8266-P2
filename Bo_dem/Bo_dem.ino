@@ -40,7 +40,7 @@ const char* ssid = "K506";
 const char* password = "";
 
 unsigned long previousMillis = 0;
-const long interval = 1000;
+const long interval = 500;
 
 
 //bien tam
@@ -195,7 +195,35 @@ void setup(void){
 //==============================================================
 void loop(void){
   server.handleClient();          //Handle client requests
-  
+  // Read Status Input
+  statusA = digitalRead(AA);
+  statusB = digitalRead(BB);
+  statusC = digitalRead(CC);
+
+  delay(10);
+
+  if(tempA == 1 && statusA == 0){
+    countA = countA +1;
+    EEPROM.put(0, countA);
+    EEPROM.commit();
+    }
+
+  if(tempB == 1 && statusB == 0){
+    countB = countB +1;
+    EEPROM.put(2, countB);
+    EEPROM.commit();
+    }
+
+
+   if(tempC == 1 && statusC == 0){
+    countC = countC +1;
+    EEPROM.put(4, countC);
+    EEPROM.commit();
+    }
+   tempA = statusA;
+   tempB = statusB;
+   tempC = statusC;
+//Dislay LCD
   unsigned long currentMillis = millis();
   if (currentMillis - previousMillis >= interval) {
     // save the last time you blinked the LED
@@ -225,30 +253,6 @@ void loop(void){
   if (currentMillis < previousMillis) {
     previousMillis = 0;
     }
-  statusA = digitalRead(AA);
-  statusB = digitalRead(BB);
-  statusC = digitalRead(CC);
-  
-  if(tempA == 1 && statusA == 0){
-    countA = countA +1;
-    EEPROM.put(0, countA);
-    EEPROM.commit();
-    }
-   tempA = statusA;
-  if(tempB == 1 && statusB == 0){
-    countB = countB +1;
-    EEPROM.put(2, countB);
-    EEPROM.commit();
-    }
-   tempB = statusB;
-
-   if(tempC == 1 && statusC == 0){
-    countC = countC +1;
-    EEPROM.put(4, countC);
-    EEPROM.commit();
-    }
-   tempC = statusC;
-
   //Serial.println(countA);
   //Serial.println(countB);
   //Serial.println(previousMillis);
