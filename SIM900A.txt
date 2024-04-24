@@ -1,0 +1,158 @@
+/* Cấp nguồn 5VDC, lớn hơn 1A
+ * Kết nối:
+ *          SIM800A                       Arduino Mega
+ *            GND                             GND
+ *            TX                              RX1
+ *            RX                              TX1
+ *            
+ * Thay đổi số điện thoại.
+ * Nạp code mở Serial Monitor, chọn No line ending, baud 9600.
+ * Gửi '1' để gửi tin nhắn
+ * Gửi '2' để gọi
+ */
+
+//#include<SoftwareSerial.h>
+//SoftwareSerial SIM(5,6);
+
+void setup()
+{
+  Serial.begin(9600);
+  Serial1.begin(9600);
+//  SIM.begin(9600);
+  delay(100);  
+}
+
+void loop()
+{
+  if(Serial.available()>0) 
+    switch(Serial.read())
+//    switch(SIM.read())
+    {
+      case '1':
+        GUI();
+      break;
+    
+      case '2':
+        GOI();
+       break;
+    }
+
+  if(Serial.available()>0)
+  {
+    Serial.write(Serial1.read());
+//    Serial.write(SIM.read());
+  } 
+}
+
+
+void GUI()
+{
+  Serial1.println("AT+CMGF=1");
+//  SIM.println("AT+CMGF=1");
+  delay(1000);
+  Serial1.println("AT+CMGS="+84xxxxxxxxxxx"r");
+//  SIM.println("AT+CMGS="+84xxxxxxxxxxxx"r");
+  delay(1000);
+  Serial1. println("abc123");
+//  SIM. println("abc123");
+  delay(1000);
+  Serial1.println((char)26);
+//  SIM.println((char)26);
+  delay(1000);
+}
+
+
+void GOI()
+{
+  Serial1.println("AT");
+//  SIM.println("AT");
+  delay(300);
+  Serial1.print("ATD");
+//SIM.print("ATD");
+  Serial1.print("xxxxxxxxxxx"); // thay số đt của bạn vào đây.
+//SIM.print("xxxxxxxxxxx");// thay thế số đt của bạn vào đây.
+  Serial1.println(";");
+//SIM900.println(";");
+  delay (20000) ;// gọi trong 20 giây.chỗ này các bạn tùy chỉnh theo ý mình cho phù hợp .
+  Serial1.println("ATH");
+//SIM.println("ATH");   // kết thúc cuộc gọi.
+}
+//////////////////////////////////
+////////////////////////////
+
+
+
+/*************************************************
+ * Date:11 june 2018
+ * Written by: Usman Ali Butt
+ * Property off: www.microcontroller-project.com
+ * **********************************************/
+ void setup()
+    {
+      //Begin nodemcu serial-0 channel 
+      Serial.begin(9600); 
+    }
+  void loop()
+    {
+    Serial.print("AT");  //Start Configuring GSM Module
+    delay(1000);         //One second delay
+    Serial.println();
+    Serial.println("AT+CMGF=1");  // Set GSM in text mode
+    delay(1000);                  // One second delay
+    Serial.println();
+    Serial.print("AT+CMGS=");     // Enter the receiver number
+    Serial.print("\"+923345026062\"");
+    Serial.println();
+    delay(1000);
+    Serial.print("www.microcontroller-project.com"); // SMS body - Sms Text
+    delay(1000);
+    Serial.println();
+    Serial.write(26);                //CTRL+Z Command to send text and end session
+    while(1);                        //Just send the text ones and halt 
+    }
+
+////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////
+
+
+String tin_nhan;
+#include <SoftwareSerial.h>
+ 
+SoftwareSerial SIM900(2, 3); // RX, TX
+ 
+void setup()
+{
+    pinMode(13, OUTPUT);
+    Serial.begin(9600);
+    SIM900.begin(2400);
+    delay(1000);
+    //khởi tạo sim
+    SIM900.println("AT+CMGF=1r"); //Lệnh này đưa tin nhắn về dạng text, phải có lệnh này mới đọc, gửi tin nhắn dạng text đc nhé :)
+    delay(1000);
+    SIM900.println("AT+CNMI=2,2,0,0,0r"); //Hiển thị ngay nếu tin nhắn gửi đến
+    delay(1000);
+ 
+    Serial.println("San sang!!!");
+}
+ 
+void loop()
+{
+    while (SIM900.available() > 0) {
+        char c = SIM900.read(); //Đọc từng ký tự gửi về
+        if (c == '#') {
+            break;
+        } //Nếu phát hiện ký tự "#" thì thoát vòng lặp;
+        tin_nhan += c; //Ghép các ký tự thành 1 xâu tin_nhan
+    }
+    if (tin_nhan.length() > 0) {
+        Serial.println(tin_nhan);
+        if (tin_nhan == "bat_den") {
+            digitalWrite(13, HIGH);
+        }
+        else if (tin_nhan == "tat_den") {
+            digitalWrite(13, LOW);
+        }
+        tin_nhan = "";
+    }
+}
+
